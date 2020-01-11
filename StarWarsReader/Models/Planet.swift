@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable nesting
+
 /// Metadata describing a planet in the Star Wars universe.
 struct Planet: Codable {
 

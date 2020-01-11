@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable nesting
+
 /// Metadata describing a starship in the Star Wars universe.
 struct Starship: Codable {
 

@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable nesting
+
 /// Metadata describing a vehicle in the Star Wars universe.
 struct Vehicle: Codable {
 

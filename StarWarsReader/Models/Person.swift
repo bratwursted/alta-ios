@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable nesting
+
 /// Metadata describing a person in the Star Wars universe.
 struct Person: Codable {
 

@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable nesting
+
 /// Describes a response from `allVehicles` query.
 struct VehiclesResponse: Codable {
 

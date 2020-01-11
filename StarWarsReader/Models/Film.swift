@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable nesting
+
 /// Metadata describing a Star Wars film.
 struct Film: Codable {
 
