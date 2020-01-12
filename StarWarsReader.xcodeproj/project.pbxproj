@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8F35A99723CB648B0045DEEC /* FullFilmParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F35A99623CB648B0045DEEC /* FullFilmParsingTests.swift */; };
+		8F35A99923CB6B930045DEEC /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F35A99823CB6B930045DEEC /* DataFetcher.swift */; };
 		8F4AEEED23CA9A1A005B27C8 /* SpeciesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4AEEEC23CA9A1A005B27C8 /* SpeciesResponse.swift */; };
 		8F4AEEEF23CA9C11005B27C8 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4AEEEE23CA9C11005B27C8 /* Data.swift */; };
 		8F4CEAEA23C9518F000AAD47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4CEAE923C9518F000AAD47 /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		8F35A99623CB648B0045DEEC /* FullFilmParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFilmParsingTests.swift; sourceTree = "<group>"; };
+		8F35A99823CB6B930045DEEC /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		8F4AEEEC23CA9A1A005B27C8 /* SpeciesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesResponse.swift; sourceTree = "<group>"; };
 		8F4AEEEE23CA9C11005B27C8 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		8F4CEAE623C9518F000AAD47 /* StarWarsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				8F4CEB0C23CA20C1000AAD47 /* Swapi.swift */,
+				8F35A99823CB6B930045DEEC /* DataFetcher.swift */,
 				8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */,
 			);
 			path = Networking;
@@ -388,6 +391,7 @@
 				8F4AEEED23CA9A1A005B27C8 /* SpeciesResponse.swift in Sources */,
 				8F4CEB2223CA5A66000AAD47 /* VehiclesResponse.swift in Sources */,
 				8F4AEEEF23CA9C11005B27C8 /* Data.swift in Sources */,
+				8F35A99923CB6B930045DEEC /* DataFetcher.swift in Sources */,
 				8F4CEB1A23CA444A000AAD47 /* PlanetsResponse.swift in Sources */,
 				8FDD8CBD23CAA1B800851267 /* SwapiResponse.swift in Sources */,
 				8F4CEB2523CA6059000AAD47 /* Species.swift in Sources */,
