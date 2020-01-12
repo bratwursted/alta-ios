@@ -21,7 +21,7 @@ struct FilmRowViewModel {
   }
 
   var episode: String {
-    String(film.episode)
+    film.episode.romanNumeral
   }
 
   var released: String {
