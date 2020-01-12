@@ -1,0 +1,31 @@
+query fetchSingleFilm($id:ID) {
+  Film(id:$id) {
+    characters {
+      name
+      id
+    }
+    director
+    episodeId
+    id
+    openingCrawl
+    planets {
+      name
+      id
+    }
+    producers
+    releaseDate
+    species {
+      name
+      id
+    }
+    starships {
+      name
+      id
+    }
+    title
+    vehicles {
+      name
+      id
+    }
+  }
+}

@@ -1,0 +1,9 @@
+
+query allFilms {
+  allFilms(orderBy: episodeId_ASC) {
+    title
+    episodeId
+    releaseDate
+    id
+  }
+}

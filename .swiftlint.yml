@@ -1,2 +1,4 @@
+excluded:
+  StarWarsReaderTests
 line_length:
   ignores_comments: true
