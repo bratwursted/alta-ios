@@ -13,17 +13,20 @@ struct FilmsListView: View {
   @ObservedObject var viewModel: FilmsListViewModel
 
   var body: some View {
-    List {
-      if viewModel.films.isEmpty {
-        Text("No results")
-      } else {
-        ForEach(viewModel.films, id: \.self) { film in
-          Text(film.title)
+    NavigationView {
+      List {
+        if viewModel.films.isEmpty {
+          Text("No results")
+        } else {
+          ForEach(viewModel.films, id: \.self) { film in
+            FilmRowView(viewModel: self.viewModel.rowViewModel(forFilm: film))
+          }
         }
       }
-    }
-    .onAppear {
-      self.viewModel.loadFilmsList()
+      .navigationBarTitle(Text("Star Wars"))
+      .onAppear {
+        self.viewModel.loadFilmsList()
+      }
     }
   }
 }

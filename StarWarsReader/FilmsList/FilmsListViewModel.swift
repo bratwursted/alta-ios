@@ -37,4 +37,8 @@ final class FilmsListViewModel: ObservableObject {
       })
   .store(in: &disposables)
   }
+
+  func rowViewModel(forFilm film: FilmsResponse.Film) -> FilmRowViewModel {
+    return FilmRowViewModel(film: film)
+  }
 }
