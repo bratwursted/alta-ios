@@ -14,7 +14,7 @@ import Foundation
 struct FilmsResponse: Codable {
 
   /// Metadata describing some basic information for a Star Wars film.
-  struct Film: Codable {
+  struct Film: Codable, Hashable {
 
     /// The film's title (e.g., "A New Hope")
     let title: String

@@ -9,14 +9,33 @@
 import SwiftUI
 
 struct FilmsListView: View {
+
+  @ObservedObject var viewModel: FilmsListViewModel
+
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    List {
+      if viewModel.films.isEmpty {
+        Text("No results")
+      } else {
+        ForEach(viewModel.films, id: \.self) { film in
+          Text(film.title)
+        }
+      }
+    }
+    .onAppear {
+      self.viewModel.loadFilmsList()
+    }
   }
 }
 
-// swiftlint:disable type_name
+// swiftlint:disable type_name identifier_name
 struct FilmsListView_Previews: PreviewProvider {
+  static let vm: FilmsListViewModel = {
+    let dataService = MockDataService(sampleFilms)
+    return FilmsListViewModel(dataService: dataService)
+  }()
+
   static var previews: some View {
-    FilmsListView()
+    FilmsListView(viewModel: vm)
   }
 }

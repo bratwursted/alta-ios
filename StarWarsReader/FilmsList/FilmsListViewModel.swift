@@ -17,7 +17,7 @@ final class FilmsListViewModel: ObservableObject {
 
   @Published var films: [FilmsResponse.Film] = []
 
-  init(dataService: Swapi) {
+  init(dataService: Swapi = SwapiService()) {
     self.dataService = dataService
   }
 
