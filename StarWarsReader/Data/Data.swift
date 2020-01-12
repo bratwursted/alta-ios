@@ -8,9 +8,14 @@
 
 import Foundation
 
-func sampleFilms() -> [FilmsResponse.Film] {
+var sampleFilms: [FilmsResponse.Film] {
   let response: SwapiResponse<FilmsResponse> = load("allFilms")
   return response.data.allFilms
+}
+
+func loadSampleFilm(_ name: String) -> Film {
+  let response: SwapiResponse<FilmQueryResponse> = load(name)
+  return response.data.film
 }
 
 func load<T: Decodable>(_ name: String) -> T {
@@ -19,7 +24,7 @@ func load<T: Decodable>(_ name: String) -> T {
   }
 
   let decoder = JSONDecoder()
-  decoder.dateDecodingStrategy = .iso8601
+  decoder.dateDecodingStrategy = .customISO8601
 
   do {
     let data = try Data(contentsOf: fileUrl)

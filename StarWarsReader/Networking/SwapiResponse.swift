@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct SwapiResponse<T: Codable>: Codable {
+
+  let data: T
+}

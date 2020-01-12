@@ -7,27 +7,24 @@
 //
 
 import XCTest
+@testable import StarWarsReader
 
 class FilmParsingTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+  var sut: [FilmsResponse.Film]?
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+  override func setUp() {
+    sut = sampleFilms
+  }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+  override func tearDown() {
+    sut = nil
+  }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+  func testParsingAllFilms() {
+    XCTAssertNotNil(sut)
+    XCTAssertEqual(sut?.count, 7)
+    XCTAssertEqual(sut?[0].title, "The Phantom Menace")
+    XCTAssertEqual(sut?[1].episode, 2)
+  }
 }
