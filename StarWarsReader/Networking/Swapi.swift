@@ -72,10 +72,10 @@ struct MockDataService<T: Decodable>: Swapi {
   }
 
   func allFilms() -> AnyPublisher<[FilmsResponse.Film], SwapiError> {
-    guard let filmsData = data as? FilmsResponse else {
-      fatalError("Expected mock data service to be initialized with type `FilmsResponse`")
+    guard let filmsData = data as? [FilmsResponse.Film] else {
+      fatalError("Expected mock data service to be initialized with type `[FilmsResponse.Film]`")
     }
-    return Result.Publisher(filmsData.allFilms).eraseToAnyPublisher()
+    return Result.Publisher(filmsData).eraseToAnyPublisher()
   }
 
   func film(withId filmId: String) -> AnyPublisher<Film, SwapiError> {
