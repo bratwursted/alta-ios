@@ -150,9 +150,9 @@
 		8F35A9A723CB94740045DEEC /* FilmsList */ = {
 			isa = PBXGroup;
 			children = (
-				8F35A9A323CB945F0045DEEC /* FilmsListView.swift */,
 				8F35A9AA23CB9C720045DEEC /* FilmRowView.swift */,
 				8F35A9AC23CB9F690045DEEC /* FilmRowViewModel.swift */,
+				8F35A9A323CB945F0045DEEC /* FilmsListView.swift */,
 				8F35A9A523CB94700045DEEC /* FilmsListViewModel.swift */,
 			);
 			path = FilmsList;
