@@ -30,14 +30,14 @@ public extension JSONDecoder.DateDecodingStrategy {
 }
 
 /// A free function that decodes a `Data` object to a decodable model and returns a type-erasing publisher.
-//func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, Error> {
-//  let decoder = JSONDecoder()
-//  decoder.dateDecodingStrategy = .customISO8601
-//
-//  return Just(data)
-//    .decode(type: T.self, decoder: decoder)
-//    .mapError { error in
-//      ServiceError.parsingError(error: error)
-//  }
-//  .eraseToAnyPublisher()
-//}
+func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, SwapiError> {
+  let decoder = JSONDecoder()
+  decoder.dateDecodingStrategy = .customISO8601
+
+  return Just(data)
+    .decode(type: T.self, decoder: decoder)
+    .mapError { error in
+      SwapiError.parsingError(error: error)
+    }
+    .eraseToAnyPublisher()
+}
