@@ -62,3 +62,26 @@ struct SwapiService: Swapi {
       .eraseToAnyPublisher()
   }
 }
+
+struct MockDataService<T: Decodable>: Swapi {
+
+  private let data: T
+
+  init(_ data: T) {
+    self.data = data
+  }
+
+  func allFilms() -> AnyPublisher<[FilmsResponse.Film], SwapiError> {
+    guard let filmsData = data as? FilmsResponse else {
+      fatalError("Expected mock data service to be initialized with type `FilmsResponse`")
+    }
+    return Result.Publisher(filmsData.allFilms).eraseToAnyPublisher()
+  }
+
+  func film(withId filmId: String) -> AnyPublisher<Film, SwapiError> {
+    guard let filmData = data as? Film else {
+      fatalError("Expected mock data service to be initialized with type `Film`")
+    }
+    return Result.Publisher(filmData).eraseToAnyPublisher()
+  }
+}
