@@ -10,11 +10,19 @@ import Foundation
 
 // swiftlint:disable nesting
 
+struct FilmQueryResponse: Codable {
+  let film: Film
+
+  enum CodingKeys: String, CodingKey {
+    case film = "Film"
+  }
+}
+
 /// Metadata describing a Star Wars film.
-struct Film: Codable {
+struct Film: Codable, Hashable {
 
   /// Metadata describing a character appearing in a `Film`.
-  struct Character: Codable {
+  struct Character: Codable, Hashable {
 
     /// The character's name (e.g., "Luke Skywalker").
     let name: String
@@ -29,7 +37,7 @@ struct Film: Codable {
   }
 
   /// Metadatdata describing a planet that appears in a `Film`.
-  struct Planet: Codable {
+  struct Planet: Codable, Hashable {
 
     /// The planet's name (e.g., "Tatooine").
     let name: String
@@ -44,7 +52,7 @@ struct Film: Codable {
   }
 
   /// Metadata describing a species that appears in a `Film`.
-  struct Species: Codable {
+  struct Species: Codable, Hashable {
 
     /// The species' name (e.g., "Wookiee")
     let name: String
@@ -59,7 +67,7 @@ struct Film: Codable {
   }
 
   /// Metadata describing a starship that appears in a `Film`.
-  struct Starship: Codable {
+  struct Starship: Codable, Hashable {
 
     /// The name of the starship (e.g., "Millennium Falcon")
     let name: String
@@ -74,7 +82,7 @@ struct Film: Codable {
   }
 
   /// Metadata describing a vehicle that appears in a `Film`.
-  struct Vehicle: Codable {
+  struct Vehicle: Codable, Hashable {
 
     /// The name of the vehicle (e.g., "Sand Crawler")
     let name: String

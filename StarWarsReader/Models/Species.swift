@@ -8,11 +8,21 @@
 
 import Foundation
 
+// swiftlint:disable nesting
+
+struct SpeciesQueryResponse: Codable {
+  let species: Species
+
+  enum CodingKeys: String, CodingKey {
+    case species = "Species"
+  }
+}
+
 /// Metadata that describes a species in the Star Wars universe.
 struct Species: Codable {
 
   /// An enumeration of eye color values.
-  enum EyeColor: String, Codable{
+  enum EyeColor: String, Codable {
     case AMBER
     case BLACK
     case BLUE

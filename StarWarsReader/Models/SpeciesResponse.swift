@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable nesting
+
 /// Describesd a response for `allSpecies` query.
 struct SpeciesResponse: Codable {
 

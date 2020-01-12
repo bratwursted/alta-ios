@@ -10,6 +10,14 @@ import Foundation
 
 // swiftlint:disable nesting
 
+struct PlanetQueryResponse: Codable {
+  let planet: Planet
+
+  enum CodingKeys: String, CodingKey {
+    case planet = "Planet"
+  }
+}
+
 /// Metadata describing a planet in the Star Wars universe.
 struct Planet: Codable {
 

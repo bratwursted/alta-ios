@@ -1,15 +1,14 @@
 //
-//  StarWarsReaderTests.swift
+//  FullFilmParsingTests.swift
 //  StarWarsReaderTests
 //
-//  Created by Joe Bramhall on 1/10/20.
+//  Created by Joe Bramhall on 1/12/20.
 //  Copyright © 2020 thinx. All rights reserved.
 //
 
 import XCTest
-@testable import StarWarsReader
 
-class StarWarsReaderTests: XCTestCase {
+class FullFilmParsingTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
