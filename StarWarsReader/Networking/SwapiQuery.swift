@@ -42,17 +42,17 @@ struct SwapiQuery {
 
     var urlRequest = URLRequest(url: queryUrl)
     urlRequest.httpMethod = "POST"
-    var headerFields = ["content-type": "application/json"]
-
-    if let resourceId = resourceId {
-      headerFields["id"] = resourceId
-    }
+    let headerFields = ["content-type": "application/json"]
 
     urlRequest.allHTTPHeaderFields = headerFields
 
     do {
       let queryString = try String(contentsOf: bundleUrl)
-      let requestBody = ["query": queryString]
+      var requestBody: [String: Any] = ["query": queryString]
+      if let resourceId = resourceId {
+        let queryVariables = ["id": resourceId]
+        requestBody["variables"] = queryVariables
+      }
       let postData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
       urlRequest.httpBody = postData
 
