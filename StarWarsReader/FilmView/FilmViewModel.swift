@@ -67,7 +67,7 @@ final class FilmViewModel: ObservableObject {
   }
 
   var viewTitle: String {
-    film?.title ?? "Star Wars"
+    film?.title ?? ""
   }
 
   var title: String? {

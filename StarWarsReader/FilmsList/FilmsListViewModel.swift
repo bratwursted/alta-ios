@@ -41,4 +41,5 @@ final class FilmsListViewModel: ObservableObject {
   func rowViewModel(forFilm film: FilmsResponse.Film) -> FilmRowViewModel {
     return FilmRowViewModel(film: film)
   }
+
 }

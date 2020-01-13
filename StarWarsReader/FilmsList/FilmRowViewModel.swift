@@ -30,4 +30,8 @@ struct FilmRowViewModel {
     return String(releaseYear)
   }
 
+  var filmViewModel: FilmViewModel {
+    FilmViewModel(filmId: film.filmId)
+  }
+
 }
