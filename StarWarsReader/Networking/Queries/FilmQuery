@@ -1,6 +1,6 @@
 query fetchSingleFilm($id:ID) {
   Film(id:$id) {
-    characters {
+    characters(orderBy:name_ASC) {
       name
       id
     }
@@ -8,22 +8,22 @@ query fetchSingleFilm($id:ID) {
     episodeId
     id
     openingCrawl
-    planets {
+    planets(orderBy:name_ASC) {
       name
       id
     }
     producers
     releaseDate
-    species {
+    species(orderBy:name_ASC) {
       name
       id
     }
-    starships {
+    starships(orderBy:name_ASC) {
       name
       id
     }
     title
-    vehicles {
+    vehicles(orderBy:name_ASC) {
       name
       id
     }
