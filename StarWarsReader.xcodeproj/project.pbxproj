@@ -69,6 +69,7 @@
 		8F7E5CCC23CDD09B00CC5A8E /* ResidentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CCB23CDD09B00CC5A8E /* ResidentRowView.swift */; };
 		8F7E5CCF23CDDC8100CC5A8E /* SpeciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CCE23CDDC8100CC5A8E /* SpeciesView.swift */; };
 		8F7E5CD123CDDC8B00CC5A8E /* SpeciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CD023CDDC8B00CC5A8E /* SpeciesViewModel.swift */; };
+		8F7E5CD323CDE15200CC5A8E /* SingleSpeciesQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 8F7E5CD223CDE15200CC5A8E /* SingleSpeciesQuery.graphql */; };
 		8FDD8CBD23CAA1B800851267 /* SwapiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */; };
 		8FDD8CBF23CAB23900851267 /* FilmParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */; };
 		8FDD8CCF23CB61CD00851267 /* luke.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CC223CB61CD00851267 /* luke.json */; };
@@ -164,6 +165,7 @@
 		8F7E5CCB23CDD09B00CC5A8E /* ResidentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentRowView.swift; sourceTree = "<group>"; };
 		8F7E5CCE23CDDC8100CC5A8E /* SpeciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesView.swift; sourceTree = "<group>"; };
 		8F7E5CD023CDDC8B00CC5A8E /* SpeciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesViewModel.swift; sourceTree = "<group>"; };
+		8F7E5CD223CDE15200CC5A8E /* SingleSpeciesQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SingleSpeciesQuery.graphql; sourceTree = "<group>"; };
 		8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiResponse.swift; sourceTree = "<group>"; };
 		8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmParsingTests.swift; sourceTree = "<group>"; };
 		8FDD8CC223CB61CD00851267 /* luke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = luke.json; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				8F35A99F23CB7BB90045DEEC /* SingleFilmQuery.graphql */,
 				8F7E5C9823CD2A4400CC5A8E /* SinglePersonQuery.graphql */,
 				8F7E5CC523CDC1B100CC5A8E /* SinglePlanetQuery.graphql */,
+				8F7E5CD223CDE15200CC5A8E /* SingleSpeciesQuery.graphql */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -383,18 +386,18 @@
 		8FDD8CC123CB61CD00851267 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8FDD8CC223CB61CD00851267 /* luke.json */,
-				8FDD8CC323CB61CD00851267 /* allSpecies.json */,
-				8FDD8CC423CB61CD00851267 /* films.json */,
-				8FDD8CC523CB61CD00851267 /* falcon.json */,
 				8FDD8CC623CB61CD00851267 /* airspeeder.json */,
-				8FDD8CC723CB61CD00851267 /* allPersons.json */,
-				8FDD8CC823CB61CD00851267 /* allVehicles.json */,
-				8FDD8CC923CB61CD00851267 /* newHope.json */,
 				8FDD8CCA23CB61CD00851267 /* allFilms.json */,
-				8FDD8CCB23CB61CD00851267 /* tatooine.json */,
+				8FDD8CC723CB61CD00851267 /* allPersons.json */,
 				8FDD8CCC23CB61CD00851267 /* allPlanets.json */,
+				8FDD8CC323CB61CD00851267 /* allSpecies.json */,
 				8FDD8CCD23CB61CD00851267 /* allStarships.json */,
+				8FDD8CC823CB61CD00851267 /* allVehicles.json */,
+				8FDD8CC523CB61CD00851267 /* falcon.json */,
+				8FDD8CC423CB61CD00851267 /* films.json */,
+				8FDD8CC223CB61CD00851267 /* luke.json */,
+				8FDD8CC923CB61CD00851267 /* newHope.json */,
+				8FDD8CCB23CB61CD00851267 /* tatooine.json */,
 				8FDD8CCE23CB61CD00851267 /* twileki.json */,
 			);
 			name = Resources;
@@ -492,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FDD8CD523CB61CD00851267 /* allVehicles.json in Resources */,
+				8F7E5CD323CDE15200CC5A8E /* SingleSpeciesQuery.graphql in Resources */,
 				8F35A9A023CB7BB90045DEEC /* SingleFilmQuery.graphql in Resources */,
 				8F4CEAF623C95199000AAD47 /* LaunchScreen.storyboard in Resources */,
 				8FDD8CD823CB61CD00851267 /* tatooine.json in Resources */,

@@ -1,0 +1,22 @@
+query singleSpeciesQuery($id:ID) {
+  Species(id:$id) {
+    averageHeight
+    averageLifespan
+    classification
+    designation
+    eyeColor
+    films(orderBy:episodeId_ASC) {
+      title
+      id
+    }
+    hairColor
+    id
+    language
+    name
+    people(orderBy:name_ASC) {
+      name
+      id
+    }
+    skinColor
+  }
+}

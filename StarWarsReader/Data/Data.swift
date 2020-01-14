@@ -28,6 +28,11 @@ func loadSamplePlanet(_ name: String) -> Planet {
   return response.data.planet
 }
 
+func loadSampleSpecies(_ name: String) -> Species {
+  let response: SwapiResponse<SpeciesQueryResponse> = load(name)
+  return response.data.species
+}
+
 func load<T: Decodable>(_ name: String) -> T {
   guard let fileUrl = Bundle.main.url(forResource: name, withExtension: "json") else {
     fatalError("Expected to find data file \(name)")

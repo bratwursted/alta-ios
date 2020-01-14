@@ -21,6 +21,7 @@ protocol Swapi {
   func film(withId filmId: String) -> AnyPublisher<Film, SwapiError>
   func person(with personId: String) -> AnyPublisher<Person, SwapiError>
   func planet(with planetId: String) -> AnyPublisher<Planet, SwapiError>
+  func species(with speciesId: String) -> AnyPublisher<Species, SwapiError>
 }
 
 struct SwapiService: Swapi {
@@ -63,6 +64,16 @@ struct SwapiService: Swapi {
     return queryResponse
       .map { response in
         response.data.planet
+    }
+    .eraseToAnyPublisher()
+  }
+
+  func species(with speciesId: String) -> AnyPublisher<Species, SwapiError> {
+    let query = SwapiQuery("SingleSpeciesQuery", resourceId: speciesId)
+    let queryResponse: AnyPublisher<SwapiResponse<SpeciesQueryResponse>, SwapiError> = resource(query: query)
+    return queryResponse
+      .map { response in
+        response.data.species
     }
     .eraseToAnyPublisher()
   }
@@ -119,5 +130,12 @@ struct MockDataService<T: Decodable>: Swapi {
       fatalError("Expected mock data service to be initialized with type `Planet`.")
     }
     return Result.Publisher(planetData).eraseToAnyPublisher()
+  }
+
+  func species(with speciesId: String) -> AnyPublisher<Species, SwapiError> {
+    guard let speciesData = data as? Species else {
+      fatalError("Expected mock data service to be initialized with type `Species`")
+    }
+    return Result.Publisher(speciesData).eraseToAnyPublisher()
   }
 }
