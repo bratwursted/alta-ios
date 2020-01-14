@@ -75,6 +75,13 @@ final class VehicleViewModel: ObservableObject {
     vehicle?.model.localizedCapitalized ?? valueNotAvailable
   }
 
+  var manufacturer: String {
+    guard let makers = vehicle?.manufacturer else {
+      return valueNotAvailable
+    }
+    return makers.joined(separator: ", ")
+  }
+
   var classification: String {
     vehicle?.vehicleClass.localizedCapitalized ?? valueNotAvailable
   }
