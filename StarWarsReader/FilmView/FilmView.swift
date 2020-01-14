@@ -99,7 +99,7 @@ extension FilmView {
         Text("No results")
       } else {
         ForEach(0..<self.viewModel.numberOfRows(forSection: .starships)) { index in
-          Text(self.viewModel.starships(atIndex: index))
+          FilmStarshipRowView(viewModel: self.viewModel.starshipViewModel(forStarshipAtIndex: index))
         }
       }
     }
