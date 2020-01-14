@@ -8,15 +8,39 @@
 
 import SwiftUI
 
+struct FilmVehicleListViewModel {
+
+  let vehicles: [Film.Vehicle]
+
+  func viewModel(forVehicle vehicle: Film.Vehicle) -> FilmVehicleRowViewModel {
+    FilmVehicleRowViewModel(vehicle: vehicle)
+  }
+}
+
 struct FilmVehicleListView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+  let viewModel: FilmVehicleListViewModel
+
+  var body: some View {
+    List {
+      ForEach(viewModel.vehicles, id: \.self) { vehicle in
+        FilmVehicleRowView(viewModel: self.viewModel.viewModel(forVehicle: vehicle))
+      }
     }
+    .navigationBarTitle(Text("Vehicles"), displayMode: .inline)
+  }
 }
 
 // swiftlint:disable all
 struct FilmVehicleListView_Previews: PreviewProvider {
-    static var previews: some View {
-        FilmVehicleListView()
+  static let vm: FilmVehicleListViewModel = {
+    let newHope = loadSampleFilm("newHope")
+    return FilmVehicleListViewModel(vehicles: newHope.vehicles)
+  }()
+
+  static var previews: some View {
+    NavigationView {
+      FilmVehicleListView(viewModel: vm)
     }
+  }
 }

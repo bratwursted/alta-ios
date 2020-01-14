@@ -8,15 +8,32 @@
 
 import SwiftUI
 
+struct FilmVehicleRowViewModel {
+
+  let vehicle: Film.Vehicle
+
+  var name: String {
+    vehicle.name
+  }
+}
+
 struct FilmVehicleRowView: View {
+
+  let viewModel: FilmVehicleRowViewModel
+
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    Text(viewModel.name)
   }
 }
 
 // swiftlint:disable all
 struct FilmVehicleRowView_Previews: PreviewProvider {
+  static let vm: FilmVehicleRowViewModel = {
+    let newHope = loadSampleFilm("newHope")
+    return FilmVehicleRowViewModel(vehicle: newHope.vehicles.first!)
+  }()
+  
   static var previews: some View {
-    FilmVehicleRowView()
+    FilmVehicleRowView(viewModel: vm)
   }
 }
