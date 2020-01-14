@@ -52,16 +52,16 @@ struct Starship: Codable {
   }
 
   /// The cargo capacity of this starship, in kilograms
-  let cargo: Float
+  let cargo: Float?
 
   /// The class of this starship (e.g., "Deep Space Mobile Battlestation")
   let starshipClass: String
 
   /// The amount of time this starship can provide consumables for its entire crew without having to resupply.
-  let consumables: String
+  let consumables: String?
 
   /// The cost of this starship in Galactic credits.
-  let cost: Float
+  let cost: Float?
 
   /// The number of people needed to operate or pilot this starship.
   let crew: Int
@@ -70,13 +70,13 @@ struct Starship: Codable {
   let films: [Film]
 
   /// The class of hyperdrive for this starship.
-  let hyperdrive: Float
+  let hyperdrive: Float?
 
   /// A unique ID string.
   let starshipId: String
 
   /// The starship's length in meters.
-  let length: Float
+  let length: Float?
 
   /// The manufacturer(s) of this starship (e.g., "Corellian Engineering Corporation")
   let manufacturer: [String]
@@ -85,13 +85,13 @@ struct Starship: Codable {
   let maximumSpeed: Int?
 
   /// The number of megalights this starship can travel in a standard hour.
-  let megalights: Int
+  let megalights: Int?
 
   /// The common name of this starship (e.g., "Millennium Falcon")
   let name: String
 
   /// The maximum number of passengers this starship is capable of carrying.
-  let passengers: Int
+  let passengers: Int?
 
   /// An array of people who have piloted this starship. 
   let pilots: [Pilot]
