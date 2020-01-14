@@ -14,6 +14,7 @@ struct SpeciesView: View {
     }
 }
 
+// swiftlint:disable all
 struct SpeciesView_Previews: PreviewProvider {
     static var previews: some View {
         SpeciesView()
