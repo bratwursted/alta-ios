@@ -1,0 +1,25 @@
+query singleStarshipQuery($id:ID) {
+  Starship(id:$id) {
+    cargoCapacity
+    class
+    consumables
+    costInCredits
+    crew
+    films(orderBy:episodeId_ASC) {
+      title
+      id
+    }
+    hyperdriveRating
+    id
+    length
+    manufacturer
+    maxAtmospheringSpeed
+    mglt
+    name
+    passengers
+    pilots(orderBy:name_ASC) {
+      name
+      id
+    }
+  }
+}

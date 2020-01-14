@@ -76,6 +76,7 @@
 		8F7E5CDC23CE577400CC5A8E /* StarshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CDB23CE577400CC5A8E /* StarshipView.swift */; };
 		8F7E5CDE23CE578100CC5A8E /* StarshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CDD23CE578100CC5A8E /* StarshipViewModel.swift */; };
 		8F7E5CE023CE57F500CC5A8E /* StarshipParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CDF23CE57F500CC5A8E /* StarshipParsingTests.swift */; };
+		8F7E5CE223CE59A700CC5A8E /* SingleStarshipQuery in Resources */ = {isa = PBXBuildFile; fileRef = 8F7E5CE123CE59A700CC5A8E /* SingleStarshipQuery */; };
 		8FDD8CBD23CAA1B800851267 /* SwapiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */; };
 		8FDD8CBF23CAB23900851267 /* FilmParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */; };
 		8FDD8CCF23CB61CD00851267 /* luke.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CC223CB61CD00851267 /* luke.json */; };
@@ -178,6 +179,7 @@
 		8F7E5CDB23CE577400CC5A8E /* StarshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipView.swift; sourceTree = "<group>"; };
 		8F7E5CDD23CE578100CC5A8E /* StarshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewModel.swift; sourceTree = "<group>"; };
 		8F7E5CDF23CE57F500CC5A8E /* StarshipParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipParsingTests.swift; sourceTree = "<group>"; };
+		8F7E5CE123CE59A700CC5A8E /* SingleStarshipQuery */ = {isa = PBXFileReference; lastKnownFileType = text; path = SingleStarshipQuery; sourceTree = "<group>"; };
 		8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiResponse.swift; sourceTree = "<group>"; };
 		8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmParsingTests.swift; sourceTree = "<group>"; };
 		8FDD8CC223CB61CD00851267 /* luke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = luke.json; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				8F7E5C9823CD2A4400CC5A8E /* SinglePersonQuery.graphql */,
 				8F7E5CC523CDC1B100CC5A8E /* SinglePlanetQuery.graphql */,
 				8F7E5CD223CDE15200CC5A8E /* SingleSpeciesQuery.graphql */,
+				8F7E5CE123CE59A700CC5A8E /* SingleStarshipQuery */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				8FDD8CD823CB61CD00851267 /* tatooine.json in Resources */,
 				8F4CEAF323C95199000AAD47 /* Preview Assets.xcassets in Resources */,
 				8FDD8CD423CB61CD00851267 /* allPersons.json in Resources */,
+				8F7E5CE223CE59A700CC5A8E /* SingleStarshipQuery in Resources */,
 				8FDD8CCF23CB61CD00851267 /* luke.json in Resources */,
 				8FDD8CD323CB61CD00851267 /* airspeeder.json in Resources */,
 				8FDD8CD223CB61CD00851267 /* falcon.json in Resources */,
