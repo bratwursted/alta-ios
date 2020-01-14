@@ -12,6 +12,8 @@ struct FilmView: View {
 
   @ObservedObject var viewModel: FilmViewModel
 
+  @State var navigationTag: Int?
+
   var body: some View {
     List {
       if viewModel.film == nil {
@@ -56,11 +58,11 @@ extension FilmView {
   }
 
   var charactersSection: some View {
-    Section(header: Text("Characters")) {
+    Section(header: headerView(forSectrion: .characters)) {
       if viewModel.characters.isEmpty {
         Text("No results")
       } else {
-        ForEach(0..<3) { index in
+        ForEach(0..<self.viewModel.numberOfRows(forSection: .characters)) { index in
           CharacterRowView(viewModel: self.viewModel.characterViewModel(forCharacterAtIndex: index))
         }
       }
@@ -68,11 +70,11 @@ extension FilmView {
   }
 
   var planetsSection: some View {
-    Section(header: Text("Planets")) {
+    Section(header: headerView(forSectrion: .planets)) {
       if viewModel.planets.isEmpty {
         Text("No results")
       } else {
-        ForEach(0..<3) { index in
+        ForEach(0..<self.viewModel.numberOfRows(forSection: .planets)) { index in
           Text(self.viewModel.planet(atIndex: index))
         }
       }
@@ -80,11 +82,11 @@ extension FilmView {
   }
 
   var speciesSection: some View {
-    Section(header: Text("Species")) {
+    Section(header: headerView(forSectrion: .species)) {
       if viewModel.species.isEmpty {
         Text("No results")
       } else {
-        ForEach(0..<3) { index in
+        ForEach(0..<self.viewModel.numberOfRows(forSection: .species)) { index in
           Text(self.viewModel.species(atIndex: index))
         }
       }
@@ -92,11 +94,11 @@ extension FilmView {
   }
 
   var starshipsSection: some View {
-    Section(header: Text("Starships")) {
+    Section(header: headerView(forSectrion: .starships)) {
       if viewModel.starships.isEmpty {
         Text("No results")
       } else {
-        ForEach(0..<3) { index in
+        ForEach(0..<self.viewModel.numberOfRows(forSection: .starships)) { index in
           Text(self.viewModel.starships(atIndex: index))
         }
       }
@@ -104,14 +106,49 @@ extension FilmView {
   }
 
   var vehiclesSection: some View {
-    Section(header: Text("Vehicles")) {
+    Section(header: headerView(forSectrion: .vehicles)) {
       if viewModel.vehicles.isEmpty {
         Text("No results")
       } else {
-        ForEach(0..<3) { index in
+        ForEach(0..<self.viewModel.numberOfRows(forSection: .vehicles)) { index in
           Text(self.viewModel.vehicle(atIndex: index))
         }
       }
+    }
+  }
+}
+
+extension FilmView {
+
+  func headerView(
+    forSectrion section: FilmViewSection
+  ) -> some View {
+    HStack {
+      Text(section.title)
+      Spacer()
+      if viewModel.needsDisclosure(forDestination: section.destination) {
+        headerButton(forDestination: section.destination)
+      }
+    }
+  }
+
+  func headerButton(forDestination destination: NavigationDestination) -> Button<HeaderButtonView> {
+    Button(
+      action: {
+        self.navigationTag = destination.tag
+    }, label: {
+      HeaderButtonView()
+    })
+  }
+
+}
+
+struct HeaderButtonView: View {
+  var body: some View {
+    HStack {
+      Text("See all")
+      Image(systemName: "chevron.right")
+        .font(.caption)
     }
   }
 }

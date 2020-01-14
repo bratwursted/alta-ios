@@ -11,6 +11,8 @@ import Combine
 
 final class FilmViewModel: ObservableObject {
 
+  static let maximumSectionRows = 3
+
   private let formatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.locale = Locale.current
@@ -119,5 +121,38 @@ final class FilmViewModel: ObservableObject {
 
   func characterViewModel(forCharacterAtIndex index: Int) -> CharacterRowViewModel {
     CharacterRowViewModel(character: character(atIndex: index))
+  }
+
+  func needsDisclosure(forDestination destination: NavigationDestination) -> Bool {
+    switch destination {
+    case .characters:
+      return characters.count > FilmViewModel.maximumSectionRows
+    case .planets:
+      return planets.count > FilmViewModel.maximumSectionRows
+    case .species:
+      return species.count > FilmViewModel.maximumSectionRows
+    case .starships:
+      return starships.count > FilmViewModel.maximumSectionRows
+    case .vehicles:
+      return vehicles.count > FilmViewModel.maximumSectionRows
+    }
+  }
+
+  func numberOfRows(forSection section: FilmViewSection) -> Int {
+    var allRows: Int
+    switch section {
+    case .characters:
+      allRows = characters.count
+    case .planets:
+      allRows = planets.count
+    case .species:
+      allRows = species.count
+    case .starships:
+      allRows = starships.count
+    case .vehicles:
+      allRows = vehicles.count
+    }
+
+    return min(FilmViewModel.maximumSectionRows, allRows)
   }
 }
