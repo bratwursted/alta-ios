@@ -158,7 +158,7 @@ struct Person: Codable {
   }
 
   /// The year the person was born, expressed as "BBY" (Before the Battle of Yavin) or "ABY" (After the Battle of Yavin).
-  let birthYear: String
+  let birthYear: String?
 
   /// The person's `EyeColor`
   let eyeColor: [EyeColor]?

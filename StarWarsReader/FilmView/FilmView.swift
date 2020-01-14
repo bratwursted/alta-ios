@@ -82,7 +82,7 @@ extension FilmView {
   }
 
   var speciesSection: some View {
-    Section(header: headerView(forSectrion: .species)) {
+    Section(header: speciesSectionHeader) {
       if viewModel.species.isEmpty {
         Text("No results")
       } else {
@@ -147,6 +147,22 @@ extension FilmView {
           selection: $navigationTag,
           label: {
             headerButton(forDestination: FilmViewSection.planets.destination)
+        })
+      }
+    }
+  }
+
+  var speciesSectionHeader: some View {
+    HStack {
+      Text(FilmViewSection.species.title)
+      Spacer()
+      if viewModel.needsDisclosure(forSection: FilmViewSection.species) {
+        NavigationLink(
+          destination: FilmSpeciesListView(viewModel: viewModel.speciesViewModel),
+          tag: FilmViewSection.species.destination.tag,
+          selection: $navigationTag,
+          label: {
+            headerButton(forDestination: FilmViewSection.species.destination)
         })
       }
     }

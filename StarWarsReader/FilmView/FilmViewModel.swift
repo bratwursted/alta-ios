@@ -163,4 +163,8 @@ final class FilmViewModel: ObservableObject {
   var planetListViewModel: FilmPlanetListViewModel {
     FilmPlanetListViewModel(planets: planets)
   }
+
+  var speciesViewModel: FilmSpeciesListViewModel {
+    FilmSpeciesListViewModel(species: species)
+  }
 }

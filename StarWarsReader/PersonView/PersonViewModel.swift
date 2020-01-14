@@ -64,8 +64,11 @@ final class PersonViewModel: ObservableObject {
     person?.name
   }
 
-  var birthYear: String? {
-    person?.birthYear
+  var birthYear: String {
+    guard let born = person?.birthYear else {
+      return "n/a"
+    }
+    return born
   }
 
   var gender: String? {
