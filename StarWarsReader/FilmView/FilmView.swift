@@ -70,7 +70,7 @@ extension FilmView {
   }
 
   var planetsSection: some View {
-    Section(header: headerView(forSectrion: .planets)) {
+    Section(header: planetsSectionHeader) {
       if viewModel.planets.isEmpty {
         Text("No results")
       } else {
@@ -131,6 +131,22 @@ extension FilmView {
           selection: $navigationTag,
           label: {
             headerButton(forDestination: FilmViewSection.characters.destination)
+        })
+      }
+    }
+  }
+
+  var planetsSectionHeader: some View {
+    HStack {
+      Text(FilmViewSection.planets.title)
+      Spacer()
+      if viewModel.needsDisclosure(forSection: FilmViewSection.planets) {
+        NavigationLink(
+          destination: FilmPlanetListView(viewModel: viewModel.planetListViewModel),
+          tag: FilmViewSection.planets.destination.tag,
+          selection: $navigationTag,
+          label: {
+            headerButton(forDestination: FilmViewSection.planets.destination)
         })
       }
     }
