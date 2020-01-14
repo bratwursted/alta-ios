@@ -15,6 +15,10 @@ struct StarshipRowViewModel {
   var name: String {
     starship.name
   }
+
+  var starshipViewModel: StarshipViewModel {
+    StarshipViewModel(resourceId: starship.starshipId)
+  }
 }
 
 struct StarshipRowView: View {
@@ -22,7 +26,9 @@ struct StarshipRowView: View {
   let viewModel: StarshipRowViewModel
 
   var body: some View {
-    Text(viewModel.name)
+    NavigationLink(destination: StarshipView(viewModel: viewModel.starshipViewModel)) {
+      Text(viewModel.name)
+    }
   }
 }
 
