@@ -72,7 +72,7 @@ final class StarshipViewModel: ObservableObject {
   }
 
   var classification: String {
-    starship?.starshipClass ?? valueNotAvailable
+    starship?.starshipClass.localizedCapitalized ?? valueNotAvailable
   }
 
   var manufacturer: String {
