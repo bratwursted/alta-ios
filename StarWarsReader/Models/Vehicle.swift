@@ -52,16 +52,16 @@ struct Vehicle: Codable {
   }
 
   /// The maximum amount of cargo this vehicle is capable of carrying, in kilograms
-  let cargo: Int
+  let cargo: Int?
 
   /// The class of this vehicle (e.g., "Repulsorcraft")
   let vehicleClass: String
 
   /// The maximum time this vehicle can provide consumables for its entire crew without having to resupply.
-  let consumables: String
+  let consumables: String?
 
   /// The cost of this vehjicle in galactic credits.
-  let cost: Int
+  let cost: Int?
 
   /// The number of people needed to operate or pilot this vehicle.
   let crew: Int
@@ -73,10 +73,10 @@ struct Vehicle: Codable {
   let vehicleId: String
 
   /// The length of tis vehicle in meters.
-  let length: Float
+  let length: Float?
 
   /// The manufacturer(s) of this vehicle (e.g., "Corellia Mining Corporation")
-  let manufacturer: [String]
+  let manufacturer: [String]?
 
   /// The maxumim speed of this vehicle in kph.
   let maximumSpeed: Int
@@ -88,7 +88,7 @@ struct Vehicle: Codable {
   let name: String
 
   /// The maximum number of passengers this vehicle can carry.
-  let passengers: Int
+  let passengers: Int?
 
   /// An array of people who have piloted this vehicle.
   let pilots: [Pilot]
