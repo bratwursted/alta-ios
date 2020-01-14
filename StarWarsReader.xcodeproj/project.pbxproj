@@ -375,9 +375,9 @@
 		8F7E5CCD23CDDC6400CC5A8E /* SpeciesView */ = {
 			isa = PBXGroup;
 			children = (
-				8F7E5CCE23CDDC8100CC5A8E /* SpeciesView.swift */,
 				8F7E5CD823CDED9700CC5A8E /* SpeciesFilmRowView.swift */,
 				8F7E5CD623CDEAB800CC5A8E /* SpeciesPersonRowView.swift */,
+				8F7E5CCE23CDDC8100CC5A8E /* SpeciesView.swift */,
 				8F7E5CD023CDDC8B00CC5A8E /* SpeciesViewModel.swift */,
 			);
 			path = SpeciesView;
