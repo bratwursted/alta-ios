@@ -260,20 +260,20 @@
 		8F4CEAE823C9518F000AAD47 /* StarWarsReader */ = {
 			isa = PBXGroup;
 			children = (
+				8F4CEAF723C95199000AAD47 /* Info.plist */,
 				8F4CEAE923C9518F000AAD47 /* AppDelegate.swift */,
-				8F4CEAEB23C9518F000AAD47 /* SceneDelegate.swift */,
 				8F4CEAED23C9518F000AAD47 /* ContentView.swift */,
-				8F7E5CC223CDBC1700CC5A8E /* PlanetView */,
-				8F7E5C9723CD26D600CC5A8E /* PersonView */,
-				8F35A9B423CBA2BA0045DEEC /* FilmView */,
-				8F35A9A723CB94740045DEEC /* FilmsList */,
-				8FDD8CDE23CB630600851267 /* Parsing */,
-				8FDD8CC023CB61AE00851267 /* Data */,
-				8F4CEB0E23CA2171000AAD47 /* Models */,
-				8F4CEB0B23CA2039000AAD47 /* Networking */,
+				8F4CEAEB23C9518F000AAD47 /* SceneDelegate.swift */,
 				8F4CEAEF23C95199000AAD47 /* Assets.xcassets */,
 				8F4CEAF423C95199000AAD47 /* LaunchScreen.storyboard */,
-				8F4CEAF723C95199000AAD47 /* Info.plist */,
+				8FDD8CC023CB61AE00851267 /* Data */,
+				8F35A9A723CB94740045DEEC /* FilmsList */,
+				8F35A9B423CBA2BA0045DEEC /* FilmView */,
+				8F4CEB0E23CA2171000AAD47 /* Models */,
+				8F4CEB0B23CA2039000AAD47 /* Networking */,
+				8FDD8CDE23CB630600851267 /* Parsing */,
+				8F7E5C9723CD26D600CC5A8E /* PersonView */,
+				8F7E5CC223CDBC1700CC5A8E /* PlanetView */,
 				8F4CEAF123C95199000AAD47 /* Preview Content */,
 			);
 			path = StarWarsReader;
