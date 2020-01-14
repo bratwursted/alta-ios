@@ -94,7 +94,7 @@ extension FilmView {
   }
 
   var starshipsSection: some View {
-    Section(header: headerView(forSectrion: .starships)) {
+    Section(header: starshipsSectionHeader) {
       if viewModel.starships.isEmpty {
         Text("No results")
       } else {
@@ -163,6 +163,22 @@ extension FilmView {
           selection: $navigationTag,
           label: {
             headerButton(forDestination: FilmViewSection.species.destination)
+        })
+      }
+    }
+  }
+
+  var starshipsSectionHeader: some View {
+    HStack {
+      Text(FilmViewSection.starships.title)
+      Spacer()
+      if viewModel.needsDisclosure(forSection: FilmViewSection.starships) {
+        NavigationLink(
+          destination: FilmStarshipListView(viewModel: viewModel.starshipsViewModel),
+          tag: FilmViewSection.starships.destination.tag,
+          selection: $navigationTag,
+          label: {
+            headerButton(forDestination: FilmViewSection.starships.destination)
         })
       }
     }
