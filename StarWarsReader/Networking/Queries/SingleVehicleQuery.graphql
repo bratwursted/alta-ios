@@ -1,0 +1,24 @@
+query singleVehicleQuery($id:ID) {
+  Vehicle(id:$id) {
+    cargoCapacity
+    class
+    consumables
+    costInCredits
+    crew
+    films(orderBy:episodeId_ASC) {
+      title
+      id
+    }
+    id
+    length
+    manufacturer
+    maxAtmospheringSpeed
+    model
+    name
+    passengers
+    pilots(orderBy:name_ASC) {
+      name
+      id
+    }
+  }
+}
