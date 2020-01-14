@@ -164,11 +164,11 @@ final class FilmViewModel: ObservableObject {
     FilmPlanetListViewModel(planets: planets)
   }
 
-  var speciesViewModel: FilmSpeciesListViewModel {
+  var speciesListViewModel: FilmSpeciesListViewModel {
     FilmSpeciesListViewModel(species: species)
   }
 
-  var starshipsViewModel: FilmStarshipListViewModel {
+  var starshipListViewModel: FilmStarshipListViewModel {
     FilmStarshipListViewModel(starships: starships)
   }
 

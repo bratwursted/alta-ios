@@ -158,7 +158,7 @@ extension FilmView {
       Spacer()
       if viewModel.needsDisclosure(forSection: FilmViewSection.species) {
         NavigationLink(
-          destination: FilmSpeciesListView(viewModel: viewModel.speciesViewModel),
+          destination: FilmSpeciesListView(viewModel: viewModel.speciesListViewModel),
           tag: FilmViewSection.species.destination.tag,
           selection: $navigationTag,
           label: {
@@ -174,7 +174,7 @@ extension FilmView {
       Spacer()
       if viewModel.needsDisclosure(forSection: FilmViewSection.starships) {
         NavigationLink(
-          destination: FilmStarshipListView(viewModel: viewModel.starshipsViewModel),
+          destination: FilmStarshipListView(viewModel: viewModel.starshipListViewModel),
           tag: FilmViewSection.starships.destination.tag,
           selection: $navigationTag,
           label: {
