@@ -70,6 +70,9 @@
 		8F7E5CCF23CDDC8100CC5A8E /* SpeciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CCE23CDDC8100CC5A8E /* SpeciesView.swift */; };
 		8F7E5CD123CDDC8B00CC5A8E /* SpeciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CD023CDDC8B00CC5A8E /* SpeciesViewModel.swift */; };
 		8F7E5CD323CDE15200CC5A8E /* SingleSpeciesQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 8F7E5CD223CDE15200CC5A8E /* SingleSpeciesQuery.graphql */; };
+		8F7E5CD523CDE68500CC5A8E /* SpeciesParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CD423CDE68500CC5A8E /* SpeciesParsingTests.swift */; };
+		8F7E5CD723CDEAB800CC5A8E /* SpeciesPersonRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CD623CDEAB800CC5A8E /* SpeciesPersonRowView.swift */; };
+		8F7E5CD923CDED9700CC5A8E /* SpeciesFilmRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CD823CDED9700CC5A8E /* SpeciesFilmRowView.swift */; };
 		8FDD8CBD23CAA1B800851267 /* SwapiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */; };
 		8FDD8CBF23CAB23900851267 /* FilmParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */; };
 		8FDD8CCF23CB61CD00851267 /* luke.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CC223CB61CD00851267 /* luke.json */; };
@@ -84,7 +87,7 @@
 		8FDD8CD823CB61CD00851267 /* tatooine.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CCB23CB61CD00851267 /* tatooine.json */; };
 		8FDD8CD923CB61CD00851267 /* allPlanets.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CCC23CB61CD00851267 /* allPlanets.json */; };
 		8FDD8CDA23CB61CD00851267 /* allStarships.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CCD23CB61CD00851267 /* allStarships.json */; };
-		8FDD8CDB23CB61CD00851267 /* twileki.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CCE23CB61CD00851267 /* twileki.json */; };
+		8FDD8CDB23CB61CD00851267 /* twilek.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CCE23CB61CD00851267 /* twilek.json */; };
 		8FDD8CDD23CB62FF00851267 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CDC23CB62FF00851267 /* Parsing.swift */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +169,9 @@
 		8F7E5CCE23CDDC8100CC5A8E /* SpeciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesView.swift; sourceTree = "<group>"; };
 		8F7E5CD023CDDC8B00CC5A8E /* SpeciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesViewModel.swift; sourceTree = "<group>"; };
 		8F7E5CD223CDE15200CC5A8E /* SingleSpeciesQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SingleSpeciesQuery.graphql; sourceTree = "<group>"; };
+		8F7E5CD423CDE68500CC5A8E /* SpeciesParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesParsingTests.swift; sourceTree = "<group>"; };
+		8F7E5CD623CDEAB800CC5A8E /* SpeciesPersonRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesPersonRowView.swift; sourceTree = "<group>"; };
+		8F7E5CD823CDED9700CC5A8E /* SpeciesFilmRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesFilmRowView.swift; sourceTree = "<group>"; };
 		8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiResponse.swift; sourceTree = "<group>"; };
 		8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmParsingTests.swift; sourceTree = "<group>"; };
 		8FDD8CC223CB61CD00851267 /* luke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = luke.json; sourceTree = "<group>"; };
@@ -180,7 +186,7 @@
 		8FDD8CCB23CB61CD00851267 /* tatooine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tatooine.json; sourceTree = "<group>"; };
 		8FDD8CCC23CB61CD00851267 /* allPlanets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allPlanets.json; sourceTree = "<group>"; };
 		8FDD8CCD23CB61CD00851267 /* allStarships.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allStarships.json; sourceTree = "<group>"; };
-		8FDD8CCE23CB61CD00851267 /* twileki.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = twileki.json; sourceTree = "<group>"; };
+		8FDD8CCE23CB61CD00851267 /* twilek.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = twilek.json; sourceTree = "<group>"; };
 		8FDD8CDC23CB62FF00851267 /* Parsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -301,6 +307,7 @@
 				8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */,
 				8F35A99623CB648B0045DEEC /* FullFilmParsingTests.swift */,
 				8F7E5CC723CDC53F00CC5A8E /* PlanetParsingTests.swift */,
+				8F7E5CD423CDE68500CC5A8E /* SpeciesParsingTests.swift */,
 				8F35A9A123CB7D7F0045DEEC /* QueryTests.swift */,
 				8F35A9A823CB97720045DEEC /* MockDataTests.swift */,
 				8F4CEB0223C95199000AAD47 /* Info.plist */,
@@ -369,6 +376,8 @@
 			isa = PBXGroup;
 			children = (
 				8F7E5CCE23CDDC8100CC5A8E /* SpeciesView.swift */,
+				8F7E5CD823CDED9700CC5A8E /* SpeciesFilmRowView.swift */,
+				8F7E5CD623CDEAB800CC5A8E /* SpeciesPersonRowView.swift */,
 				8F7E5CD023CDDC8B00CC5A8E /* SpeciesViewModel.swift */,
 			);
 			path = SpeciesView;
@@ -398,7 +407,7 @@
 				8FDD8CC223CB61CD00851267 /* luke.json */,
 				8FDD8CC923CB61CD00851267 /* newHope.json */,
 				8FDD8CCB23CB61CD00851267 /* tatooine.json */,
-				8FDD8CCE23CB61CD00851267 /* twileki.json */,
+				8FDD8CCE23CB61CD00851267 /* twilek.json */,
 			);
 			name = Resources;
 			path = StarWarsReader/Resources;
@@ -510,7 +519,7 @@
 				8FDD8CD723CB61CD00851267 /* allFilms.json in Resources */,
 				8F4CEAF023C95199000AAD47 /* Assets.xcassets in Resources */,
 				8F7E5CC623CDC1B100CC5A8E /* SinglePlanetQuery.graphql in Resources */,
-				8FDD8CDB23CB61CD00851267 /* twileki.json in Resources */,
+				8FDD8CDB23CB61CD00851267 /* twilek.json in Resources */,
 				8F7E5C9923CD2A4400CC5A8E /* SinglePersonQuery.graphql in Resources */,
 				8FDD8CD123CB61CD00851267 /* films.json in Resources */,
 				8F35A99D23CB77170045DEEC /* AllFilmsQuery.graphql in Resources */,
@@ -571,12 +580,14 @@
 				8F7E5CB723CD5E8E00CC5A8E /* FilmSpeciesRowView.swift in Sources */,
 				8F4CEB1E23CA4C77000AAD47 /* StarshipsResponse.swift in Sources */,
 				8F4CEAEA23C9518F000AAD47 /* AppDelegate.swift in Sources */,
+				8F7E5CD723CDEAB800CC5A8E /* SpeciesPersonRowView.swift in Sources */,
 				8F7E5CCA23CDCF1700CC5A8E /* PlanetFilmRowView.swift in Sources */,
 				8F7E5CBB23CD638000CC5A8E /* FilmStarshipRowView.swift in Sources */,
 				8F4CEAEC23C9518F000AAD47 /* SceneDelegate.swift in Sources */,
 				8F7E5CA323CD3B1C00CC5A8E /* VehicleRowView.swift in Sources */,
 				8F35A9A623CB94700045DEEC /* FilmsListViewModel.swift in Sources */,
 				8F7E5C9423CD26BE00CC5A8E /* PersonView.swift in Sources */,
+				8F7E5CD923CDED9700CC5A8E /* SpeciesFilmRowView.swift in Sources */,
 				8F7E5C9D23CD379600CC5A8E /* SpeciesRowView.swift in Sources */,
 				8F35A9AF23CBA0870045DEEC /* Film+Strings.swift in Sources */,
 				8F4CEB1823CA4047000AAD47 /* Planet.swift in Sources */,
@@ -615,6 +626,7 @@
 				8FDD8CBF23CAB23900851267 /* FilmParsingTests.swift in Sources */,
 				8F7E5CC823CDC53F00CC5A8E /* PlanetParsingTests.swift in Sources */,
 				8F35A9A923CB97720045DEEC /* MockDataTests.swift in Sources */,
+				8F7E5CD523CDE68500CC5A8E /* SpeciesParsingTests.swift in Sources */,
 				8F35A99723CB648B0045DEEC /* FullFilmParsingTests.swift in Sources */,
 				8F35A9A223CB7D7F0045DEEC /* QueryTests.swift in Sources */,
 			);

@@ -9,14 +9,89 @@
 import SwiftUI
 
 struct SpeciesView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+  @ObservedObject var viewModel: SpeciesViewModel
+
+  var body: some View {
+    List {
+      if viewModel.species == nil {
+        Text("No result")
+      } else {
+        topSection
+        characteristicsSection
+        peopleSection
+        filmsSection
+      }
     }
+    .navigationBarTitle(Text(viewModel.viewTitle), displayMode: .inline)
+    .onAppear {
+      self.viewModel.loadSpecies()
+    }
+  }
+}
+
+extension SpeciesView {
+
+  var topSection: some View {
+    Section {
+      VStack(alignment: .leading, spacing: 12) {
+        Text(verbatim: viewModel.name)
+        Text(verbatim: viewModel.speciesDescription)
+        Text(verbatim: "Avg. height: \(viewModel.height)")
+        Text(verbatim: "Avg. lifespan: \(viewModel.lifespan)")
+      }
+    }
+  }
+
+  var characteristicsSection: some View {
+    Section(header: Text("Characteristics")) {
+      VStack(alignment: .leading, spacing: 12) {
+        Text(verbatim: "Eye color: \(viewModel.eyes)")
+        Text(verbatim: "Hair color: \(viewModel.hair)")
+        Text(verbatim: "Skin: \(viewModel.skin)")
+      }
+    }
+  }
+
+  var peopleSection: some View {
+    Section(header: Text("People")) {
+      if viewModel.people.isEmpty {
+        Text("No results")
+      } else {
+        ForEach(viewModel.people, id: \.self) { person in
+          SpeciesPersonRowView(viewModel: self.viewModel.rowViewModel(forPerson: person))
+        }
+      }
+    }
+  }
+
+  var filmsSection: some View {
+    Section(header: Text("Appears in")) {
+      if viewModel.films.isEmpty {
+        Text("No results")
+      } else {
+        ForEach(viewModel.films, id: \.self) { film in
+          SpeciesFilmRowView(viewModel: self.viewModel.rowViewModel(forFilm: film))
+        }
+      }
+    }
+  }
 }
 
 // swiftlint:disable all
 struct SpeciesView_Previews: PreviewProvider {
-    static var previews: some View {
-        SpeciesView()
+  static let vm: SpeciesViewModel = {
+    let species = loadSampleSpecies("twilek")
+    let service = MockDataService(species)
+    return SpeciesViewModel(
+      resourceId: species.speciesId,
+      dataService: service
+    )
+  }()
+
+  static var previews: some View {
+    NavigationView {
+      SpeciesView(viewModel: vm)
     }
+  }
 }

@@ -77,7 +77,7 @@ struct Species: Codable {
   }
 
   /// Metadata describing a film that featues a species.
-  struct Film: Codable {
+  struct Film: Codable, Hashable {
     let title: String
     let filmId: String
 
@@ -88,7 +88,7 @@ struct Species: Codable {
   }
 
   /// Metadata describing a person of a certain species.
-  struct Person: Codable {
+  struct Person: Codable, Hashable {
     let name: String
     let personId: String
 
@@ -102,7 +102,7 @@ struct Species: Codable {
   let height: Int
 
   /// The average lifespan in standard years for members of this species.
-  let lifespan: Int
+  let lifespan: Int?
 
   /// The classification for this species (e.g., "mammal")
   let classification: String?
