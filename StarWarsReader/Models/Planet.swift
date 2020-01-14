@@ -22,7 +22,7 @@ struct PlanetQueryResponse: Codable {
 struct Planet: Codable {
 
   /// Metadatdata describing a Star Wars film that features this planet.
-  struct Film: Codable {
+  struct Film: Codable, Hashable {
 
     /// The title of this film (e.g., "A New Hope").
     let title: String
@@ -37,7 +37,7 @@ struct Planet: Codable {
   }
 
   /// Metadata describing a person who lives on this planet.
-  struct Resident: Codable {
+  struct Resident: Codable, Hashable {
 
     /// The name of the person (e.g., "Luke Skywalker").
     let name: String

@@ -61,6 +61,12 @@
 		8F7E5CBB23CD638000CC5A8E /* FilmStarshipRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CBA23CD638000CC5A8E /* FilmStarshipRowView.swift */; };
 		8F7E5CBD23CD670600CC5A8E /* FilmVehicleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CBC23CD670600CC5A8E /* FilmVehicleListView.swift */; };
 		8F7E5CBF23CD671200CC5A8E /* FilmVehicleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CBE23CD671200CC5A8E /* FilmVehicleRowView.swift */; };
+		8F7E5CC123CDBC1100CC5A8E /* PlanetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CC023CDBC1100CC5A8E /* PlanetView.swift */; };
+		8F7E5CC423CDBC4000CC5A8E /* PlanetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CC323CDBC4000CC5A8E /* PlanetViewModel.swift */; };
+		8F7E5CC623CDC1B100CC5A8E /* SinglePlanetQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 8F7E5CC523CDC1B100CC5A8E /* SinglePlanetQuery.graphql */; };
+		8F7E5CC823CDC53F00CC5A8E /* PlanetParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CC723CDC53F00CC5A8E /* PlanetParsingTests.swift */; };
+		8F7E5CCA23CDCF1700CC5A8E /* PlanetFilmRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CC923CDCF1600CC5A8E /* PlanetFilmRowView.swift */; };
+		8F7E5CCC23CDD09B00CC5A8E /* ResidentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CCB23CDD09B00CC5A8E /* ResidentRowView.swift */; };
 		8FDD8CBD23CAA1B800851267 /* SwapiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */; };
 		8FDD8CBF23CAB23900851267 /* FilmParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */; };
 		8FDD8CCF23CB61CD00851267 /* luke.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CC223CB61CD00851267 /* luke.json */; };
@@ -148,6 +154,12 @@
 		8F7E5CBA23CD638000CC5A8E /* FilmStarshipRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStarshipRowView.swift; sourceTree = "<group>"; };
 		8F7E5CBC23CD670600CC5A8E /* FilmVehicleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmVehicleListView.swift; sourceTree = "<group>"; };
 		8F7E5CBE23CD671200CC5A8E /* FilmVehicleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmVehicleRowView.swift; sourceTree = "<group>"; };
+		8F7E5CC023CDBC1100CC5A8E /* PlanetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetView.swift; sourceTree = "<group>"; };
+		8F7E5CC323CDBC4000CC5A8E /* PlanetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewModel.swift; sourceTree = "<group>"; };
+		8F7E5CC523CDC1B100CC5A8E /* SinglePlanetQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SinglePlanetQuery.graphql; sourceTree = "<group>"; };
+		8F7E5CC723CDC53F00CC5A8E /* PlanetParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetParsingTests.swift; sourceTree = "<group>"; };
+		8F7E5CC923CDCF1600CC5A8E /* PlanetFilmRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetFilmRowView.swift; sourceTree = "<group>"; };
+		8F7E5CCB23CDD09B00CC5A8E /* ResidentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentRowView.swift; sourceTree = "<group>"; };
 		8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiResponse.swift; sourceTree = "<group>"; };
 		8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmParsingTests.swift; sourceTree = "<group>"; };
 		8FDD8CC223CB61CD00851267 /* luke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = luke.json; sourceTree = "<group>"; };
@@ -190,6 +202,7 @@
 				8F35A99C23CB77170045DEEC /* AllFilmsQuery.graphql */,
 				8F35A99F23CB7BB90045DEEC /* SingleFilmQuery.graphql */,
 				8F7E5C9823CD2A4400CC5A8E /* SinglePersonQuery.graphql */,
+				8F7E5CC523CDC1B100CC5A8E /* SinglePlanetQuery.graphql */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -250,6 +263,7 @@
 				8F4CEAE923C9518F000AAD47 /* AppDelegate.swift */,
 				8F4CEAEB23C9518F000AAD47 /* SceneDelegate.swift */,
 				8F4CEAED23C9518F000AAD47 /* ContentView.swift */,
+				8F7E5CC223CDBC1700CC5A8E /* PlanetView */,
 				8F7E5C9723CD26D600CC5A8E /* PersonView */,
 				8F35A9B423CBA2BA0045DEEC /* FilmView */,
 				8F35A9A723CB94740045DEEC /* FilmsList */,
@@ -278,6 +292,7 @@
 			children = (
 				8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */,
 				8F35A99623CB648B0045DEEC /* FullFilmParsingTests.swift */,
+				8F7E5CC723CDC53F00CC5A8E /* PlanetParsingTests.swift */,
 				8F35A9A123CB7D7F0045DEEC /* QueryTests.swift */,
 				8F35A9A823CB97720045DEEC /* MockDataTests.swift */,
 				8F4CEB0223C95199000AAD47 /* Info.plist */,
@@ -329,6 +344,17 @@
 				8F7E5CA623CD3D2100CC5A8E /* PersonFilmRowView.swift */,
 			);
 			path = PersonView;
+			sourceTree = "<group>";
+		};
+		8F7E5CC223CDBC1700CC5A8E /* PlanetView */ = {
+			isa = PBXGroup;
+			children = (
+				8F7E5CC023CDBC1100CC5A8E /* PlanetView.swift */,
+				8F7E5CC923CDCF1600CC5A8E /* PlanetFilmRowView.swift */,
+				8F7E5CCB23CDD09B00CC5A8E /* ResidentRowView.swift */,
+				8F7E5CC323CDBC4000CC5A8E /* PlanetViewModel.swift */,
+			);
+			path = PlanetView;
 			sourceTree = "<group>";
 		};
 		8FDD8CC023CB61AE00851267 /* Data */ = {
@@ -465,6 +491,7 @@
 				8FDD8CD023CB61CD00851267 /* allSpecies.json in Resources */,
 				8FDD8CD723CB61CD00851267 /* allFilms.json in Resources */,
 				8F4CEAF023C95199000AAD47 /* Assets.xcassets in Resources */,
+				8F7E5CC623CDC1B100CC5A8E /* SinglePlanetQuery.graphql in Resources */,
 				8FDD8CDB23CB61CD00851267 /* twileki.json in Resources */,
 				8F7E5C9923CD2A4400CC5A8E /* SinglePersonQuery.graphql in Resources */,
 				8FDD8CD123CB61CD00851267 /* films.json in Resources */,
@@ -513,7 +540,9 @@
 				8FDD8CDD23CB62FF00851267 /* Parsing.swift in Sources */,
 				8F7E5CAF23CD516A00CC5A8E /* FilmViewSection.swift in Sources */,
 				8F4CEB1C23CA47BB000AAD47 /* Starship.swift in Sources */,
+				8F7E5CCC23CDD09B00CC5A8E /* ResidentRowView.swift in Sources */,
 				8F35A9A423CB945F0045DEEC /* FilmsListView.swift in Sources */,
+				8F7E5CC423CDBC4000CC5A8E /* PlanetViewModel.swift in Sources */,
 				8F7E5CBF23CD671200CC5A8E /* FilmVehicleRowView.swift in Sources */,
 				8F7E5CBD23CD670600CC5A8E /* FilmVehicleListView.swift in Sources */,
 				8F35A9B323CBA2B30045DEEC /* FilmViewModel.swift in Sources */,
@@ -523,6 +552,7 @@
 				8F7E5CB723CD5E8E00CC5A8E /* FilmSpeciesRowView.swift in Sources */,
 				8F4CEB1E23CA4C77000AAD47 /* StarshipsResponse.swift in Sources */,
 				8F4CEAEA23C9518F000AAD47 /* AppDelegate.swift in Sources */,
+				8F7E5CCA23CDCF1700CC5A8E /* PlanetFilmRowView.swift in Sources */,
 				8F7E5CBB23CD638000CC5A8E /* FilmStarshipRowView.swift in Sources */,
 				8F4CEAEC23C9518F000AAD47 /* SceneDelegate.swift in Sources */,
 				8F7E5CA323CD3B1C00CC5A8E /* VehicleRowView.swift in Sources */,
@@ -533,6 +563,7 @@
 				8F4CEB1823CA4047000AAD47 /* Planet.swift in Sources */,
 				8F4CEB1623CA3D67000AAD47 /* PeopleResponse.swift in Sources */,
 				8F7E5CB923CD637300CC5A8E /* FilmStarshipListView.swift in Sources */,
+				8F7E5CC123CDBC1100CC5A8E /* PlanetView.swift in Sources */,
 				8F35A9AD23CB9F690045DEEC /* FilmRowViewModel.swift in Sources */,
 				8F4CEB0D23CA20C1000AAD47 /* Swapi.swift in Sources */,
 				8F7E5CB523CD5E7D00CC5A8E /* FilmSpeciesListView.swift in Sources */,
@@ -562,6 +593,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FDD8CBF23CAB23900851267 /* FilmParsingTests.swift in Sources */,
+				8F7E5CC823CDC53F00CC5A8E /* PlanetParsingTests.swift in Sources */,
 				8F35A9A923CB97720045DEEC /* MockDataTests.swift in Sources */,
 				8F35A99723CB648B0045DEEC /* FullFilmParsingTests.swift in Sources */,
 				8F35A9A223CB7D7F0045DEEC /* QueryTests.swift in Sources */,

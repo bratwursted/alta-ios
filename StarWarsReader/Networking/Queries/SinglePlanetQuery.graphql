@@ -1,0 +1,22 @@
+query singlePlanetQuery($id:ID) {
+  Planet(id:$id) {
+    climate
+    diameter
+    films(orderBy:episodeId_ASC) {
+      title
+      id
+    }
+    gravity
+    id
+    name
+    orbitalPeriod
+    population
+    residents(orderBy:name_ASC) {
+      name
+      id
+    }
+    rotationPeriod
+    surfaceWater
+    terrain
+  }
+}
