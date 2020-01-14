@@ -15,6 +15,10 @@ struct FilmSpeciesRowViewModel {
   var name: String {
     species.name
   }
+
+  var speciesViewModel: SpeciesViewModel {
+    SpeciesViewModel(resourceId: species.speciesId)
+  }
 }
 
 struct FilmSpeciesRowView: View {
@@ -22,7 +26,9 @@ struct FilmSpeciesRowView: View {
   let viewModel: FilmSpeciesRowViewModel
 
   var body: some View {
-    Text(viewModel.name)
+    NavigationLink(destination: SpeciesView(viewModel: viewModel.speciesViewModel)) {
+      Text(viewModel.name)
+    }
   }
 }
 

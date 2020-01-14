@@ -87,7 +87,7 @@ extension FilmView {
         Text("No results")
       } else {
         ForEach(0..<self.viewModel.numberOfRows(forSection: .species)) { index in
-          Text(self.viewModel.species(atIndex: index))
+          FilmSpeciesRowView(viewModel: self.viewModel.speciesViewModel(forSpeciesAtIndex: index))
         }
       }
     }
