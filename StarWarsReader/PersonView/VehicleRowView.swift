@@ -15,6 +15,10 @@ struct VehicleRowViewModel {
   var name: String {
     vehicle.name
   }
+
+  var vehicleViewModel: VehicleViewModel {
+    VehicleViewModel(resourceId: vehicle.vehicleId)
+  }
 }
 
 struct VehicleRowView: View {
@@ -22,7 +26,9 @@ struct VehicleRowView: View {
   let viewModel: VehicleRowViewModel
 
   var body: some View {
-    Text(viewModel.name)
+    NavigationLink(destination: VehicleView(viewModel: viewModel.vehicleViewModel)) {
+      Text(viewModel.name)
+    }
   }
 }
 
