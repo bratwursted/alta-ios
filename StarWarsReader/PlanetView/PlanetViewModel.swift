@@ -28,6 +28,8 @@ final class PlanetViewModel: ObservableObject {
 
   private var disposables = Set<AnyCancellable>()
 
+  private var needsPlanetContent = true
+
   @Published var planet: Planet?
 
   var residents: [Planet.Resident] = []
@@ -43,9 +45,11 @@ final class PlanetViewModel: ObservableObject {
   }
 
   func loadPlanet() {
+    guard needsPlanetContent else { return }
     dataService.planet(with: planetId)
       .receive(on: DispatchQueue.main)
       .sink(receiveCompletion: { completion in
+        self.needsPlanetContent = false
         switch completion {
         case .failure(let error):
           print("Error loading planet \(self.planetId): \(error)")

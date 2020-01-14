@@ -15,6 +15,8 @@ final class FilmsListViewModel: ObservableObject {
 
   private var disposables = Set<AnyCancellable>()
 
+  private var needsFilms = true
+
   @Published var films: [FilmsResponse.Film] = []
 
   init(dataService: Swapi = SwapiService()) {
@@ -22,9 +24,11 @@ final class FilmsListViewModel: ObservableObject {
   }
 
   func loadFilmsList() {
+    guard needsFilms else { return }
     dataService.allFilms()
       .receive(on: DispatchQueue.main)
       .sink(receiveCompletion: { completion in
+        self.needsFilms = false
         switch completion {
         case .failure(let error):
           self.films = []

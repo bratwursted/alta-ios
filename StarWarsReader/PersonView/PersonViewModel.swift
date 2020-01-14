@@ -17,6 +17,8 @@ final class PersonViewModel: ObservableObject {
 
   private var disposables = Set<AnyCancellable>()
 
+  private var needsPersonContent = true
+
   @Published var person: Person?
 
   var films: [Person.Film] = []
@@ -36,9 +38,11 @@ final class PersonViewModel: ObservableObject {
   }
 
   func loadPersonContent() {
+    guard needsPersonContent else { return }
     dataService.person(with: personId)
       .receive(on: DispatchQueue.main)
       .sink(receiveCompletion: { completion in
+        self.needsPersonContent = false
         switch completion {
         case .failure(let error):
           print("There was an error \(error)")

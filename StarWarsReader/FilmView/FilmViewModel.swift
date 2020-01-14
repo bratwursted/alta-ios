@@ -26,6 +26,8 @@ final class FilmViewModel: ObservableObject {
 
   private var disposables = Set<AnyCancellable>()
 
+  private var needsFilmContent = true
+
   @Published var film: Film?
 
   var characters: [Film.Character] = []
@@ -47,9 +49,11 @@ final class FilmViewModel: ObservableObject {
   }
 
   func loadFilmContent() {
+    guard needsFilmContent else { return }
     dataService.film(withId: filmId)
       .receive(on: DispatchQueue.main)
       .sink(receiveCompletion: { completion in
+        self.needsFilmContent = false
         switch completion {
         case .failure(let error):
           print("There was an error loading the film with id \(self.filmId): \(error)")
