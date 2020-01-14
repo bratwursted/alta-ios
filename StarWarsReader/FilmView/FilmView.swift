@@ -58,7 +58,7 @@ extension FilmView {
   }
 
   var charactersSection: some View {
-    Section(header: headerView(forSectrion: .characters)) {
+    Section(header: charactersSectionHeader) {
       if viewModel.characters.isEmpty {
         Text("No results")
       } else {
@@ -120,13 +120,29 @@ extension FilmView {
 
 extension FilmView {
 
+  var charactersSectionHeader: some View {
+    HStack {
+      Text(FilmViewSection.characters.title)
+      Spacer()
+      if viewModel.needsDisclosure(forSection: FilmViewSection.characters) {
+        NavigationLink(
+          destination: CharacterListView(viewModel: viewModel.characterListViewModel),
+          tag: FilmViewSection.characters.destination.tag,
+          selection: $navigationTag,
+          label: {
+            headerButton(forDestination: FilmViewSection.characters.destination)
+        })
+      }
+    }
+  }
+
   func headerView(
     forSectrion section: FilmViewSection
   ) -> some View {
     HStack {
       Text(section.title)
       Spacer()
-      if viewModel.needsDisclosure(forDestination: section.destination) {
+      if viewModel.needsDisclosure(forSection: section) {
         headerButton(forDestination: section.destination)
       }
     }

@@ -123,8 +123,8 @@ final class FilmViewModel: ObservableObject {
     CharacterRowViewModel(character: character(atIndex: index))
   }
 
-  func needsDisclosure(forDestination destination: NavigationDestination) -> Bool {
-    switch destination {
+  func needsDisclosure(forSection section: FilmViewSection) -> Bool {
+    switch section {
     case .characters:
       return characters.count > FilmViewModel.maximumSectionRows
     case .planets:
@@ -154,5 +154,9 @@ final class FilmViewModel: ObservableObject {
     }
 
     return min(FilmViewModel.maximumSectionRows, allRows)
+  }
+
+  var characterListViewModel: CharacterListViewModel {
+    CharacterListViewModel(characters: characters)
   }
 }
