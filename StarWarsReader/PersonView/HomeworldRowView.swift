@@ -15,13 +15,25 @@ struct HomeworldRowViewModel {
   var name: String {
     homeworld?.name ?? "n/a"
   }
+
+  var planetViewModel: PlanetViewModel {
+    PlanetViewModel(planetId: homeworld!.planetId)
+  }
 }
 
 struct HomeworldRowView: View {
   let viewModel: HomeworldRowViewModel
 
   var body: some View {
-    Text(viewModel.name)
+    Group {
+      if viewModel.homeworld == nil {
+        Text(viewModel.name)
+      } else {
+        NavigationLink(destination: PlanetView(viewModel: viewModel.planetViewModel)) {
+          Text(viewModel.name)
+        }
+      }
+    }
   }
 }
 
