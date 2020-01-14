@@ -1,4 +1,4 @@
-query fetchSingleFilm($id:ID) {
+query singleFilmQuery($id:ID) {
   Film(id:$id) {
     characters(orderBy:name_ASC) {
       name

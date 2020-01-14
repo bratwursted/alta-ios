@@ -11,7 +11,7 @@
 		8F35A99923CB6B930045DEEC /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F35A99823CB6B930045DEEC /* DataFetcher.swift */; };
 		8F35A99B23CB6F8D0045DEEC /* SwapiQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F35A99A23CB6F8D0045DEEC /* SwapiQuery.swift */; };
 		8F35A99D23CB77170045DEEC /* AllFilmsQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 8F35A99C23CB77170045DEEC /* AllFilmsQuery.graphql */; };
-		8F35A9A023CB7BB90045DEEC /* FilmQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 8F35A99F23CB7BB90045DEEC /* FilmQuery.graphql */; };
+		8F35A9A023CB7BB90045DEEC /* SingleFilmQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 8F35A99F23CB7BB90045DEEC /* SingleFilmQuery.graphql */; };
 		8F35A9A223CB7D7F0045DEEC /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F35A9A123CB7D7F0045DEEC /* QueryTests.swift */; };
 		8F35A9A423CB945F0045DEEC /* FilmsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F35A9A323CB945F0045DEEC /* FilmsListView.swift */; };
 		8F35A9A623CB94700045DEEC /* FilmsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F35A9A523CB94700045DEEC /* FilmsListViewModel.swift */; };
@@ -41,6 +41,15 @@
 		8F4CEB2023CA5217000AAD47 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4CEB1F23CA5217000AAD47 /* Vehicle.swift */; };
 		8F4CEB2223CA5A66000AAD47 /* VehiclesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4CEB2123CA5A66000AAD47 /* VehiclesResponse.swift */; };
 		8F4CEB2523CA6059000AAD47 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4CEB2423CA6059000AAD47 /* Species.swift */; };
+		8F7E5C9423CD26BE00CC5A8E /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5C9323CD26BE00CC5A8E /* PersonView.swift */; };
+		8F7E5C9623CD26CB00CC5A8E /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5C9523CD26CB00CC5A8E /* PersonViewModel.swift */; };
+		8F7E5C9923CD2A4400CC5A8E /* SinglePersonQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 8F7E5C9823CD2A4400CC5A8E /* SinglePersonQuery.graphql */; };
+		8F7E5C9B23CD34E600CC5A8E /* HomeworldRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5C9A23CD34E600CC5A8E /* HomeworldRowView.swift */; };
+		8F7E5C9D23CD379600CC5A8E /* SpeciesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5C9C23CD379600CC5A8E /* SpeciesRowView.swift */; };
+		8F7E5CA123CD39D300CC5A8E /* StarshipRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CA023CD39D300CC5A8E /* StarshipRowView.swift */; };
+		8F7E5CA323CD3B1C00CC5A8E /* VehicleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CA223CD3B1C00CC5A8E /* VehicleRowView.swift */; };
+		8F7E5CA723CD3D2100CC5A8E /* PersonFilmRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CA623CD3D2100CC5A8E /* PersonFilmRowView.swift */; };
+		8F7E5CA923CD3F9A00CC5A8E /* CharacterRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CA823CD3F9A00CC5A8E /* CharacterRowView.swift */; };
 		8FDD8CBD23CAA1B800851267 /* SwapiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */; };
 		8FDD8CBF23CAB23900851267 /* FilmParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */; };
 		8FDD8CCF23CB61CD00851267 /* luke.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CC223CB61CD00851267 /* luke.json */; };
@@ -74,7 +83,7 @@
 		8F35A99823CB6B930045DEEC /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		8F35A99A23CB6F8D0045DEEC /* SwapiQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiQuery.swift; sourceTree = "<group>"; };
 		8F35A99C23CB77170045DEEC /* AllFilmsQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllFilmsQuery.graphql; sourceTree = "<group>"; };
-		8F35A99F23CB7BB90045DEEC /* FilmQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = FilmQuery.graphql; sourceTree = "<group>"; };
+		8F35A99F23CB7BB90045DEEC /* SingleFilmQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SingleFilmQuery.graphql; sourceTree = "<group>"; };
 		8F35A9A123CB7D7F0045DEEC /* QueryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
 		8F35A9A323CB945F0045DEEC /* FilmsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsListView.swift; sourceTree = "<group>"; };
 		8F35A9A523CB94700045DEEC /* FilmsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsListViewModel.swift; sourceTree = "<group>"; };
@@ -108,6 +117,15 @@
 		8F4CEB1F23CA5217000AAD47 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		8F4CEB2123CA5A66000AAD47 /* VehiclesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesResponse.swift; sourceTree = "<group>"; };
 		8F4CEB2423CA6059000AAD47 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		8F7E5C9323CD26BE00CC5A8E /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		8F7E5C9523CD26CB00CC5A8E /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
+		8F7E5C9823CD2A4400CC5A8E /* SinglePersonQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SinglePersonQuery.graphql; sourceTree = "<group>"; };
+		8F7E5C9A23CD34E600CC5A8E /* HomeworldRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworldRowView.swift; sourceTree = "<group>"; };
+		8F7E5C9C23CD379600CC5A8E /* SpeciesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesRowView.swift; sourceTree = "<group>"; };
+		8F7E5CA023CD39D300CC5A8E /* StarshipRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipRowView.swift; sourceTree = "<group>"; };
+		8F7E5CA223CD3B1C00CC5A8E /* VehicleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleRowView.swift; sourceTree = "<group>"; };
+		8F7E5CA623CD3D2100CC5A8E /* PersonFilmRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilmRowView.swift; sourceTree = "<group>"; };
+		8F7E5CA823CD3F9A00CC5A8E /* CharacterRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRowView.swift; sourceTree = "<group>"; };
 		8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiResponse.swift; sourceTree = "<group>"; };
 		8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmParsingTests.swift; sourceTree = "<group>"; };
 		8FDD8CC223CB61CD00851267 /* luke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = luke.json; sourceTree = "<group>"; };
@@ -148,7 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				8F35A99C23CB77170045DEEC /* AllFilmsQuery.graphql */,
-				8F35A99F23CB7BB90045DEEC /* FilmQuery.graphql */,
+				8F35A99F23CB7BB90045DEEC /* SingleFilmQuery.graphql */,
+				8F7E5C9823CD2A4400CC5A8E /* SinglePersonQuery.graphql */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -169,6 +188,7 @@
 			children = (
 				8F35A9B023CBA2AA0045DEEC /* FilmView.swift */,
 				8F35A9B223CBA2B30045DEEC /* FilmViewModel.swift */,
+				8F7E5CA823CD3F9A00CC5A8E /* CharacterRowView.swift */,
 			);
 			path = FilmView;
 			sourceTree = "<group>";
@@ -197,6 +217,7 @@
 				8F4CEAE923C9518F000AAD47 /* AppDelegate.swift */,
 				8F4CEAEB23C9518F000AAD47 /* SceneDelegate.swift */,
 				8F4CEAED23C9518F000AAD47 /* ContentView.swift */,
+				8F7E5C9723CD26D600CC5A8E /* PersonView */,
 				8F35A9B423CBA2BA0045DEEC /* FilmView */,
 				8F35A9A723CB94740045DEEC /* FilmsList */,
 				8FDD8CDE23CB630600851267 /* Parsing */,
@@ -261,6 +282,20 @@
 				8F4CEB2123CA5A66000AAD47 /* VehiclesResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8F7E5C9723CD26D600CC5A8E /* PersonView */ = {
+			isa = PBXGroup;
+			children = (
+				8F7E5C9323CD26BE00CC5A8E /* PersonView.swift */,
+				8F7E5C9523CD26CB00CC5A8E /* PersonViewModel.swift */,
+				8F7E5C9A23CD34E600CC5A8E /* HomeworldRowView.swift */,
+				8F7E5C9C23CD379600CC5A8E /* SpeciesRowView.swift */,
+				8F7E5CA023CD39D300CC5A8E /* StarshipRowView.swift */,
+				8F7E5CA223CD3B1C00CC5A8E /* VehicleRowView.swift */,
+				8F7E5CA623CD3D2100CC5A8E /* PersonFilmRowView.swift */,
+			);
+			path = PersonView;
 			sourceTree = "<group>";
 		};
 		8FDD8CC023CB61AE00851267 /* Data */ = {
@@ -384,7 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FDD8CD523CB61CD00851267 /* allVehicles.json in Resources */,
-				8F35A9A023CB7BB90045DEEC /* FilmQuery.graphql in Resources */,
+				8F35A9A023CB7BB90045DEEC /* SingleFilmQuery.graphql in Resources */,
 				8F4CEAF623C95199000AAD47 /* LaunchScreen.storyboard in Resources */,
 				8FDD8CD823CB61CD00851267 /* tatooine.json in Resources */,
 				8F4CEAF323C95199000AAD47 /* Preview Assets.xcassets in Resources */,
@@ -398,6 +433,7 @@
 				8FDD8CD723CB61CD00851267 /* allFilms.json in Resources */,
 				8F4CEAF023C95199000AAD47 /* Assets.xcassets in Resources */,
 				8FDD8CDB23CB61CD00851267 /* twileki.json in Resources */,
+				8F7E5C9923CD2A4400CC5A8E /* SinglePersonQuery.graphql in Resources */,
 				8FDD8CD123CB61CD00851267 /* films.json in Resources */,
 				8F35A99D23CB77170045DEEC /* AllFilmsQuery.graphql in Resources */,
 				8FDD8CD923CB61CD00851267 /* allPlanets.json in Resources */,
@@ -446,10 +482,14 @@
 				8F35A9A423CB945F0045DEEC /* FilmsListView.swift in Sources */,
 				8F35A9B323CBA2B30045DEEC /* FilmViewModel.swift in Sources */,
 				8F35A99B23CB6F8D0045DEEC /* SwapiQuery.swift in Sources */,
+				8F7E5C9B23CD34E600CC5A8E /* HomeworldRowView.swift in Sources */,
 				8F4CEB1E23CA4C77000AAD47 /* StarshipsResponse.swift in Sources */,
 				8F4CEAEA23C9518F000AAD47 /* AppDelegate.swift in Sources */,
 				8F4CEAEC23C9518F000AAD47 /* SceneDelegate.swift in Sources */,
+				8F7E5CA323CD3B1C00CC5A8E /* VehicleRowView.swift in Sources */,
 				8F35A9A623CB94700045DEEC /* FilmsListViewModel.swift in Sources */,
+				8F7E5C9423CD26BE00CC5A8E /* PersonView.swift in Sources */,
+				8F7E5C9D23CD379600CC5A8E /* SpeciesRowView.swift in Sources */,
 				8F35A9AF23CBA0870045DEEC /* Film+Strings.swift in Sources */,
 				8F4CEB1823CA4047000AAD47 /* Planet.swift in Sources */,
 				8F4CEB1623CA3D67000AAD47 /* PeopleResponse.swift in Sources */,
@@ -458,12 +498,16 @@
 				8F4CEB1423CA31AC000AAD47 /* Person.swift in Sources */,
 				8F4CEB1223CA2F81000AAD47 /* FilmsResponse.swift in Sources */,
 				8F4AEEED23CA9A1A005B27C8 /* SpeciesResponse.swift in Sources */,
+				8F7E5C9623CD26CB00CC5A8E /* PersonViewModel.swift in Sources */,
 				8F4CEB2223CA5A66000AAD47 /* VehiclesResponse.swift in Sources */,
+				8F7E5CA723CD3D2100CC5A8E /* PersonFilmRowView.swift in Sources */,
+				8F7E5CA123CD39D300CC5A8E /* StarshipRowView.swift in Sources */,
 				8F4AEEEF23CA9C11005B27C8 /* Data.swift in Sources */,
 				8F35A99923CB6B930045DEEC /* DataFetcher.swift in Sources */,
 				8F4CEB1A23CA444A000AAD47 /* PlanetsResponse.swift in Sources */,
 				8FDD8CBD23CAA1B800851267 /* SwapiResponse.swift in Sources */,
 				8F4CEB2523CA6059000AAD47 /* Species.swift in Sources */,
+				8F7E5CA923CD3F9A00CC5A8E /* CharacterRowView.swift in Sources */,
 				8F4CEAEE23C9518F000AAD47 /* ContentView.swift in Sources */,
 				8F35A9AB23CB9C720045DEEC /* FilmRowView.swift in Sources */,
 			);

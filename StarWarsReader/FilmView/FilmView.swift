@@ -14,13 +14,17 @@ struct FilmView: View {
 
   var body: some View {
     List {
-      topSection
-      productionSection
-      charactersSection
-      planetsSection
-      speciesSection
-      starshipsSection
-      vehiclesSection
+      if viewModel.film == nil {
+        Text("No result")
+      } else {
+        topSection
+        productionSection
+        charactersSection
+        planetsSection
+        speciesSection
+        starshipsSection
+        vehiclesSection
+      }
     }
     .navigationBarTitle(Text(viewModel.viewTitle), displayMode: .inline)
     .onAppear {
@@ -32,29 +36,21 @@ struct FilmView: View {
 extension FilmView {
   var topSection: some View {
     Section {
-      if viewModel.film != nil {
-        VStack(alignment: .leading, spacing: 12.0) {
-          Text("Episode \(viewModel.episode!)")
-          Text(viewModel.title!)
-            .font(.title)
-          Text("\"\(viewModel.crawlBeginning!)\"")
-        }
-      } else {
-        Text("No result")
+      VStack(alignment: .leading, spacing: 12.0) {
+        Text("Episode \(viewModel.episode!)")
+        Text(viewModel.title!)
+          .font(.title)
+        Text("\"\(viewModel.crawlBeginning!)\"")
       }
     }
   }
 
   var productionSection: some View {
     Section(header: Text("Production")) {
-      if viewModel.film != nil {
-        VStack(alignment: .leading, spacing: 12) {
-          Text("Release date: \(viewModel.releaseDate!)")
-          Text("Director: \(viewModel.director!)")
-          Text("Producers: \(viewModel.producers!)")
-        }
-      } else {
-        Text("No result")
+      VStack(alignment: .leading, spacing: 12) {
+        Text("Release date: \(viewModel.releaseDate!)")
+        Text("Director: \(viewModel.director!)")
+        Text("Producers: \(viewModel.producers!)")
       }
     }
   }
@@ -65,7 +61,7 @@ extension FilmView {
         Text("No results")
       } else {
         ForEach(0..<3) { index in
-          Text(self.viewModel.character(atIndex: index))
+          CharacterRowView(viewModel: self.viewModel.characterViewModel(forCharacterAtIndex: index))
         }
       }
     }

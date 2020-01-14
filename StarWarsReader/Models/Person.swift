@@ -83,7 +83,7 @@ struct Person: Codable {
   }
 
   /// Metadata describing a film that person appears in.
-  struct Film: Codable {
+  struct Film: Codable, Hashable {
 
     /// The title of the film (e.g., "A New Hope").
     let title: String
@@ -113,7 +113,7 @@ struct Person: Codable {
   }
 
   /// Metadat describing a species associated with a person.
-  struct Species: Codable {
+  struct Species: Codable, Hashable {
 
     /// The name of the species (e.g., "Wookie")
     let name: String
@@ -128,7 +128,7 @@ struct Person: Codable {
   }
 
   /// Metadat describing a starship associated with a person.
-  struct Starship: Codable {
+  struct Starship: Codable, Hashable {
 
     /// The name of the starship (e.g., "Millennium Falcon")
     let name: String
@@ -143,7 +143,7 @@ struct Person: Codable {
   }
 
   /// Metadat describing a vehicle associated with a person.
-  struct Vehicle: Codable {
+  struct Vehicle: Codable, Hashable {
 
     /// The name of the vehicle (e.g., "Snowspeeder")
     let name: String

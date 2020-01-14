@@ -1,0 +1,33 @@
+query singlePersonQuery($id:ID) {
+  Person(id:$id) {
+    birthYear
+    eyeColor
+    films(orderBy:episodeId_ASC) {
+      title
+      id
+    }
+    gender
+    hairColor
+    height
+    homeworld {
+      name
+      id
+    }
+    id
+    mass
+    name
+    skinColor
+    species(orderBy:name_ASC) {
+      name
+      id
+    }
+    starships(orderBy:name_ASC) {
+      name
+      id
+    }
+    vehicles(orderBy:name_ASC) {
+      name
+      id
+    }
+  }
+}

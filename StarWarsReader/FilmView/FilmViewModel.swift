@@ -97,8 +97,8 @@ final class FilmViewModel: ObservableObject {
     film?.producers.joined(separator: ", ")
   }
 
-  func character(atIndex index: Int) -> String {
-    characters[index].name
+  private func character(atIndex index: Int) -> Film.Character {
+    characters[index]
   }
 
   func planet(atIndex index: Int) -> String {
@@ -115,5 +115,9 @@ final class FilmViewModel: ObservableObject {
 
   func vehicle(atIndex index: Int) -> String {
     vehicles[index].name
+  }
+
+  func characterViewModel(forCharacterAtIndex index: Int) -> CharacterRowViewModel {
+    CharacterRowViewModel(character: character(atIndex: index))
   }
 }
