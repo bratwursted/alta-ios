@@ -22,7 +22,7 @@ struct StarshipQueryResponse: Codable {
 struct Starship: Codable {
 
   /// Metadata describing a film that features a `Starship`.
-  struct Film: Codable {
+  struct Film: Codable, Hashable {
 
     /// The title of this film (e.g., "A New Hope")
     let title: String
@@ -37,7 +37,7 @@ struct Starship: Codable {
   }
 
   /// Metadata desribing a person who pilots a `Starship`
-  struct Pilot: Codable {
+  struct Pilot: Codable, Hashable {
 
     /// The name of this pilot (e.g., "Han Solo")
     let name: String

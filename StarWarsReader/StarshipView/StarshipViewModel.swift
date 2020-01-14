@@ -147,4 +147,12 @@ final class StarshipViewModel: ObservableObject {
     }
     return "\(cargoValue) kg."
   }
+
+  func rowViewModel(forFilm film: Starship.Film) -> StarshipFilmRowViewModel {
+    StarshipFilmRowViewModel(film: film)
+  }
+
+  func rowViewModel(forPilot pilot: Starship.Pilot) -> PilotRowViewModel {
+    PilotRowViewModel(pilot: pilot)
+  }
 }

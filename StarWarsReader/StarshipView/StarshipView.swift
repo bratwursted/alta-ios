@@ -20,6 +20,8 @@ struct StarshipView: View {
         primarySection
         speedAndPowerSection
         crewCapacitySection
+        filmsSection
+        pilotsSection
       }
     }
     .navigationBarTitle(Text(viewModel.viewTitle), displayMode: .inline)
@@ -60,6 +62,30 @@ extension StarshipView {
         Text(verbatim: "Max. air speed: \(viewModel.maximumSpeed)")
         Text(verbatim: "Megalights: \(viewModel.megalights)")
         Text(verbatim: "Hyperdrive rating: \(viewModel.hyperdriveClass)")
+      }
+    }
+  }
+
+  var filmsSection: some View {
+    Section(header: Text("Appears in")) {
+      if viewModel.films.isEmpty {
+        Text("No results")
+      } else {
+        ForEach(viewModel.films, id: \.self) { film in
+          StarshipFilmRowView(viewModel: self.viewModel.rowViewModel(forFilm: film))
+        }
+      }
+    }
+  }
+
+  var pilotsSection: some View {
+    Section(header: Text("Pilots")) {
+      if viewModel.pilots.isEmpty {
+        Text("No results")
+      } else {
+        ForEach(viewModel.pilots, id: \.self) { pilot in
+          PilotRowView(viewModel: self.viewModel.rowViewModel(forPilot: pilot))
+        }
       }
     }
   }

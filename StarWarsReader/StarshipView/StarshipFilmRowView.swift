@@ -8,14 +8,38 @@
 
 import SwiftUI
 
-struct StarshipFilmRowView: View {
-  var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct StarshipFilmRowViewModel {
+
+  let film: Starship.Film
+
+  var title: String {
+    film.title
+  }
+
+  var filmViewModel: FilmViewModel {
+    FilmViewModel(filmId: film.filmId)
   }
 }
 
+struct StarshipFilmRowView: View {
+
+  let viewModel: StarshipFilmRowViewModel
+
+  var body: some View {
+    NavigationLink(destination: FilmView(viewModel: viewModel.filmViewModel, navigationTag: nil)) {
+      Text(viewModel.title)
+    }
+  }
+}
+
+// swiftlint:disable all
 struct StarshipFilmRowView_Previews: PreviewProvider {
+  static let vm: StarshipFilmRowViewModel = {
+    let falcon = loadSampleStarship("falcon")
+    return StarshipFilmRowViewModel(film: falcon.films.first!)
+  }()
+
   static var previews: some View {
-    StarshipFilmRowView()
+    StarshipFilmRowView(viewModel: vm)
   }
 }
