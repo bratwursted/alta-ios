@@ -67,6 +67,8 @@
 		8F7E5CC823CDC53F00CC5A8E /* PlanetParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CC723CDC53F00CC5A8E /* PlanetParsingTests.swift */; };
 		8F7E5CCA23CDCF1700CC5A8E /* PlanetFilmRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CC923CDCF1600CC5A8E /* PlanetFilmRowView.swift */; };
 		8F7E5CCC23CDD09B00CC5A8E /* ResidentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CCB23CDD09B00CC5A8E /* ResidentRowView.swift */; };
+		8F7E5CCF23CDDC8100CC5A8E /* SpeciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CCE23CDDC8100CC5A8E /* SpeciesView.swift */; };
+		8F7E5CD123CDDC8B00CC5A8E /* SpeciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CD023CDDC8B00CC5A8E /* SpeciesViewModel.swift */; };
 		8FDD8CBD23CAA1B800851267 /* SwapiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */; };
 		8FDD8CBF23CAB23900851267 /* FilmParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */; };
 		8FDD8CCF23CB61CD00851267 /* luke.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CC223CB61CD00851267 /* luke.json */; };
@@ -160,6 +162,8 @@
 		8F7E5CC723CDC53F00CC5A8E /* PlanetParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetParsingTests.swift; sourceTree = "<group>"; };
 		8F7E5CC923CDCF1600CC5A8E /* PlanetFilmRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetFilmRowView.swift; sourceTree = "<group>"; };
 		8F7E5CCB23CDD09B00CC5A8E /* ResidentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentRowView.swift; sourceTree = "<group>"; };
+		8F7E5CCE23CDDC8100CC5A8E /* SpeciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesView.swift; sourceTree = "<group>"; };
+		8F7E5CD023CDDC8B00CC5A8E /* SpeciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesViewModel.swift; sourceTree = "<group>"; };
 		8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiResponse.swift; sourceTree = "<group>"; };
 		8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmParsingTests.swift; sourceTree = "<group>"; };
 		8FDD8CC223CB61CD00851267 /* luke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = luke.json; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 				8FDD8CDE23CB630600851267 /* Parsing */,
 				8F7E5C9723CD26D600CC5A8E /* PersonView */,
 				8F7E5CC223CDBC1700CC5A8E /* PlanetView */,
+				8F7E5CCD23CDDC6400CC5A8E /* SpeciesView */,
 				8F4CEAF123C95199000AAD47 /* Preview Content */,
 			);
 			path = StarWarsReader;
@@ -355,6 +360,15 @@
 				8F7E5CCB23CDD09B00CC5A8E /* ResidentRowView.swift */,
 			);
 			path = PlanetView;
+			sourceTree = "<group>";
+		};
+		8F7E5CCD23CDDC6400CC5A8E /* SpeciesView */ = {
+			isa = PBXGroup;
+			children = (
+				8F7E5CCE23CDDC8100CC5A8E /* SpeciesView.swift */,
+				8F7E5CD023CDDC8B00CC5A8E /* SpeciesViewModel.swift */,
+			);
+			path = SpeciesView;
 			sourceTree = "<group>";
 		};
 		8FDD8CC023CB61AE00851267 /* Data */ = {
@@ -537,6 +551,7 @@
 				8F4CEB2023CA5217000AAD47 /* Vehicle.swift in Sources */,
 				8F4CEB1023CA255E000AAD47 /* Film.swift in Sources */,
 				8F35A9B123CBA2AA0045DEEC /* FilmView.swift in Sources */,
+				8F7E5CCF23CDDC8100CC5A8E /* SpeciesView.swift in Sources */,
 				8FDD8CDD23CB62FF00851267 /* Parsing.swift in Sources */,
 				8F7E5CAF23CD516A00CC5A8E /* FilmViewSection.swift in Sources */,
 				8F4CEB1C23CA47BB000AAD47 /* Starship.swift in Sources */,
@@ -576,6 +591,7 @@
 				8F7E5CA123CD39D300CC5A8E /* StarshipRowView.swift in Sources */,
 				8F4AEEEF23CA9C11005B27C8 /* Data.swift in Sources */,
 				8F35A99923CB6B930045DEEC /* DataFetcher.swift in Sources */,
+				8F7E5CD123CDDC8B00CC5A8E /* SpeciesViewModel.swift in Sources */,
 				8F4CEB1A23CA444A000AAD47 /* PlanetsResponse.swift in Sources */,
 				8FDD8CBD23CAA1B800851267 /* SwapiResponse.swift in Sources */,
 				8F7E5CB123CD585200CC5A8E /* FilmPlanetListView.swift in Sources */,
