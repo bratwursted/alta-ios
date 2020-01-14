@@ -82,7 +82,7 @@ struct Planet: Codable {
   let rotationPeriod: Int
 
   /// The percentage of surface area that is naturally occuring water.
-  let surfaceWater: Float
+  let surfaceWater: Float?
 
   /// The terrain of the planet.
   let terrain: [String]

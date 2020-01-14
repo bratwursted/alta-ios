@@ -75,7 +75,7 @@ extension FilmView {
         Text("No results")
       } else {
         ForEach(0..<self.viewModel.numberOfRows(forSection: .planets)) { index in
-          Text(self.viewModel.planet(atIndex: index))
+          FilmPlanetRowView(viewModel: self.viewModel.planetViewModel(forPlanetAtIndex: index))
         }
       }
     }

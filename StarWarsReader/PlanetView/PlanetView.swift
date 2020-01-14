@@ -46,7 +46,7 @@ extension PlanetView {
       VStack(alignment: .leading, spacing: 12) {
         Text("Climate: \(viewModel.climate)")
         Text("Terrain: \(viewModel.terrain)")
-        Text("Water: \(viewModel.surfaceWater)% total surface area")
+        Text("Surface water: \(viewModel.surfaceWater)")
       }
     }
   }
@@ -54,7 +54,7 @@ extension PlanetView {
   var sizeAndPopulationSection: some View {
     Section(header: Text("Size & Population")) {
       VStack(alignment: .leading, spacing: 12) {
-        Text(verbatim: "Diameter: \(viewModel.diameter)")
+        Text(verbatim: "Diameter: \(viewModel.diameter) km.")
         Text(verbatim: "\(viewModel.gravity) gravity")
         Text(verbatim: "Population: \(viewModel.population)")
         Text(verbatim: "Rotational period: \(viewModel.rotation) standard hrs.")

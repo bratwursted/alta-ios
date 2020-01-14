@@ -15,6 +15,10 @@ struct FilmPlanetRowViewModel {
   var name: String {
     planet.name
   }
+
+  var planetViewModel: PlanetViewModel {
+    PlanetViewModel(planetId: planet.planetId)
+  }
 }
 
 struct FilmPlanetRowView: View {
@@ -22,7 +26,9 @@ struct FilmPlanetRowView: View {
   let viewModel: FilmPlanetRowViewModel
 
   var body: some View {
-    Text(viewModel.name)
+    NavigationLink(destination: PlanetView(viewModel: viewModel.planetViewModel)) {
+      Text(viewModel.name)
+    }
   }
 }
 

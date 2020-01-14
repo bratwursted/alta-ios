@@ -119,7 +119,7 @@ final class PlanetViewModel: ObservableObject {
     guard let waterArea = planet?.surfaceWater else {
       return Strings.notAvailable
     }
-    return String(waterArea)
+    return "\(String(waterArea))%"
   }
 
   func rowViewModel(forFilm film: Planet.Film) -> PlanetFilmRowViewModel {

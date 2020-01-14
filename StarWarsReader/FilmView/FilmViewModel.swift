@@ -103,8 +103,8 @@ final class FilmViewModel: ObservableObject {
     characters[index]
   }
 
-  func planet(atIndex index: Int) -> String {
-    planets[index].name
+  func planet(atIndex index: Int) -> Film.Planet {
+    planets[index]
   }
 
   func species(atIndex index: Int) -> String {
@@ -121,6 +121,10 @@ final class FilmViewModel: ObservableObject {
 
   func characterViewModel(forCharacterAtIndex index: Int) -> CharacterRowViewModel {
     CharacterRowViewModel(character: character(atIndex: index))
+  }
+
+  func planetViewModel(forPlanetAtIndex index: Int) -> FilmPlanetRowViewModel {
+    FilmPlanetRowViewModel(planet: planet(atIndex: index))
   }
 
   func needsDisclosure(forSection section: FilmViewSection) -> Bool {
