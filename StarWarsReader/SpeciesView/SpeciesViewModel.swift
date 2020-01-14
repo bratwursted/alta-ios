@@ -67,10 +67,14 @@ final class SpeciesViewModel: ObservableObject {
   }
 
   var speciesDescription: String {
-    guard let classification = species?.classification, let designation = species?.designation else {
-      return SpeciesStrings.notAvailable
+    var description = ""
+    if let classification = species?.classification {
+      description = "\(classification.localizedCapitalized) "
     }
-    return "\(designation.localizedCapitalized) \(classification.localizedCapitalized)"
+    if let designation = species?.designation {
+      description += designation.localizedCapitalized
+    }
+    return description.isEmpty ? SpeciesStrings.notAvailable : description
   }
 
   var language: String {
