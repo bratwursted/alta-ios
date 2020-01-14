@@ -15,6 +15,10 @@ struct PersonFilmRowViewModel {
   var title: String {
     film.title
   }
+
+  var filmViewModel: FilmViewModel {
+    FilmViewModel(filmId: film.filmId)
+  }
 }
 
 struct PersonFilmRowView: View {
@@ -22,7 +26,9 @@ struct PersonFilmRowView: View {
   let viewModel: PersonFilmRowViewModel
 
   var body: some View {
-    Text(viewModel.title)
+    NavigationLink(destination: FilmView(viewModel: viewModel.filmViewModel, navigationTag: nil)) {
+      Text(viewModel.title)
+    }
   }
 }
 
