@@ -171,4 +171,8 @@ final class FilmViewModel: ObservableObject {
   var starshipsViewModel: FilmStarshipListViewModel {
     FilmStarshipListViewModel(starships: starships)
   }
+
+  var vehicleListViewModel: FilmVehicleListViewModel {
+    FilmVehicleListViewModel(vehicles: vehicles)
+  }
 }

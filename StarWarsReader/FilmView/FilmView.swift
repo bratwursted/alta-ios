@@ -106,7 +106,7 @@ extension FilmView {
   }
 
   var vehiclesSection: some View {
-    Section(header: headerView(forSectrion: .vehicles)) {
+    Section(header: vehiclesSectionHeader) {
       if viewModel.vehicles.isEmpty {
         Text("No results")
       } else {
@@ -184,14 +184,18 @@ extension FilmView {
     }
   }
 
-  func headerView(
-    forSectrion section: FilmViewSection
-  ) -> some View {
+  var vehiclesSectionHeader: some View {
     HStack {
-      Text(section.title)
+      Text(FilmViewSection.vehicles.title)
       Spacer()
-      if viewModel.needsDisclosure(forSection: section) {
-        headerButton(forDestination: section.destination)
+      if viewModel.needsDisclosure(forSection: FilmViewSection.vehicles) {
+        NavigationLink(
+          destination: FilmVehicleListView(viewModel: viewModel.vehicleListViewModel),
+          tag: FilmViewSection.vehicles.destination.tag,
+          selection: $navigationTag,
+          label: {
+            headerButton(forDestination: FilmViewSection.vehicles.destination)
+        })
       }
     }
   }
