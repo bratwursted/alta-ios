@@ -37,9 +37,9 @@ extension VehicleView {
     Section {
       VStack(alignment: .leading, spacing: 12) {
         Text(verbatim: viewModel.name)
-        Text(verbatim: "Model: \(viewModel.model)")
-        Text(verbatim: "Class: \(viewModel.classification)")
         Text(verbatim: "Manufacturer: \(viewModel.manufacturer)")
+        Text(verbatim: "Class: \(viewModel.classification)")
+        Text(verbatim: "Model: \(viewModel.model)")
         Text(verbatim: "Cost: \(viewModel.cost)")
       }
     }
@@ -51,6 +51,7 @@ extension VehicleView {
         Text(verbatim: "Length: \(viewModel.length)")
         Text(verbatim: "Crew: \(viewModel.crew)")
         Text(verbatim: "Passengers: \(viewModel.passengers)")
+        Text(verbatim: "Cargo: \(viewModel.cargo)")
         Text(verbatim: "Consumables: \(viewModel.consumables)")
       }
     }
