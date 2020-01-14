@@ -22,7 +22,7 @@ struct VehicleQueryResponse: Codable {
 struct Vehicle: Codable {
 
   /// Metadata describing a Star Wars film featuring a vehicle.
-  struct Film: Codable {
+  struct Film: Codable, Hashable {
 
     /// The film's title, (e.g., "A New Hope")
     let title: String
@@ -37,7 +37,7 @@ struct Vehicle: Codable {
   }
 
   /// Metadata describing a person who pilots a vehicle.
-  struct Pilot: Codable {
+  struct Pilot: Codable, Hashable {
 
     /// The name of the pilot (e.g., "Chewbacca")
     let name: String

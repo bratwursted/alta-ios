@@ -20,6 +20,8 @@ struct VehicleView: View {
         nameSection
         capacitySection
         speedSection
+        filmsSection
+        pilotsSection
       }
     }
     .navigationBarTitle(Text(viewModel.viewTitle), displayMode: .inline)
@@ -57,6 +59,30 @@ extension VehicleView {
   var speedSection: some View {
     Section(header: Text("Speed")) {
       Text(verbatim: "Max. speed: \(viewModel.maximumSpeed)")
+    }
+  }
+
+  var filmsSection: some View {
+    Section(header: Text("Appears in")) {
+      if viewModel.films.isEmpty {
+        Text("No results")
+      } else {
+        ForEach(viewModel.films, id: \.self) { film in
+          VehicleFilmRowView(viewModel: self.viewModel.rowViewModel(forFilm: film))
+        }
+      }
+    }
+  }
+
+  var pilotsSection: some View {
+    Section(header: Text("Pilots")) {
+      if viewModel.pilots.isEmpty {
+        Text("No results")
+      } else {
+        ForEach(viewModel.pilots, id: \.self) { pilot in
+          VehiclePilotRowView(viewModel: self.viewModel.rowViewModel(forPilot: pilot))
+        }
+      }
     }
   }
 }

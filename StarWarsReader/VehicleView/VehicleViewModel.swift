@@ -137,4 +137,12 @@ final class VehicleViewModel: ObservableObject {
     }
     return "\(cargoCapacity) kg."
   }
+
+  func rowViewModel(forFilm film: Vehicle.Film) -> VehicleFilmRowViewModel {
+    VehicleFilmRowViewModel(film: film)
+  }
+
+  func rowViewModel(forPilot pilot: Vehicle.Pilot) -> VehiclePilotRowViewModel {
+    VehiclePilotRowViewModel(pilot: pilot)
+  }
 }
