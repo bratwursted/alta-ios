@@ -33,6 +33,11 @@ func loadSampleSpecies(_ name: String) -> Species {
   return response.data.species
 }
 
+func loadSampleStarship(_ name: String) -> Starship {
+  let response: SwapiResponse<StarshipQueryResponse> = load(name)
+  return response.data.starship
+}
+
 func load<T: Decodable>(_ name: String) -> T {
   guard let fileUrl = Bundle.main.url(forResource: name, withExtension: "json") else {
     fatalError("Expected to find data file \(name)")

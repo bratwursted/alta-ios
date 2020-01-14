@@ -14,6 +14,7 @@ struct StarshipView: View {
     }
 }
 
+// swiftlint:disable all
 struct StarshipView_Previews: PreviewProvider {
     static var previews: some View {
         StarshipView()
