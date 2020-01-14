@@ -182,7 +182,7 @@ struct Person: Codable {
   let personId: String
 
   /// The mass of the person in kilograms.
-  let mass: Float
+  let mass: Float?
 
   /// The person's name.
   let name: String

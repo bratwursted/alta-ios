@@ -15,6 +15,10 @@ struct ResidentRowViewModel {
   var name: String {
     resident.name
   }
+
+  var personViewModel: PersonViewModel {
+    PersonViewModel(resourceId: resident.residentId)
+  }
 }
 
 struct ResidentRowView: View {
@@ -22,7 +26,9 @@ struct ResidentRowView: View {
   let viewModel: ResidentRowViewModel
 
   var body: some View {
-    Text(viewModel.name)
+    NavigationLink(destination: PersonView(viewModel: viewModel.personViewModel)) {
+      Text(viewModel.name)
+    }
   }
 }
 
