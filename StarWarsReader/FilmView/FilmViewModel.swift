@@ -119,8 +119,8 @@ final class FilmViewModel: ObservableObject {
     starships[index]
   }
 
-  func vehicle(atIndex index: Int) -> String {
-    vehicles[index].name
+  func vehicle(atIndex index: Int) -> Film.Vehicle {
+    vehicles[index]
   }
 
   func characterViewModel(forCharacterAtIndex index: Int) -> CharacterRowViewModel {
@@ -137,6 +137,10 @@ final class FilmViewModel: ObservableObject {
 
   func starshipViewModel(forStarshipAtIndex index: Int) -> FilmStarshipRowViewModel {
     FilmStarshipRowViewModel(starship: starships(atIndex: index))
+  }
+
+  func vehicleViewModel(forVehicleAtIndex index: Int) -> FilmVehicleRowViewModel {
+    FilmVehicleRowViewModel(vehicle: vehicle(atIndex: index))
   }
 
   func needsDisclosure(forSection section: FilmViewSection) -> Bool {
