@@ -70,18 +70,18 @@ final class PersonViewModel: ObservableObject {
 
   var birthYear: String {
     guard let born = person?.birthYear else {
-      return "n/a"
+      return String.valueNotAvailable
     }
     return born
   }
 
-  var gender: String? {
-    person?.gender.rawValue.localizedCapitalized
+  var gender: String {
+    person?.gender.rawValue.localizedCapitalized ?? String.valueNotAvailable
   }
 
   var height: String {
     guard let heightValue = person?.height else {
-      return "n/a"
+      return String.valueNotAvailable
     }
     let heightMeters = Float(heightValue) / 100
     return String(heightMeters)
@@ -93,21 +93,21 @@ final class PersonViewModel: ObservableObject {
 
   var hair: String {
     guard let hairColors = person?.hairColor else {
-      return "n/a"
+      return String.valueNotAvailable
     }
     return hairColors.map { $0.rawValue.localizedLowercase }.joined(separator: ", ")
   }
 
   var eyes: String {
     guard let eyeColors = person?.eyeColor else {
-      return "n/a"
+      return String.valueNotAvailable
     }
     return eyeColors.map { $0.rawValue.localizedLowercase }.joined(separator: ", ")
   }
 
   var skin: String {
     guard let skinTones = person?.skinColor else {
-      return "n/a"
+      return String.valueNotAvailable
     }
     return skinTones.map { $0.rawValue.localizedLowercase }.joined(separator: ", ")
   }

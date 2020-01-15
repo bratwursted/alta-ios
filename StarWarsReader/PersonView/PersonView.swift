@@ -38,7 +38,7 @@ extension PersonView {
     Section {
       VStack(alignment: .leading, spacing: 12) {
         Text(verbatim: viewModel.name!)
-        Text(verbatim: "Gender: \(viewModel.gender!)")
+        Text(verbatim: "Gender: \(viewModel.gender)")
         Text(verbatim: "Born: \(viewModel.birthYear)")
       }
     }
