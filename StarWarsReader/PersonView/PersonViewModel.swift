@@ -76,7 +76,10 @@ final class PersonViewModel: ObservableObject {
   }
 
   var gender: String {
-    person?.gender.rawValue.localizedCapitalized ?? String.valueNotAvailable
+    guard let genderValue = person?.gender else {
+      return String.valueNotAvailable
+    }
+    return genderValue.rawValue.localizedCapitalized
   }
 
   var height: String {

@@ -164,13 +164,13 @@ struct Person: Codable {
   let eyeColor: [EyeColor]?
 
   /// The person's `Gender`.
-  let gender: Gender
+  let gender: Gender?
 
   /// The person's `HairColor`.
   let hairColor: [HairColor]?
 
   /// The person's height in centimeters
-  let height: Int
+  let height: Int?
 
   /// The `Planet` the person was born on .
   let homeworld: Planet?
