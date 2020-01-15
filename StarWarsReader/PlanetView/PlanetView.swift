@@ -65,16 +65,24 @@ extension PlanetView {
 
   var filmsSection: some View {
     Section(header: Text("Appears in")) {
-      ForEach(viewModel.films, id: \.self) { film  in
-        PlanetFilmRowView(viewModel: self.viewModel.rowViewModel(forFilm: film))
+      if viewModel.films.isEmpty {
+        Text("No results")
+      } else {
+        ForEach(viewModel.films, id: \.self) { film  in
+          PlanetFilmRowView(viewModel: self.viewModel.rowViewModel(forFilm: film))
+        }
       }
     }
   }
 
   var residentsSection: some View {
     Section(header: Text("Residents")) {
-      ForEach(viewModel.residents, id: \.self) { resident in
-        ResidentRowView(viewModel: self.viewModel.rowViewModel(forResident: resident))
+      if viewModel.residents.isEmpty {
+        Text("No results")
+      } else {
+        ForEach(viewModel.residents, id: \.self) { resident in
+          ResidentRowView(viewModel: self.viewModel.rowViewModel(forResident: resident))
+        }
       }
     }
   }
