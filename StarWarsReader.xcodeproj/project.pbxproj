@@ -86,6 +86,7 @@
 		8F7E5CF323CE871C00CC5A8E /* VehiclePilotRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CF223CE871C00CC5A8E /* VehiclePilotRowView.swift */; };
 		8F7E5CF523CE915900CC5A8E /* FilmCrawlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CF423CE915900CC5A8E /* FilmCrawlView.swift */; };
 		8F7E5CF723CECEF100CC5A8E /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CF623CECEF100CC5A8E /* String+Helpers.swift */; };
+		8F7E5CFB23CF4EC900CC5A8E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8F7E5CFA23CF4EC800CC5A8E /* README.md */; };
 		8FDD8CBD23CAA1B800851267 /* SwapiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */; };
 		8FDD8CBF23CAB23900851267 /* FilmParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */; };
 		8FDD8CCF23CB61CD00851267 /* luke.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CC223CB61CD00851267 /* luke.json */; };
@@ -198,6 +199,7 @@
 		8F7E5CF223CE871C00CC5A8E /* VehiclePilotRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePilotRowView.swift; sourceTree = "<group>"; };
 		8F7E5CF423CE915900CC5A8E /* FilmCrawlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCrawlView.swift; sourceTree = "<group>"; };
 		8F7E5CF623CECEF100CC5A8E /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
+		8F7E5CFA23CF4EC800CC5A8E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiResponse.swift; sourceTree = "<group>"; };
 		8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmParsingTests.swift; sourceTree = "<group>"; };
 		8FDD8CC223CB61CD00851267 /* luke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = luke.json; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		8F4CEAE823C9518F000AAD47 /* StarWarsReader */ = {
 			isa = PBXGroup;
 			children = (
+				8F7E5CFA23CF4EC800CC5A8E /* README.md */,
 				8F4CEAF723C95199000AAD47 /* Info.plist */,
 				8F4CEAE923C9518F000AAD47 /* AppDelegate.swift */,
 				8F4CEAEB23C9518F000AAD47 /* SceneDelegate.swift */,
@@ -564,6 +567,7 @@
 				8F4CEAF623C95199000AAD47 /* LaunchScreen.storyboard in Resources */,
 				8FDD8CD823CB61CD00851267 /* tatooine.json in Resources */,
 				8F4CEAF323C95199000AAD47 /* Preview Assets.xcassets in Resources */,
+				8F7E5CFB23CF4EC900CC5A8E /* README.md in Resources */,
 				8FDD8CD423CB61CD00851267 /* allPersons.json in Resources */,
 				8F7E5CE223CE59A700CC5A8E /* SingleStarshipQuery.graphql in Resources */,
 				8FDD8CCF23CB61CD00851267 /* luke.json in Resources */,
