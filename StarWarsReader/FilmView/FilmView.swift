@@ -37,12 +37,14 @@ struct FilmView: View {
 
 extension FilmView {
   var topSection: some View {
-    Section {
-      VStack(alignment: .leading, spacing: 12.0) {
-        Text("Episode \(viewModel.episode!)")
-        Text(viewModel.title!)
-          .font(.title)
-        Text("\"\(viewModel.crawlBeginning!)\"")
+    NavigationLink(destination: FilmCrawlView(viewModel: FilmCrawlViewModel(film: viewModel.film!))) {
+      Section {
+        VStack(alignment: .leading, spacing: 12.0) {
+          Text("Episode \(viewModel.episode!)")
+          Text(viewModel.title!)
+            .font(.title)
+          Text("\"\(viewModel.crawlBeginning!)\"")
+        }
       }
     }
   }
