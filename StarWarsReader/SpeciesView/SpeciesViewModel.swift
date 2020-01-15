@@ -64,11 +64,11 @@ final class SpeciesViewModel: ObservableObject {
 
   var speciesDescription: String {
     var description = ""
-    if let classification = species?.classification {
-      description = "\(classification.localizedCapitalized) "
-    }
     if let designation = species?.designation {
-      description += designation.localizedCapitalized
+      description = "\(designation.localizedCapitalized) "
+    }
+    if let classification = species?.classification {
+      description += classification.localizedCapitalized
     }
     return description.isEmpty ? String.valueNotAvailable : description
   }
