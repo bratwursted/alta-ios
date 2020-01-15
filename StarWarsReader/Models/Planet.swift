@@ -52,10 +52,10 @@ struct Planet: Codable {
   }
 
   /// The climate of this planet.
-  let climate: [String]
+  let climate: [String]?
 
   /// The average diamtere of this planet in kilometers.
-  let diameter: Int
+  let diameter: Int?
 
   /// An aray of `Film` featuring this planet.
   let films: [Film]
@@ -70,7 +70,7 @@ struct Planet: Codable {
   let name: String
 
   /// The number of standard days for the planet to make one orbit of its local star.
-  let orbitalPeriod: Int
+  let orbitalPeriod: Int?
 
   /// The average population of inhabitants for this planet.
   let population: Float?
@@ -79,7 +79,7 @@ struct Planet: Codable {
   let residents: [Resident]
 
   /// The number of standard hours for the planet to make one roation on it's axis.
-  let rotationPeriod: Int
+  let rotationPeriod: Int?
 
   /// The percentage of surface area that is naturally occuring water.
   let surfaceWater: Float?
