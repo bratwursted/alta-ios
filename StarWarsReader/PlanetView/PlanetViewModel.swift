@@ -11,10 +11,6 @@ import Combine
 
 final class PlanetViewModel: ObservableObject {
 
-  private struct Strings {
-    static let notAvailable = "n/a"
-  }
-
   private let formatter: NumberFormatter = {
     let formatter = NumberFormatter()
     formatter.locale = Locale.current
@@ -70,58 +66,60 @@ final class PlanetViewModel: ObservableObject {
   }
 
   var name: String {
-    planet?.name ?? Strings.notAvailable
+    planet?.name ?? String.valueNotAvailable
   }
 
   var climate: String {
     guard let climates = planet?.climate else {
-      return "n/a"
+      return String.valueNotAvailable
     }
     return climates.joined(separator: ", ").localizedCapitalized
   }
 
   var terrain: String {
     guard let terrains = planet?.terrain else {
-      return "n/a"
+      return String.valueNotAvailable
     }
     return terrains.joined(separator: ", ").localizedCapitalized
   }
 
   var diameter: String {
-    guard let planetDiameter = planet?.diameter else {
-      return Strings.notAvailable
+    guard let planetDiameter = planet?.diameter,
+      let formattedDiameter = formatter.string(from: NSNumber(value: planetDiameter)) else {
+      return String.valueNotAvailable
     }
-    return formatter.string(from: NSNumber(value: planetDiameter)) ?? Strings.notAvailable
+    return formattedDiameter
   }
 
   var gravity: String {
-    planet?.gravity ?? Strings.notAvailable
+    planet?.gravity ?? String.valueNotAvailable
   }
 
   var orbit: String {
     guard let period = planet?.orbitalPeriod else {
-      return Strings.notAvailable
+      return String.valueNotAvailable
     }
     return String(period)
   }
 
   var rotation: String {
     guard let period = planet?.rotationPeriod else {
-      return Strings.notAvailable
+      return String.valueNotAvailable
     }
     return String(period)
   }
 
   var population: String {
-    guard let planetPopulation = planet?.population else {
-      return Strings.notAvailable
+    guard let planetPopulation = planet?.population,
+      let formattedPopulation = formatter.string(from: NSNumber(value: Double(planetPopulation))) else {
+      return String.valueNotAvailable
     }
-    return formatter.string(from: NSNumber(value: Double(planetPopulation))) ?? Strings.notAvailable
+    return formattedPopulation
   }
 
   var surfaceWater: String {
     guard let waterArea = planet?.surfaceWater else {
-      return Strings.notAvailable
+      return String.valueNotAvailable
     }
     return "\(String(waterArea))%"
   }
