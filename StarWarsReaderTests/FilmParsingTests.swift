@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import StarWarsReader
+@testable import Star_Wars_Reader
 
 class FilmParsingTests: XCTestCase {
 
