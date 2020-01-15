@@ -73,7 +73,7 @@ struct Planet: Codable {
   let orbitalPeriod: Int
 
   /// The average population of inhabitants for this planet.
-  let population: Float
+  let population: Float?
 
   /// An array of people associated with this planet, empty if the planet is uninhabited.
   let residents: [Resident]
