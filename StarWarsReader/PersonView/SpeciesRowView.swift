@@ -14,6 +14,10 @@ struct SpeciesRowViewModel {
   var name: String {
     species.name
   }
+
+  var speciesViewModel: SpeciesViewModel {
+    SpeciesViewModel(resourceId: species.speciesId)
+  }
 }
 
 struct SpeciesRowView: View {
@@ -21,7 +25,9 @@ struct SpeciesRowView: View {
   let viewModel: SpeciesRowViewModel
 
   var body: some View {
-    Text(viewModel.name)
+    NavigationLink(destination: SpeciesView(viewModel: viewModel.speciesViewModel)) {
+      Text(viewModel.name)
+    }
   }
 }
 
