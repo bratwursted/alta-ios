@@ -99,7 +99,7 @@ struct Species: Codable {
   }
 
   /// The average height in centimeters for members of this species.
-  let height: Int
+  let height: Int?
 
   /// The average lifespan in standard years for members of this species.
   let lifespan: Int?
