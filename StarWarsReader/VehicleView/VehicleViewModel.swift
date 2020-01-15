@@ -18,8 +18,6 @@ final class VehicleViewModel: ObservableObject {
     return formatter
   }()
 
-  private let valueNotAvailable = "n/a"
-
   private let vehicleId: String
 
   private let dataService: Swapi
@@ -68,32 +66,32 @@ final class VehicleViewModel: ObservableObject {
   }
 
   var name: String {
-    vehicle?.name ?? valueNotAvailable
+    vehicle?.name ?? String.valueNotAvailable
   }
 
   var model: String {
-    vehicle?.model.localizedCapitalized ?? valueNotAvailable
+    vehicle?.model.localizedCapitalized ?? String.valueNotAvailable
   }
 
   var manufacturer: String {
     guard let makers = vehicle?.manufacturer else {
-      return valueNotAvailable
+      return String.valueNotAvailable
     }
     return makers.joined(separator: ", ")
   }
 
   var classification: String {
-    vehicle?.vehicleClass.localizedCapitalized ?? valueNotAvailable
+    vehicle?.vehicleClass.localizedCapitalized ?? String.valueNotAvailable
   }
 
   var consumables: String {
-    vehicle?.consumables ?? valueNotAvailable
+    vehicle?.consumables ?? String.valueNotAvailable
   }
 
   var maximumSpeed: String {
     guard let maxSpeed = vehicle?.maximumSpeed,
       let formattedSpeed = formatter.string(from: NSNumber(value: maxSpeed)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return "\(formattedSpeed) kph"
   }
@@ -101,7 +99,7 @@ final class VehicleViewModel: ObservableObject {
   var passengers: String {
     guard let passengersValue = vehicle?.passengers,
       let passengerCapacity = formatter.string(from: NSNumber(value: passengersValue)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return passengerCapacity
   }
@@ -109,7 +107,7 @@ final class VehicleViewModel: ObservableObject {
   var crew: String {
     guard let crewValue = vehicle?.crew,
       let crewCapacity = formatter.string(from: NSNumber(value: crewValue)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return crewCapacity
   }
@@ -117,7 +115,7 @@ final class VehicleViewModel: ObservableObject {
   var cost: String {
     guard let vehicleCost = vehicle?.cost,
       let credits = formatter.string(from: NSNumber(value: vehicleCost)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return "\(credits) galactic credits"
   }
@@ -125,7 +123,7 @@ final class VehicleViewModel: ObservableObject {
   var length: String {
     guard let vehicleLength = vehicle?.length,
       let lengthMeters = formatter.string(from: NSNumber(value: vehicleLength)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return "\(lengthMeters) m."
   }
@@ -133,7 +131,7 @@ final class VehicleViewModel: ObservableObject {
   var cargo: String {
     guard let vehicleCargo = vehicle?.cargo,
       let cargoCapacity = formatter.string(from: NSNumber(value: vehicleCargo)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return "\(cargoCapacity) kg."
   }

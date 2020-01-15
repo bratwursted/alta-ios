@@ -18,8 +18,6 @@ final class StarshipViewModel: ObservableObject {
     return formatter
   }()
 
-  let valueNotAvailable = "n/a"
-
   private let starshipId: String
 
   private let dataService: Swapi
@@ -68,16 +66,16 @@ final class StarshipViewModel: ObservableObject {
   }
 
   var name: String {
-    starship?.name ?? valueNotAvailable
+    starship?.name ?? String.valueNotAvailable
   }
 
   var classification: String {
-    starship?.starshipClass.localizedCapitalized ?? valueNotAvailable
+    starship?.starshipClass.localizedCapitalized ?? String.valueNotAvailable
   }
 
   var manufacturer: String {
     guard let makers = starship?.manufacturer else {
-      return valueNotAvailable
+      return String.valueNotAvailable
     }
     return makers.joined(separator: ", ")
   }
@@ -85,26 +83,26 @@ final class StarshipViewModel: ObservableObject {
   var maximumSpeed: String {
     guard let topSpeed = starship?.maximumSpeed,
       let formattedSpeed = formatter.string(from: NSNumber(value: topSpeed)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return "\(formattedSpeed) kph"
   }
 
   var megalights: String {
     guard let mglt = starship?.megalights else {
-      return valueNotAvailable
+      return String.valueNotAvailable
     }
     return "\(mglt) mglt"
   }
 
   var consumables: String {
-    starship?.consumables ?? valueNotAvailable
+    starship?.consumables ?? String.valueNotAvailable
   }
 
   var crew: String {
     guard let crewCapacity = starship?.crew,
       let formattedCrew = formatter.string(from: NSNumber(value: crewCapacity)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return formattedCrew
   }
@@ -112,7 +110,7 @@ final class StarshipViewModel: ObservableObject {
   var passengers: String {
     guard let passengerCapacity = starship?.passengers,
       let formattedPassengers = formatter.string(from: NSNumber(value: passengerCapacity)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return formattedPassengers
   }
@@ -120,14 +118,14 @@ final class StarshipViewModel: ObservableObject {
   var cost: String {
     guard let starshipCost = starship?.cost,
       let credits = formatter.string(from: NSNumber(value: starshipCost)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return "\(credits) galactic credits"
   }
 
   var hyperdriveClass: String {
     guard let rating = starship?.hyperdrive else {
-      return valueNotAvailable
+      return String.valueNotAvailable
     }
     return "\(rating)"
   }
@@ -135,7 +133,7 @@ final class StarshipViewModel: ObservableObject {
   var length: String {
     guard let starshipLength = starship?.length,
       let lengthMeters = formatter.string(from: NSNumber(value: starshipLength)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return "\(lengthMeters) m."
   }
@@ -143,7 +141,7 @@ final class StarshipViewModel: ObservableObject {
   var cargo: String {
     guard let cargoCapacity = starship?.cargo,
       let cargoValue = formatter.string(from: NSNumber(value: cargoCapacity)) else {
-      return valueNotAvailable
+        return String.valueNotAvailable
     }
     return "\(cargoValue) kg."
   }
