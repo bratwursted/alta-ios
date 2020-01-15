@@ -40,10 +40,10 @@ extension FilmView {
     NavigationLink(destination: FilmCrawlView(viewModel: FilmCrawlViewModel(film: viewModel.film!))) {
       Section {
         VStack(alignment: .leading, spacing: 12.0) {
-          Text("Episode \(viewModel.episode!)")
-          Text(viewModel.title!)
+          Text("Episode \(viewModel.episode)")
+          Text(viewModel.title)
             .font(.title)
-          Text("\"\(viewModel.crawlBeginning!)\"")
+          Text("\"\(viewModel.crawlBeginning)\"")
         }
       }
     }
@@ -52,9 +52,9 @@ extension FilmView {
   var productionSection: some View {
     Section(header: Text("Production")) {
       VStack(alignment: .leading, spacing: 12) {
-        Text("Release date: \(viewModel.releaseDate!)")
-        Text("Director: \(viewModel.director!)")
-        Text("Producers: \(viewModel.producers!)")
+        Text("Release date: \(viewModel.releaseDate)")
+        Text("Director: \(viewModel.director)")
+        Text("Producers: \(viewModel.producers)")
       }
     }
   }

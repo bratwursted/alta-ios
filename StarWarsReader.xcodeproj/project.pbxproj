@@ -85,6 +85,7 @@
 		8F7E5CF123CE854000CC5A8E /* VehicleFilmRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CF023CE854000CC5A8E /* VehicleFilmRowView.swift */; };
 		8F7E5CF323CE871C00CC5A8E /* VehiclePilotRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CF223CE871C00CC5A8E /* VehiclePilotRowView.swift */; };
 		8F7E5CF523CE915900CC5A8E /* FilmCrawlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CF423CE915900CC5A8E /* FilmCrawlView.swift */; };
+		8F7E5CF723CECEF100CC5A8E /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E5CF623CECEF100CC5A8E /* String+Helpers.swift */; };
 		8FDD8CBD23CAA1B800851267 /* SwapiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */; };
 		8FDD8CBF23CAB23900851267 /* FilmParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */; };
 		8FDD8CCF23CB61CD00851267 /* luke.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD8CC223CB61CD00851267 /* luke.json */; };
@@ -196,6 +197,7 @@
 		8F7E5CF023CE854000CC5A8E /* VehicleFilmRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleFilmRowView.swift; sourceTree = "<group>"; };
 		8F7E5CF223CE871C00CC5A8E /* VehiclePilotRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePilotRowView.swift; sourceTree = "<group>"; };
 		8F7E5CF423CE915900CC5A8E /* FilmCrawlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCrawlView.swift; sourceTree = "<group>"; };
+		8F7E5CF623CECEF100CC5A8E /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		8FDD8CBC23CAA1B800851267 /* SwapiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiResponse.swift; sourceTree = "<group>"; };
 		8FDD8CBE23CAB23900851267 /* FilmParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmParsingTests.swift; sourceTree = "<group>"; };
 		8FDD8CC223CB61CD00851267 /* luke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = luke.json; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				8F4CEAF723C95199000AAD47 /* Info.plist */,
 				8F4CEAE923C9518F000AAD47 /* AppDelegate.swift */,
 				8F4CEAEB23C9518F000AAD47 /* SceneDelegate.swift */,
+				8F7E5CF623CECEF100CC5A8E /* String+Helpers.swift */,
 				8F4CEAEF23C95199000AAD47 /* Assets.xcassets */,
 				8F4CEAF423C95199000AAD47 /* LaunchScreen.storyboard */,
 				8FDD8CC023CB61AE00851267 /* Data */,
@@ -651,6 +654,7 @@
 				8F35A9AF23CBA0870045DEEC /* Film+Strings.swift in Sources */,
 				8F4CEB1823CA4047000AAD47 /* Planet.swift in Sources */,
 				8F4CEB1623CA3D67000AAD47 /* PeopleResponse.swift in Sources */,
+				8F7E5CF723CECEF100CC5A8E /* String+Helpers.swift in Sources */,
 				8F7E5CB923CD637300CC5A8E /* FilmStarshipListView.swift in Sources */,
 				8F7E5CC123CDBC1100CC5A8E /* PlanetView.swift in Sources */,
 				8F35A9AD23CB9F690045DEEC /* FilmRowViewModel.swift in Sources */,

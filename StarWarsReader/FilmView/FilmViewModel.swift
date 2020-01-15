@@ -76,31 +76,34 @@ final class FilmViewModel: ObservableObject {
     film?.title ?? ""
   }
 
-  var title: String? {
-    film?.title
+  var title: String {
+    film?.title ?? String.valueNotAvailable
   }
 
-  var episode: String? {
-    film?.episode.romanNumeral
+  var episode: String {
+    film?.episode.romanNumeral ?? String.valueNotAvailable
   }
 
-  var crawlBeginning: String? {
-    film?.formattedCrawl.firstSentence
+  var crawlBeginning: String {
+    film?.formattedCrawl.firstSentence ?? String.valueNotAvailable
   }
 
-  var releaseDate: String? {
+  var releaseDate: String {
     guard let filmRelease = film?.releaseDate else {
-      return nil
+        return String.valueNotAvailable
     }
     return formatter.string(from: filmRelease)
   }
 
-  var director: String? {
-    film?.director
+  var director: String {
+    film?.director ?? String.valueNotAvailable
   }
 
-  var producers: String? {
-    film?.producers.joined(separator: ", ")
+  var producers: String {
+    guard let filmProducers = film?.producers else {
+      return String.valueNotAvailable
+    }
+    return filmProducers.joined(separator: ", ")
   }
 
   private func character(atIndex index: Int) -> Film.Character {
