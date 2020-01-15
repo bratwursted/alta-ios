@@ -132,7 +132,7 @@ struct Species: Codable {
   let people: [Person]
 
   /// The skin colors typically associated with this species.
-  let skinColor: [SkinColor]
+  let skinColor: [SkinColor]?
 
   enum CodingKeys: String, CodingKey {
     case height = "averageHeight"
