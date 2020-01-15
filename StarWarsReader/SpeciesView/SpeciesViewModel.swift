@@ -11,10 +11,6 @@ import Combine
 
 final class SpeciesViewModel: ObservableObject {
 
-  private struct SpeciesStrings {
-    static let notAvailable = "n/a"
-  }
-
   private let speciesId: String
 
   private let dataService: Swapi
@@ -63,7 +59,7 @@ final class SpeciesViewModel: ObservableObject {
   }
 
   var name: String {
-    species?.name ?? SpeciesStrings.notAvailable
+    species?.name ?? String.valueNotAvailable
   }
 
   var speciesDescription: String {
@@ -74,19 +70,19 @@ final class SpeciesViewModel: ObservableObject {
     if let designation = species?.designation {
       description += designation.localizedCapitalized
     }
-    return description.isEmpty ? SpeciesStrings.notAvailable : description
+    return description.isEmpty ? String.valueNotAvailable : description
   }
 
   var language: String {
     guard let speciesLanguage = species?.language else {
-      return SpeciesStrings.notAvailable
+      return String.valueNotAvailable
     }
     return speciesLanguage.localizedCapitalized
   }
 
   var height: String {
     guard let heightCm = species?.height else {
-      return SpeciesStrings.notAvailable
+      return String.valueNotAvailable
     }
     let heightMeters = Float(heightCm) / 100
     return "\(heightMeters) m."
@@ -94,28 +90,28 @@ final class SpeciesViewModel: ObservableObject {
 
   var lifespan: String {
     guard let speciesLifespan = species?.lifespan else {
-      return SpeciesStrings.notAvailable
+      return String.valueNotAvailable
     }
     return "\(speciesLifespan) standard yrs."
   }
 
   var hair: String {
     guard let hairColors = species?.hairColor else {
-      return SpeciesStrings.notAvailable
+      return String.valueNotAvailable
     }
     return hairColors.map { $0.rawValue.localizedCapitalized }.joined(separator: ", ")
   }
 
   var eyes: String {
     guard let eyeColors = species?.eyeColor else {
-      return SpeciesStrings.notAvailable
+      return String.valueNotAvailable
     }
     return eyeColors.map { $0.rawValue.localizedCapitalized }.joined(separator: ", ")
   }
 
   var skin: String {
     guard let skinTones = species?.skinColor else {
-      return SpeciesStrings.notAvailable
+      return String.valueNotAvailable
     }
     return skinTones.map { $0.rawValue.localizedCapitalized }.joined(separator: ", ")
   }
