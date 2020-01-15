@@ -61,7 +61,7 @@ struct Planet: Codable {
   let films: [Film]
 
   /// The gravity of this planet, where "1" is standard gravity.
-  let gravity: String
+  let gravity: String?
 
   /// A unique ID string.
   let planetId: String
