@@ -13,6 +13,10 @@ The Star Wars Reader is a demo app/learning exercise that uses SwiftUI and Combi
 
 - The data for the app is read from [SWAPI](https://swapi.co), the Star Wars API, using GraphQL via the [SWAPI GraphQL Wrapper](https://github.com/graphql/swapi-graphql).
 
+## Installation
+
+Clone the repo, open the project in Xcode, and run! May the Force be with you.
+
 ## Screenshot
 
 ![sw reader screenshot](Screenshots/swreader-screenshot.png)
