@@ -5,8 +5,8 @@ The Star Wars Reader is a demo app/learning exercise that uses SwiftUI and Combi
 ## Architectural Highlights
 
 - The networking components of the app use Combine to make requests for network resources.
- - The main data fetcher utilizes the new `dataTaskPublisher` method that returns a publisher to deliver results of the network request rather than a callback closure (i.e., `dataTask(with:completionHandler:)`).
- - Additional methods are chained to this publisher to return publishers that deliver data structures parsed from this data.
+  - The main data fetcher utilizes the new `dataTaskPublisher` method that returns a publisher to deliver results of the network request rather than a callback closure (i.e., `dataTask(with:completionHandler:)`).
+  - Additional methods are chained to this publisher to return publishers that deliver data structures parsed from this data.
 
 
 - The interface is built entirely using SwiftUI, which lends itself nicely to MVVM patterns and mock data sources for testing while you are developing.
