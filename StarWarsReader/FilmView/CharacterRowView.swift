@@ -20,7 +20,11 @@ struct CharacterRowViewModel {
 
   var personViewModel: PersonViewModel {
     // TODO: refactor mock value 
-    PersonViewModel(resourceId: character.characterId, homeworldView: { _ in PlanetView.mock })
+    PersonViewModel(
+      resourceId: character.characterId,
+      homeworldView: { _ in PlanetView.mock },
+      speciesView: { _ in SpeciesView.mock }
+    )
   }
 }
 

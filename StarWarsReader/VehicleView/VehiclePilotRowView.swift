@@ -18,7 +18,11 @@ struct VehiclePilotRowViewModel {
 
   var pilotViewModel: PersonViewModel {
     // TODO: refactor mock value 
-    PersonViewModel(resourceId: pilot.pilotId, homeworldView: { _ in PlanetView.mock })
+    PersonViewModel(
+      resourceId: pilot.pilotId,
+      homeworldView: { _ in PlanetView.mock },
+      speciesView: { _ in SpeciesView.mock }
+    )
   }
 }
 
