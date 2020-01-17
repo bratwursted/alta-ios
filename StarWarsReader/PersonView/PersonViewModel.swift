@@ -15,6 +15,8 @@ typealias PersonSpeciesView = (Person.Species) -> SpeciesView
 
 typealias PersonFilmView = (Person.Film) -> FilmView
 
+typealias PersonStarshipView = (Person.Starship) -> StarshipView
+
 final class PersonViewModel: ObservableObject {
 
   private let personId: String
@@ -31,6 +33,8 @@ final class PersonViewModel: ObservableObject {
 
   private let filmView: PersonFilmView
 
+  private let starshipView: PersonStarshipView
+
   @Published var person: Person?
 
   var films: [Person.Film] = []
@@ -46,12 +50,14 @@ final class PersonViewModel: ObservableObject {
     homeworldView: @escaping PersonHomeworldView,
     speciesView: @escaping PersonSpeciesView,
     filmView: @escaping PersonFilmView,
+    starshipView: @escaping PersonStarshipView,
     dataService: Swapi = SwapiService()
   ) {
     personId = resourceId
     self.homeworldView = homeworldView
     self.speciesView = speciesView
     self.filmView = filmView
+    self.starshipView = starshipView
     self.dataService = dataService
   }
 
@@ -142,7 +148,7 @@ final class PersonViewModel: ObservableObject {
   }
 
   func starshipViewModel(forStarship starship: Person.Starship) -> StarshipRowViewModel {
-    StarshipRowViewModel(starship: starship)
+    StarshipRowViewModel(starship: starship, starshipView: starshipView(starship))
   }
 
   func vehicleViewModel(forVehicle vehicle: Person.Vehicle) -> VehicleRowViewModel {
