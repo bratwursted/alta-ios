@@ -17,7 +17,11 @@ struct SpeciesFilmRowViewModel {
   }
 
   var filmViewModel: FilmViewModel {
-    FilmViewModel(filmId: film.filmId)
+    FilmViewModel(
+      filmId: film.filmId,
+      // TODO: replace mock initializer 
+      characterViewInitializer: { _ in PersonView.mock }
+    )
   }
 }
 

@@ -17,7 +17,11 @@ struct StarshipFilmRowViewModel {
   }
 
   var filmViewModel: FilmViewModel {
-    FilmViewModel(filmId: film.filmId)
+    FilmViewModel(
+      filmId: film.filmId,
+      // TODO: factor out this mock initializer 
+      characterViewInitializer: { _ in PersonView.mock }
+    )
   }
 }
 
