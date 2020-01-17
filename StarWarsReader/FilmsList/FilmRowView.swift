@@ -22,14 +22,18 @@ struct FilmRowView: View {
   }
 }
 
-// swiftlint:disable type_name identifier_name
-struct FilmRowView_Previews: PreviewProvider {
-  static let vm: FilmRowViewModel = {
-    let film = sampleFilms[3]
-    return FilmRowViewModel(film: film)
-  }()
+extension FilmRowView {
 
+  static var mock: FilmRowView {
+    let film = sampleFilms[3]
+    let viewModel = FilmRowViewModel(film: film)
+    return FilmRowView(viewModel: viewModel)
+  }
+}
+
+// swiftlint:disable type_name
+struct FilmRowView_Previews: PreviewProvider {
   static var previews: some View {
-    FilmRowView(viewModel: vm)
+    FilmRowView.mock
   }
 }
