@@ -33,6 +33,9 @@ struct FlowCoordinator {
         },
       characterList: { characters in
         self.makeCharacterListView(characters: characters)
+      },
+      planetView: { planet in
+        self.makePlanetView(with: planet.planetId)
       }
     )
     return FilmView(viewModel: viewModel)
@@ -51,5 +54,10 @@ struct FlowCoordinator {
   private func makePersonView(with resourceId: String) -> PersonView {
     let viewModel = PersonViewModel(resourceId: resourceId)
     return PersonView(viewModel: viewModel)
+  }
+
+  private func makePlanetView(with resourceId: String) -> PlanetView {
+    let viewModel = PlanetViewModel(planetId: resourceId)
+    return PlanetView(viewModel: viewModel)
   }
 }

@@ -12,6 +12,8 @@ struct FilmPlanetRowViewModel {
 
   let planet: Film.Planet
 
+  let planetView: PlanetView
+
   var name: String {
     planet.name
   }
@@ -26,18 +28,26 @@ struct FilmPlanetRowView: View {
   let viewModel: FilmPlanetRowViewModel
 
   var body: some View {
-    Text(viewModel.name)
+    NavigationLink(destination: viewModel.planetView) {
+      Text(viewModel.name)
+    }
+  }
+}
+
+extension FilmPlanetRowView {
+  static var mock: FilmPlanetRowView {
+    let filmPlanet = loadSampleFilm("newHope").planets[0]
+    let viewModel = FilmPlanetRowViewModel(
+      planet: filmPlanet,
+      planetView: PlanetView.mock
+    )
+    return FilmPlanetRowView(viewModel: viewModel)
   }
 }
 
 // swiftlint:disable all
 struct FilmPlanetRowView_Previews: PreviewProvider {
-  static let vm: FilmPlanetRowViewModel = {
-    let film = loadSampleFilm("newHope")
-    return FilmPlanetRowViewModel(planet: film.planets.first!)
-  }()
-
   static var previews: some View {
-    FilmPlanetRowView(viewModel: vm)
+    FilmPlanetRowView.mock
   }
 }

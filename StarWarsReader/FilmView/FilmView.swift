@@ -216,10 +216,12 @@ extension FilmView {
     let film = loadSampleFilm("newHope")
     let characterView: CharacterViewInitializer = { _ in PersonView.mock }
     let characterList: CharacterListInitializer = { _ in CharacterListView.mock }
+    let planetView: FilmPlanetViewInitializer = { _ in PlanetView.mock }
     let viewModel = FilmViewModel(
       filmId: film.filmId,
       characterViewInitializer: characterView,
-      characterList: characterList
+      characterList: characterList,
+      planetView: planetView
     )
     return FilmView(viewModel: viewModel)
   }
