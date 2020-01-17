@@ -14,7 +14,7 @@ class StarshipParsingTests: XCTestCase {
   var sut: Starship?
 
   override func setUp() {
-    sut = loadSampleStarship("falcon")
+    sut = loadSampleStarship(.falcon)
   }
 
   override func tearDown() {

@@ -14,7 +14,7 @@ class VehicleParsingTests: XCTestCase {
   var sut: Vehicle?
 
   override func setUp() {
-    sut = loadSampleVehicle("airspeeder")
+    sut = loadSampleVehicle(.airspeeder)
   }
 
   override func tearDown() {
