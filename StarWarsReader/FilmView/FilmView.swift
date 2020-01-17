@@ -222,6 +222,7 @@ extension FilmView {
     let filmSpeciesList: FilmSpeciewsListInitializer = { _ in FilmSpeciesListView.mock }
     let starshipView: FilmStarshipViewInitializer = { _ in StarshipView.mock }
     let filmStarshipList: FilmStarshipListInitializer = { _ in FilmStarshipListView.mock }
+    let vehicleView: FilmVehicleViewInitializer = { _ in VehicleView.mock }
     let viewModel = FilmViewModel(
       filmId: film.filmId,
       characterViewInitializer: characterView,
@@ -231,7 +232,8 @@ extension FilmView {
       speciesView: speciesView,
       filmSpeciesList: filmSpeciesList,
       starshipView: starshipView,
-      filmStarshipList: filmStarshipList
+      filmStarshipList: filmStarshipList,
+      vehicleView: vehicleView
     )
     return FilmView(viewModel: viewModel)
   }

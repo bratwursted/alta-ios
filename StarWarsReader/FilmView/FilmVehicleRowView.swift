@@ -12,12 +12,10 @@ struct FilmVehicleRowViewModel {
 
   let vehicle: Film.Vehicle
 
+  let vehicleView: VehicleView
+
   var name: String {
     vehicle.name
-  }
-
-  var vehicleViewModel: VehicleViewModel {
-    VehicleViewModel(resourceId: vehicle.vehicleId)
   }
 }
 
@@ -26,18 +24,23 @@ struct FilmVehicleRowView: View {
   let viewModel: FilmVehicleRowViewModel
 
   var body: some View {
-    Text(viewModel.name)
+    NavigationLink(destination: viewModel.vehicleView) {
+      Text(viewModel.name)
+    }
+  }
+}
+
+extension FilmVehicleRowView {
+  static var mock: FilmVehicleRowView {
+    let filmVehicle = loadSampleFilm(.newHope).vehicles[0]
+    let viewModel = FilmVehicleRowViewModel(vehicle: filmVehicle, vehicleView: VehicleView.mock)
+    return FilmVehicleRowView(viewModel: viewModel)
   }
 }
 
 // swiftlint:disable all
 struct FilmVehicleRowView_Previews: PreviewProvider {
-  static let vm: FilmVehicleRowViewModel = {
-    let newHope = loadSampleFilm(.newHope)
-    return FilmVehicleRowViewModel(vehicle: newHope.vehicles.first!)
-  }()
-  
   static var previews: some View {
-    FilmVehicleRowView(viewModel: vm)
+    FilmVehicleRowView.mock
   }
 }
