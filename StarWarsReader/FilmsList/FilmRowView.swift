@@ -13,8 +13,8 @@ struct FilmRowView: View {
   let viewModel: FilmRowViewModel
 
   var body: some View {
-    VStack(alignment: .leading, spacing: 6) {
-      NavigationLink(destination: viewModel.filmView) {
+    NavigationLink(destination: viewModel.filmView) {
+      VStack(alignment: .leading, spacing: 6) {
         Text("Episode \(viewModel.episode) (\(viewModel.released))")
           .font(.body)
         Text(viewModel.title)

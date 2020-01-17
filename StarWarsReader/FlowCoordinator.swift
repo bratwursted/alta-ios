@@ -7,3 +7,21 @@
 //
 
 import Foundation
+import UIKit
+import SwiftUI
+
+struct FlowCoordinator {
+
+  func makeKeyAndVisible(_ window: UIWindow) {
+    let filmsList = makeFilmsList()
+    window.rootViewController = UIHostingController(rootView: filmsList)
+    window.makeKeyAndVisible()
+  }
+
+  private func makeFilmsList() -> FilmsListView {
+    let viewModel = FilmsListViewModel(filmViewInitializer: { _ in
+      FilmView.mock
+    })
+    return FilmsListView(viewModel: viewModel)
+  }
+}

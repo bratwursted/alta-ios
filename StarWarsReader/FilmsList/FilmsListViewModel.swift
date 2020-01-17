@@ -19,13 +19,15 @@ final class FilmsListViewModel: ObservableObject {
 
   private var needsFilms = true
 
-  private let filmViewInitializer: FilmViewInitializer = { _ in
-    FilmView.mock
-  }
+  private let filmViewInitializer: FilmViewInitializer
 
   @Published var films: [FilmsResponse.Film] = []
 
-  init(dataService: Swapi = SwapiService()) {
+  init(
+    filmViewInitializer: @escaping FilmViewInitializer,
+    dataService: Swapi = SwapiService()
+  ) {
+    self.filmViewInitializer = filmViewInitializer
     self.dataService = dataService
   }
 

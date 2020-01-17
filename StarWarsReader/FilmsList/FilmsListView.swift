@@ -31,14 +31,22 @@ struct FilmsListView: View {
   }
 }
 
-// swiftlint:disable type_name identifier_name
-struct FilmsListView_Previews: PreviewProvider {
-  static let vm: FilmsListViewModel = {
-    let dataService = MockDataService(sampleFilms)
-    return FilmsListViewModel(dataService: dataService)
-  }()
+extension FilmsListView {
+  static var mock: FilmsListView {
+    let mockData = MockDataService(sampleFilms)
+    let viewModel = FilmsListViewModel(
+      filmViewInitializer: { _ in
+        FilmView.mock
+    },
+      dataService: mockData
+    )
+    return FilmsListView(viewModel: viewModel)
+  }
+}
 
+// swiftlint:disable type_name
+struct FilmsListView_Previews: PreviewProvider {
   static var previews: some View {
-    FilmsListView(viewModel: vm)
+    FilmsListView.mock
   }
 }
