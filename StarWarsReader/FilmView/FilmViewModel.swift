@@ -15,6 +15,8 @@ typealias CharacterListInitializer = ([Film.Character]) -> CharacterListView
 
 typealias FilmPlanetViewInitializer = (Film.Planet) -> PlanetView
 
+typealias FilmPlanetListInitializer = ([Film.Planet]) -> FilmPlanetListView
+
 final class FilmViewModel: ObservableObject {
 
   static let maximumSectionRows = 3
@@ -40,6 +42,8 @@ final class FilmViewModel: ObservableObject {
 
   private let planetView: FilmPlanetViewInitializer
 
+  private let filmPlanetList: FilmPlanetListInitializer
+
   @Published var film: Film?
 
   var characters: [Film.Character] = []
@@ -57,12 +61,14 @@ final class FilmViewModel: ObservableObject {
     characterViewInitializer: @escaping CharacterViewInitializer,
     characterList: @escaping CharacterListInitializer,
     planetView: @escaping FilmPlanetViewInitializer,
+    filmPlanetList: @escaping FilmPlanetListInitializer,
     dataService: Swapi = SwapiService()
   ) {
     self.dataService = dataService
     self.characterViewInitializer = characterViewInitializer
     self.characterList = characterList
     self.planetView = planetView
+    self.filmPlanetList = filmPlanetList
     self.filmId = filmId
   }
 
@@ -209,12 +215,8 @@ final class FilmViewModel: ObservableObject {
     characterList(characters)
   }
 
-  var characterListViewModel: CharacterListViewModel {
-    CharacterListViewModel(characters: characters, characterViewInitializer: characterViewInitializer)
-  }
-
-  var planetListViewModel: FilmPlanetListViewModel {
-    FilmPlanetListViewModel(planets: planets)
+  var filmPlanetsListView: FilmPlanetListView {
+    filmPlanetList(planets)
   }
 
   var speciesListViewModel: FilmSpeciesListViewModel {
