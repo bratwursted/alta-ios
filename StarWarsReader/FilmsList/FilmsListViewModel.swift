@@ -9,6 +9,8 @@
 import Foundation
 import Combine
 
+typealias FilmViewInitializer = (FilmsResponse.Film) -> FilmView
+
 final class FilmsListViewModel: ObservableObject {
 
   private let dataService: Swapi
@@ -17,9 +19,15 @@ final class FilmsListViewModel: ObservableObject {
 
   private var needsFilms = true
 
+  private let filmViewInitializer: FilmViewInitializer
+
   @Published var films: [FilmsResponse.Film] = []
 
-  init(dataService: Swapi = SwapiService()) {
+  init(
+    filmViewInitializer: @escaping FilmViewInitializer,
+    dataService: Swapi = SwapiService()
+  ) {
+    self.filmViewInitializer = filmViewInitializer
     self.dataService = dataService
   }
 
@@ -43,7 +51,7 @@ final class FilmsListViewModel: ObservableObject {
   }
 
   func rowViewModel(forFilm film: FilmsResponse.Film) -> FilmRowViewModel {
-    return FilmRowViewModel(film: film)
+    return FilmRowViewModel(film: film, filmView: filmViewInitializer(film))
   }
 
 }

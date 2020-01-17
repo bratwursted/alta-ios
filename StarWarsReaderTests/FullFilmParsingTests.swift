@@ -42,7 +42,7 @@ class FullFilmParsingTests: XCTestCase {
   var sut: Film?
 
   override func setUp() {
-    sut = loadSampleFilm("newHope")
+    sut = loadSampleFilm(.newHope)
   }
 
   override func tearDown() {

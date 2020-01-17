@@ -14,7 +14,7 @@ class PlanetParsingTests: XCTestCase {
   var sut: Planet?
 
   override func setUp() {
-    sut = loadSamplePlanet("tatooine")
+    sut = loadSamplePlanet(.tatooine)
   }
 
   override func tearDown() {

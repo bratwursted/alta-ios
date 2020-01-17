@@ -88,20 +88,25 @@ extension VehicleView {
   }
 }
 
+extension VehicleView {
+  static var mock: VehicleView {
+    let airspeeder = loadSampleVehicle(.airspeeder)
+    let mockData = MockDataService(airspeeder)
+    let viewModel = VehicleViewModel(
+      resourceId: airspeeder.vehicleId,
+      filmView: { _ in FilmView.mock },
+      pilotView: { _ in PersonView.mock},
+      dataService: mockData
+    )
+    return VehicleView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct VehicleView_Previews: PreviewProvider {
-  static let vm: VehicleViewModel = {
-    let airspeeder = loadSampleVehicle("airspeeder")
-    let dataSource = MockDataService(airspeeder)
-    return VehicleViewModel(
-      resourceId: airspeeder.vehicleId,
-      dataService: dataSource
-    )
-  }()
-
   static var previews: some View {
     NavigationView {
-      VehicleView(viewModel: vm)
+      VehicleView.mock
     }
   }
 }

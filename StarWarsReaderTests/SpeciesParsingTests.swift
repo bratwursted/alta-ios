@@ -14,7 +14,7 @@ class SpeciesParsingTests: XCTestCase {
   var sut: Species?
 
   override func setUp() {
-    sut = loadSampleSpecies("twilek")
+    sut = loadSampleSpecies(.twilek)
   }
 
   override func tearDown() {

@@ -12,8 +12,13 @@ struct FilmSpeciesListViewModel {
 
   let species: [Film.Species]
 
+  let speciesView: FilmSpeciesViewInitializer
+
   func viewModel(for species: Film.Species) -> FilmSpeciesRowViewModel {
-    FilmSpeciesRowViewModel(species: species)
+    FilmSpeciesRowViewModel(
+      species: species,
+      speciesView: speciesView(species)
+    )
   }
 }
 
@@ -31,16 +36,22 @@ struct FilmSpeciesListView: View {
   }
 }
 
+extension FilmSpeciesListView {
+  static var mock: FilmSpeciesListView {
+    let filmSpecies = loadSampleFilm(.newHope).species
+    let viewModel = FilmSpeciesListViewModel(
+      species: filmSpecies,
+      speciesView: { _ in SpeciesView.mock }
+    )
+    return FilmSpeciesListView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct FilmSpeciesListView_Previews: PreviewProvider {
-  static let vm: FilmSpeciesListViewModel = {
-    let newHope = loadSampleFilm("newHope")
-    return FilmSpeciesListViewModel(species: newHope.species)
-  }()
-
   static var previews: some View {
     NavigationView {
-      FilmSpeciesListView(viewModel: vm)
+      FilmSpeciesListView.mock
     }
   }
 }

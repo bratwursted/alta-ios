@@ -12,12 +12,10 @@ struct SpeciesPersonRowViewModel {
 
   let person: Species.Person
 
+  let personView: PersonView
+
   var name: String {
     person.name
-  }
-
-  var personViewModel: PersonViewModel {
-    PersonViewModel(resourceId: person.personId)
   }
 }
 
@@ -26,20 +24,23 @@ struct SpeciesPersonRowView: View {
   let viewModel: SpeciesPersonRowViewModel
 
   var body: some View {
-    NavigationLink(destination: PersonView(viewModel: viewModel.personViewModel)) {
+    NavigationLink(destination: viewModel.personView) {
       Text(viewModel.name)
     }
   }
 }
 
+extension SpeciesPersonRowView {
+  static var mock: SpeciesPersonRowView {
+    let speciesPerson = loadSampleSpecies(.twilek).people[0]
+    let viewModel = SpeciesPersonRowViewModel(person: speciesPerson, personView: PersonView.mock)
+    return SpeciesPersonRowView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct SpeciesPersonRowView_Previews: PreviewProvider {
-  static let vm: SpeciesPersonRowViewModel = {
-    let twilek = loadSampleSpecies("twilek")
-    return SpeciesPersonRowViewModel(person: twilek.people.first!)
-  }()
-
   static var previews: some View {
-    SpeciesPersonRowView(viewModel: vm)
+    SpeciesPersonRowView.mock
   }
 }

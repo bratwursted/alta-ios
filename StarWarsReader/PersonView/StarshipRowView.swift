@@ -12,12 +12,10 @@ struct StarshipRowViewModel {
 
   let starship: Person.Starship
 
+  let starshipView: StarshipView
+
   var name: String {
     starship.name
-  }
-
-  var starshipViewModel: StarshipViewModel {
-    StarshipViewModel(resourceId: starship.starshipId)
   }
 }
 
@@ -26,20 +24,23 @@ struct StarshipRowView: View {
   let viewModel: StarshipRowViewModel
 
   var body: some View {
-    NavigationLink(destination: StarshipView(viewModel: viewModel.starshipViewModel)) {
+    NavigationLink(destination: viewModel.starshipView) {
       Text(viewModel.name)
     }
   }
 }
 
+extension StarshipRowView {
+  static var mock: StarshipRowView {
+    let personStarship = loadSamplePerson(.luke).starships[0]
+    let viewModel = StarshipRowViewModel(starship: personStarship, starshipView: StarshipView.mock)
+    return StarshipRowView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct StarshipRowView_Previews: PreviewProvider {
-  static let vm: StarshipRowViewModel = {
-    let luke = loadSamplePerson("luke")
-    return StarshipRowViewModel(starship: luke.starships.first!)
-  }()
-
   static var previews: some View {
-    StarshipRowView(viewModel: vm)
+    StarshipRowView.mock
   }
 }

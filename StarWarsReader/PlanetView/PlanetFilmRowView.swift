@@ -12,12 +12,10 @@ struct PlanetFilmRowViewModel {
 
   let film: Planet.Film
 
+  let filmView: FilmView
+
   var title: String {
     film.title
-  }
-
-  var filmViewModel: FilmViewModel {
-    FilmViewModel(filmId: film.filmId)
   }
 }
 
@@ -26,20 +24,23 @@ struct PlanetFilmRowView: View {
   let viewModel: PlanetFilmRowViewModel
 
   var body: some View {
-    NavigationLink(destination: FilmView(viewModel: viewModel.filmViewModel, navigationTag: nil)) {
+    NavigationLink(destination: viewModel.filmView) {
       Text(viewModel.title)
     }
   }
 }
 
+extension PlanetFilmRowView {
+  static var mock: PlanetFilmRowView {
+    let planetFilm = loadSamplePlanet(.tatooine).films[0]
+    let viewModel = PlanetFilmRowViewModel(film: planetFilm, filmView: FilmView.mock)
+    return PlanetFilmRowView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct PlanetFilmRowView_Previews: PreviewProvider {
-  static let vm: PlanetFilmRowViewModel = {
-    let tatooine = loadSamplePlanet("tatooine")
-    return PlanetFilmRowViewModel(film: tatooine.films.first!)
-  }()
-
   static var previews: some View {
-    PlanetFilmRowView(viewModel: vm)
+    PlanetFilmRowView.mock
   }
 }

@@ -9,6 +9,10 @@
 import Foundation
 import Combine
 
+typealias VehicleFilmView = (Vehicle.Film) -> FilmView
+
+typealias VehiclePilotView = (Vehicle.Pilot) -> PersonView
+
 final class VehicleViewModel: ObservableObject {
 
   private let formatter: NumberFormatter = {
@@ -24,6 +28,10 @@ final class VehicleViewModel: ObservableObject {
 
   private var disposables = Set<AnyCancellable>()
 
+  private let filmView: VehicleFilmView
+
+  private let pilotView: VehiclePilotView
+
   private var needsVehicleData = true
 
   @Published var vehicle: Vehicle?
@@ -34,9 +42,13 @@ final class VehicleViewModel: ObservableObject {
 
   init(
     resourceId: String,
+    filmView: @escaping VehicleFilmView,
+    pilotView: @escaping VehiclePilotView,
     dataService: Swapi = SwapiService()
   ) {
     vehicleId = resourceId
+    self.filmView = filmView
+    self.pilotView = pilotView
     self.dataService = dataService
   }
 
@@ -137,10 +149,10 @@ final class VehicleViewModel: ObservableObject {
   }
 
   func rowViewModel(forFilm film: Vehicle.Film) -> VehicleFilmRowViewModel {
-    VehicleFilmRowViewModel(film: film)
+    VehicleFilmRowViewModel(film: film, filmView: filmView(film))
   }
 
   func rowViewModel(forPilot pilot: Vehicle.Pilot) -> VehiclePilotRowViewModel {
-    VehiclePilotRowViewModel(pilot: pilot)
+    VehiclePilotRowViewModel(pilot: pilot, pilotView: pilotView(pilot))
   }
 }

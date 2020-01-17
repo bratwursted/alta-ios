@@ -9,6 +9,28 @@
 import Foundation
 import Combine
 
+typealias CharacterViewInitializer = (Film.Character) -> PersonView
+
+typealias CharacterListInitializer = ([Film.Character]) -> CharacterListView
+
+typealias FilmPlanetViewInitializer = (Film.Planet) -> PlanetView
+
+typealias FilmPlanetListInitializer = ([Film.Planet]) -> FilmPlanetListView
+
+typealias FilmSpeciesViewInitializer = (Film.Species) -> SpeciesView
+
+typealias FilmSpeciewsListInitializer = ([Film.Species]) -> FilmSpeciesListView
+
+typealias FilmStarshipViewInitializer = (Film.Starship) -> StarshipView
+
+typealias FilmStarshipListInitializer = ([Film.Starship]) -> FilmStarshipListView
+
+typealias FilmVehicleViewInitializer = (Film.Vehicle) -> VehicleView
+
+typealias FilmVehicleListInitializer = ([Film.Vehicle]) -> FilmVehicleListView
+
+typealias CrawlView = (Film?) -> FilmCrawlView?
+
 final class FilmViewModel: ObservableObject {
 
   static let maximumSectionRows = 3
@@ -28,6 +50,28 @@ final class FilmViewModel: ObservableObject {
 
   private var needsFilmContent = true
 
+  private let characterViewInitializer: CharacterViewInitializer
+
+  private let characterList: CharacterListInitializer
+
+  private let planetView: FilmPlanetViewInitializer
+
+  private let filmPlanetList: FilmPlanetListInitializer
+
+  private let speciesView: FilmSpeciesViewInitializer
+
+  private let filmSpeciesList: FilmSpeciewsListInitializer
+
+  private let starshipView: FilmStarshipViewInitializer
+
+  private let filmStarshipList: FilmStarshipListInitializer
+
+  private let vehicleView: FilmVehicleViewInitializer
+
+  private let filmVehicleList: FilmVehicleListInitializer
+
+  private let crawlView: CrawlView
+
   @Published var film: Film?
 
   var characters: [Film.Character] = []
@@ -42,9 +86,31 @@ final class FilmViewModel: ObservableObject {
 
   init(
     filmId: String,
+    characterViewInitializer: @escaping CharacterViewInitializer,
+    characterList: @escaping CharacterListInitializer,
+    planetView: @escaping FilmPlanetViewInitializer,
+    filmPlanetList: @escaping FilmPlanetListInitializer,
+    speciesView: @escaping FilmSpeciesViewInitializer,
+    filmSpeciesList: @escaping FilmSpeciewsListInitializer,
+    starshipView: @escaping FilmStarshipViewInitializer,
+    filmStarshipList: @escaping FilmStarshipListInitializer,
+    vehicleView: @escaping FilmVehicleViewInitializer,
+    filmVehicleList: @escaping FilmVehicleListInitializer,
+    crawlView: @escaping CrawlView,
     dataService: Swapi = SwapiService()
   ) {
     self.dataService = dataService
+    self.characterViewInitializer = characterViewInitializer
+    self.characterList = characterList
+    self.planetView = planetView
+    self.filmPlanetList = filmPlanetList
+    self.speciesView = speciesView
+    self.filmSpeciesList = filmSpeciesList
+    self.starshipView = starshipView
+    self.filmStarshipList = filmStarshipList
+    self.vehicleView = vehicleView
+    self.filmVehicleList = filmVehicleList
+    self.crawlView = crawlView
     self.filmId = filmId
   }
 
@@ -126,24 +192,39 @@ final class FilmViewModel: ObservableObject {
     vehicles[index]
   }
 
+  var crawlLinkDestination: FilmCrawlView? {
+    crawlView(film)
+  }
+
   func characterViewModel(forCharacterAtIndex index: Int) -> CharacterRowViewModel {
-    CharacterRowViewModel(character: character(atIndex: index))
+    let theCharacter = character(atIndex: index)
+    return CharacterRowViewModel(
+      character: theCharacter,
+      personView: characterViewInitializer(theCharacter)
+    )
   }
 
   func planetViewModel(forPlanetAtIndex index: Int) -> FilmPlanetRowViewModel {
-    FilmPlanetRowViewModel(planet: planet(atIndex: index))
+    let aPlanet = planet(atIndex: index)
+    return FilmPlanetRowViewModel(
+      planet: aPlanet,
+      planetView: planetView(aPlanet)
+    )
   }
 
   func speciesViewModel(forSpeciesAtIndex index: Int) -> FilmSpeciesRowViewModel {
-    FilmSpeciesRowViewModel(species: species(atIndex: index))
+    let aSpecies = species(atIndex: index)
+    return FilmSpeciesRowViewModel(species: aSpecies, speciesView: speciesView(aSpecies))
   }
 
   func starshipViewModel(forStarshipAtIndex index: Int) -> FilmStarshipRowViewModel {
-    FilmStarshipRowViewModel(starship: starships(atIndex: index))
+    let aStarship = starships(atIndex: index)
+    return FilmStarshipRowViewModel(starship: aStarship, starshipView: starshipView(aStarship))
   }
 
   func vehicleViewModel(forVehicleAtIndex index: Int) -> FilmVehicleRowViewModel {
-    FilmVehicleRowViewModel(vehicle: vehicle(atIndex: index))
+    let aVehicle = vehicle(atIndex: index)
+    return FilmVehicleRowViewModel(vehicle: aVehicle, vehicleView: vehicleView(aVehicle))
   }
 
   func needsDisclosure(forSection section: FilmViewSection) -> Bool {
@@ -179,23 +260,23 @@ final class FilmViewModel: ObservableObject {
     return min(FilmViewModel.maximumSectionRows, allRows)
   }
 
-  var characterListViewModel: CharacterListViewModel {
-    CharacterListViewModel(characters: characters)
+  var characterListView: CharacterListView {
+    characterList(characters)
   }
 
-  var planetListViewModel: FilmPlanetListViewModel {
-    FilmPlanetListViewModel(planets: planets)
+  var filmPlanetsListView: FilmPlanetListView {
+    filmPlanetList(planets)
   }
 
-  var speciesListViewModel: FilmSpeciesListViewModel {
-    FilmSpeciesListViewModel(species: species)
+  var filmSpeciesListView: FilmSpeciesListView {
+    filmSpeciesList(species)
   }
 
-  var starshipListViewModel: FilmStarshipListViewModel {
-    FilmStarshipListViewModel(starships: starships)
+  var filmStarshipListView: FilmStarshipListView {
+    filmStarshipList(starships)
   }
 
-  var vehicleListViewModel: FilmVehicleListViewModel {
-    FilmVehicleListViewModel(vehicles: vehicles)
+  var filmVehicleListView: FilmVehicleListView {
+    filmVehicleList(vehicles)
   }
 }

@@ -12,12 +12,10 @@ struct ResidentRowViewModel {
 
   let resident: Planet.Resident
 
+  let residentView: PersonView
+
   var name: String {
     resident.name
-  }
-
-  var personViewModel: PersonViewModel {
-    PersonViewModel(resourceId: resident.residentId)
   }
 }
 
@@ -26,20 +24,23 @@ struct ResidentRowView: View {
   let viewModel: ResidentRowViewModel
 
   var body: some View {
-    NavigationLink(destination: PersonView(viewModel: viewModel.personViewModel)) {
+    NavigationLink(destination: viewModel.residentView) {
       Text(viewModel.name)
     }
   }
 }
 
+extension ResidentRowView {
+  static var mock: ResidentRowView {
+    let resident = loadSamplePlanet(.tatooine).residents[0]
+    let viewModel = ResidentRowViewModel(resident: resident, residentView: PersonView.mock)
+    return ResidentRowView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct ResidentRowView_Previews: PreviewProvider {
-  static let vm: ResidentRowViewModel = {
-    let tatooine = loadSamplePlanet("tatooine")
-    return ResidentRowViewModel(resident: tatooine.residents.first!)
-  }()
-
   static var previews: some View {
-    ResidentRowView(viewModel: vm)
+    ResidentRowView.mock
   }
 }

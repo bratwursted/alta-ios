@@ -13,7 +13,7 @@ struct FilmRowView: View {
   let viewModel: FilmRowViewModel
 
   var body: some View {
-    NavigationLink(destination: FilmView(viewModel: viewModel.filmViewModel)) {
+    NavigationLink(destination: viewModel.filmView) {
       VStack(alignment: .leading, spacing: 6) {
         Text("Episode \(viewModel.episode) (\(viewModel.released))")
           .font(.body)
@@ -24,14 +24,21 @@ struct FilmRowView: View {
   }
 }
 
-// swiftlint:disable type_name identifier_name
-struct FilmRowView_Previews: PreviewProvider {
-  static let vm: FilmRowViewModel = {
-    let film = sampleFilms[3]
-    return FilmRowViewModel(film: film)
-  }()
+extension FilmRowView {
 
+  static var mock: FilmRowView {
+    let film = sampleFilms[3]
+    let viewModel = FilmRowViewModel(
+      film: film,
+      filmView: FilmView.mock
+    )
+    return FilmRowView(viewModel: viewModel)
+  }
+}
+
+// swiftlint:disable type_name
+struct FilmRowView_Previews: PreviewProvider {
   static var previews: some View {
-    FilmRowView(viewModel: vm)
+    FilmRowView.mock
   }
 }

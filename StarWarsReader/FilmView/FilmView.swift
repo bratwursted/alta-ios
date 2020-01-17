@@ -37,8 +37,8 @@ struct FilmView: View {
 
 extension FilmView {
   var topSection: some View {
-    NavigationLink(destination: FilmCrawlView(viewModel: FilmCrawlViewModel(film: viewModel.film!))) {
-      Section {
+    Section {
+      NavigationLink(destination: viewModel.crawlLinkDestination!) {
         VStack(alignment: .leading, spacing: 12.0) {
           Text("Episode \(viewModel.episode)")
           Text(viewModel.title)
@@ -125,10 +125,10 @@ extension FilmView {
   var charactersSectionHeader: some View {
     HStack {
       Text(FilmViewSection.characters.title)
-      Spacer()
       if viewModel.needsDisclosure(forSection: FilmViewSection.characters) {
+        Spacer()
         NavigationLink(
-          destination: CharacterListView(viewModel: viewModel.characterListViewModel),
+          destination: viewModel.characterListView,
           tag: FilmViewSection.characters.destination.tag,
           selection: $navigationTag,
           label: {
@@ -141,10 +141,10 @@ extension FilmView {
   var planetsSectionHeader: some View {
     HStack {
       Text(FilmViewSection.planets.title)
-      Spacer()
       if viewModel.needsDisclosure(forSection: FilmViewSection.planets) {
+        Spacer()
         NavigationLink(
-          destination: FilmPlanetListView(viewModel: viewModel.planetListViewModel),
+          destination: viewModel.filmPlanetsListView,
           tag: FilmViewSection.planets.destination.tag,
           selection: $navigationTag,
           label: {
@@ -157,10 +157,10 @@ extension FilmView {
   var speciesSectionHeader: some View {
     HStack {
       Text(FilmViewSection.species.title)
-      Spacer()
       if viewModel.needsDisclosure(forSection: FilmViewSection.species) {
+        Spacer()
         NavigationLink(
-          destination: FilmSpeciesListView(viewModel: viewModel.speciesListViewModel),
+          destination: viewModel.filmSpeciesListView,
           tag: FilmViewSection.species.destination.tag,
           selection: $navigationTag,
           label: {
@@ -173,10 +173,10 @@ extension FilmView {
   var starshipsSectionHeader: some View {
     HStack {
       Text(FilmViewSection.starships.title)
-      Spacer()
       if viewModel.needsDisclosure(forSection: FilmViewSection.starships) {
+        Spacer()
         NavigationLink(
-          destination: FilmStarshipListView(viewModel: viewModel.starshipListViewModel),
+          destination: viewModel.filmStarshipListView,
           tag: FilmViewSection.starships.destination.tag,
           selection: $navigationTag,
           label: {
@@ -189,10 +189,10 @@ extension FilmView {
   var vehiclesSectionHeader: some View {
     HStack {
       Text(FilmViewSection.vehicles.title)
-      Spacer()
       if viewModel.needsDisclosure(forSection: FilmViewSection.vehicles) {
+        Spacer()
         NavigationLink(
-          destination: FilmVehicleListView(viewModel: viewModel.vehicleListViewModel),
+          destination: viewModel.filmVehicleListView,
           tag: FilmViewSection.vehicles.destination.tag,
           selection: $navigationTag,
           label: {
@@ -213,27 +213,43 @@ extension FilmView {
 
 }
 
-struct HeaderButtonView: View {
-  var body: some View {
-    HStack {
-      Text("See all")
-      Image(systemName: "chevron.right")
-        .font(.caption)
-    }
+extension FilmView {
+  static var mock: FilmView {
+    let film = loadSampleFilm(.newHope)
+    let characterView: CharacterViewInitializer = { _ in PersonView.mock }
+    let characterList: CharacterListInitializer = { _ in CharacterListView.mock }
+    let planetView: FilmPlanetViewInitializer = { _ in PlanetView.mock }
+    let planetList: FilmPlanetListInitializer = { _ in FilmPlanetListView.mock }
+    let speciesView: FilmSpeciesViewInitializer = { _ in SpeciesView.mock }
+    let filmSpeciesList: FilmSpeciewsListInitializer = { _ in FilmSpeciesListView.mock }
+    let starshipView: FilmStarshipViewInitializer = { _ in StarshipView.mock }
+    let filmStarshipList: FilmStarshipListInitializer = { _ in FilmStarshipListView.mock }
+    let vehicleView: FilmVehicleViewInitializer = { _ in VehicleView.mock }
+    let filmVehicleList: FilmVehicleListInitializer = { _ in FilmVehicleListView.mock }
+    let crawlView = FilmCrawlView(viewModel: FilmCrawlViewModel(film: loadSampleFilm(.newHope)))
+    let viewModel = FilmViewModel(
+      filmId: film.filmId,
+      characterViewInitializer: characterView,
+      characterList: characterList,
+      planetView: planetView,
+      filmPlanetList: planetList,
+      speciesView: speciesView,
+      filmSpeciesList: filmSpeciesList,
+      starshipView: starshipView,
+      filmStarshipList: filmStarshipList,
+      vehicleView: vehicleView,
+      filmVehicleList: filmVehicleList,
+      crawlView: { _ in crawlView }
+    )
+    return FilmView(viewModel: viewModel)
   }
 }
 
-// swiftlint:disable type_name identifier_name
+// swiftlint:disable type_name
 struct FilmView_Previews: PreviewProvider {
-  static let vm: FilmViewModel = {
-    let film = loadSampleFilm("newHope")
-    let service = MockDataService(film)
-    return FilmViewModel(filmId: film.filmId, dataService: service)
-  }()
-
   static var previews: some View {
     NavigationView {
-      FilmView(viewModel: vm)
+      FilmView.mock
     }
   }
 }

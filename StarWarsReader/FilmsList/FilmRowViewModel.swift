@@ -12,8 +12,14 @@ struct FilmRowViewModel {
 
   private let film: FilmsResponse.Film
 
-  init(film: FilmsResponse.Film) {
+  let filmView: FilmView
+
+  init(
+    film: FilmsResponse.Film,
+    filmView: FilmView
+  ) {
     self.film = film
+    self.filmView = filmView
   }
 
   var title: String {
@@ -28,10 +34,6 @@ struct FilmRowViewModel {
     let calendar = Calendar.current
     let releaseYear = calendar.component(.year, from: film.releaseDate)
     return String(releaseYear)
-  }
-
-  var filmViewModel: FilmViewModel {
-    FilmViewModel(filmId: film.filmId)
   }
 
 }

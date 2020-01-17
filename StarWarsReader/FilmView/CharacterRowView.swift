@@ -12,12 +12,10 @@ struct CharacterRowViewModel {
 
   let character: Film.Character
 
+  let personView: PersonView
+
   var name: String {
     character.name
-  }
-
-  var personViewModel: PersonViewModel {
-    PersonViewModel(resourceId: character.characterId)
   }
 }
 
@@ -26,20 +24,26 @@ struct CharacterRowView: View {
   let viewModel: CharacterRowViewModel
 
   var body: some View {
-    NavigationLink(destination: PersonView(viewModel: viewModel.personViewModel)) {
+    NavigationLink(destination: viewModel.personView) {
       Text(viewModel.name)
     }
   }
 }
 
+extension CharacterRowView {
+  static var mock: CharacterRowView {
+    let film = loadSampleFilm(.newHope)
+    let viewModel = CharacterRowViewModel(
+      character: film.characters[0],
+      personView: PersonView.mock
+    )
+    return CharacterRowView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct CharacterRowView_Previews: PreviewProvider {
-  static let vm: CharacterRowViewModel = {
-    let film = loadSampleFilm("newHope")
-    return CharacterRowViewModel(character: film.characters.first!)
-  }()
-
   static var previews: some View {
-    CharacterRowView(viewModel: vm)
+    CharacterRowView.mock
   }
 }

@@ -9,6 +9,16 @@
 import Foundation
 import Combine
 
+typealias PersonHomeworldView = (Person.Planet?) -> PlanetView?
+
+typealias PersonSpeciesView = (Person.Species) -> SpeciesView
+
+typealias PersonFilmView = (Person.Film) -> FilmView
+
+typealias PersonStarshipView = (Person.Starship) -> StarshipView
+
+typealias PersonVehicleView = (Person.Vehicle) -> VehicleView
+
 final class PersonViewModel: ObservableObject {
 
   private let personId: String
@@ -18,6 +28,16 @@ final class PersonViewModel: ObservableObject {
   private var disposables = Set<AnyCancellable>()
 
   private var needsPersonContent = true
+
+  private let homeworldView: PersonHomeworldView
+
+  private let speciesView: PersonSpeciesView
+
+  private let filmView: PersonFilmView
+
+  private let starshipView: PersonStarshipView
+
+  private let vehicleView: PersonVehicleView
 
   @Published var person: Person?
 
@@ -31,9 +51,19 @@ final class PersonViewModel: ObservableObject {
 
   init(
     resourceId: String,
+    homeworldView: @escaping PersonHomeworldView,
+    speciesView: @escaping PersonSpeciesView,
+    filmView: @escaping PersonFilmView,
+    starshipView: @escaping PersonStarshipView,
+    vehicleView: @escaping PersonVehicleView,
     dataService: Swapi = SwapiService()
   ) {
     personId = resourceId
+    self.homeworldView = homeworldView
+    self.speciesView = speciesView
+    self.filmView = filmView
+    self.starshipView = starshipView
+    self.vehicleView = vehicleView
     self.dataService = dataService
   }
 
@@ -116,22 +146,22 @@ final class PersonViewModel: ObservableObject {
   }
 
   var homeworldViewModel: HomeworldRowViewModel {
-    HomeworldRowViewModel(homeworld: person?.homeworld)
+    HomeworldRowViewModel(homeworld: person?.homeworld, planetView: homeworldView(person?.homeworld))
   }
 
   func speciesViewModel(forSpecies species: Person.Species) -> SpeciesRowViewModel {
-    SpeciesRowViewModel(species: species)
+    SpeciesRowViewModel(species: species, speciesView: speciesView(species))
   }
 
   func starshipViewModel(forStarship starship: Person.Starship) -> StarshipRowViewModel {
-    StarshipRowViewModel(starship: starship)
+    StarshipRowViewModel(starship: starship, starshipView: starshipView(starship))
   }
 
   func vehicleViewModel(forVehicle vehicle: Person.Vehicle) -> VehicleRowViewModel {
-    VehicleRowViewModel(vehicle: vehicle)
+    VehicleRowViewModel(vehicle: vehicle, vehicleView: vehicleView(vehicle))
   }
 
   func filmViewModel(forFilm film: Person.Film) -> PersonFilmRowViewModel {
-    PersonFilmRowViewModel(film: film)
+    PersonFilmRowViewModel(film: film, filmView: filmView(film))
   }
 }

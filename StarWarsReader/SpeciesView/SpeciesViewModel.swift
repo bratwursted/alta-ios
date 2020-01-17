@@ -9,6 +9,10 @@
 import Foundation
 import Combine
 
+typealias SpeciesFilmView = (Species.Film) -> FilmView
+
+typealias SpeciesPersonView = (Species.Person) -> PersonView
+
 final class SpeciesViewModel: ObservableObject {
 
   private let speciesId: String
@@ -19,6 +23,10 @@ final class SpeciesViewModel: ObservableObject {
 
   private var needsfetchSpecies = true
 
+  private let filmView: SpeciesFilmView
+
+  private let personView: SpeciesPersonView
+
   @Published var species: Species?
 
   var people: [Species.Person] = []
@@ -27,9 +35,13 @@ final class SpeciesViewModel: ObservableObject {
 
   init(
     resourceId: String,
+    filmView: @escaping SpeciesFilmView,
+    personView: @escaping SpeciesPersonView,
     dataService: Swapi = SwapiService()
   ) {
     speciesId = resourceId
+    self.filmView = filmView
+    self.personView = personView
     self.dataService = dataService
   }
 
@@ -117,10 +129,10 @@ final class SpeciesViewModel: ObservableObject {
   }
 
   func rowViewModel(forPerson person: Species.Person) -> SpeciesPersonRowViewModel {
-    SpeciesPersonRowViewModel(person: person)
+    SpeciesPersonRowViewModel(person: person, personView: personView(person))
   }
 
   func rowViewModel(forFilm film: Species.Film) -> SpeciesFilmRowViewModel {
-    SpeciesFilmRowViewModel(film: film)
+    SpeciesFilmRowViewModel(film: film, filmView: filmView(film))
   }
 }

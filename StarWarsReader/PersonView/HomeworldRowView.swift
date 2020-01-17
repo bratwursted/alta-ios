@@ -12,12 +12,10 @@ struct HomeworldRowViewModel {
 
   let homeworld: Person.Planet?
 
+  let planetView: PlanetView?
+
   var name: String {
     homeworld?.name ?? "n/a"
-  }
-
-  var planetViewModel: PlanetViewModel {
-    PlanetViewModel(planetId: homeworld!.planetId)
   }
 }
 
@@ -26,10 +24,10 @@ struct HomeworldRowView: View {
 
   var body: some View {
     Group {
-      if viewModel.homeworld == nil {
+      if viewModel.planetView == nil {
         Text(viewModel.name)
       } else {
-        NavigationLink(destination: PlanetView(viewModel: viewModel.planetViewModel)) {
+        NavigationLink(destination: viewModel.planetView!) {
           Text(viewModel.name)
         }
       }
@@ -37,14 +35,17 @@ struct HomeworldRowView: View {
   }
 }
 
-// swiftlint:disable type_name identifier_name
-struct HomeworldRowView_Previews: PreviewProvider {
-  static let vm: HomeworldRowViewModel = {
-    let luke = loadSamplePerson("luke")
-    return HomeworldRowViewModel(homeworld: luke.homeworld!)
-  }()
+extension HomeworldRowView {
+  static var mock: HomeworldRowView {
+    let homeworld = loadSamplePerson(.luke).homeworld
+    let viewModel = HomeworldRowViewModel(homeworld: homeworld, planetView: PlanetView.mock)
+    return HomeworldRowView(viewModel: viewModel)
+  }
+}
 
+// swiftlint:disable type_name
+struct HomeworldRowView_Previews: PreviewProvider {
   static var previews: some View {
-    HomeworldRowView(viewModel: vm)
+    HomeworldRowView.mock
   }
 }

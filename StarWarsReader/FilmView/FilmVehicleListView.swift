@@ -12,8 +12,10 @@ struct FilmVehicleListViewModel {
 
   let vehicles: [Film.Vehicle]
 
+  let vehicleView: FilmVehicleViewInitializer
+
   func viewModel(forVehicle vehicle: Film.Vehicle) -> FilmVehicleRowViewModel {
-    FilmVehicleRowViewModel(vehicle: vehicle)
+    FilmVehicleRowViewModel(vehicle: vehicle, vehicleView: vehicleView(vehicle))
   }
 }
 
@@ -31,16 +33,22 @@ struct FilmVehicleListView: View {
   }
 }
 
+extension FilmVehicleListView {
+  static var mock: FilmVehicleListView {
+    let filmVehicles = loadSampleFilm(.newHope).vehicles
+    let viewModel = FilmVehicleListViewModel(
+      vehicles: filmVehicles,
+      vehicleView: { _ in VehicleView.mock }
+    )
+    return FilmVehicleListView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct FilmVehicleListView_Previews: PreviewProvider {
-  static let vm: FilmVehicleListViewModel = {
-    let newHope = loadSampleFilm("newHope")
-    return FilmVehicleListViewModel(vehicles: newHope.vehicles)
-  }()
-
   static var previews: some View {
     NavigationView {
-      FilmVehicleListView(viewModel: vm)
+      FilmVehicleListView.mock
     }
   }
 }
