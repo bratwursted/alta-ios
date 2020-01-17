@@ -110,7 +110,12 @@ struct FlowCoordinator {
   }
 
   private func makePersonView(with resourceId: String) -> PersonView {
-    let viewModel = PersonViewModel(resourceId: resourceId)
+    let viewModel = PersonViewModel(
+      resourceId: resourceId,
+      homeworldView: { planet in
+        guard let planet = planet else { return nil }
+        return self.makePlanetView(with: planet.planetId)
+    })
     return PersonView(viewModel: viewModel)
   }
 

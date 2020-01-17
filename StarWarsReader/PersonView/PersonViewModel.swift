@@ -9,6 +9,8 @@
 import Foundation
 import Combine
 
+typealias PersonHomeworldView = (Person.Planet?) -> PlanetView?
+
 final class PersonViewModel: ObservableObject {
 
   private let personId: String
@@ -18,6 +20,8 @@ final class PersonViewModel: ObservableObject {
   private var disposables = Set<AnyCancellable>()
 
   private var needsPersonContent = true
+
+  private var homeworldView: PersonHomeworldView
 
   @Published var person: Person?
 
@@ -31,9 +35,11 @@ final class PersonViewModel: ObservableObject {
 
   init(
     resourceId: String,
+    homeworldView: @escaping PersonHomeworldView,
     dataService: Swapi = SwapiService()
   ) {
     personId = resourceId
+    self.homeworldView = homeworldView
     self.dataService = dataService
   }
 
@@ -116,7 +122,7 @@ final class PersonViewModel: ObservableObject {
   }
 
   var homeworldViewModel: HomeworldRowViewModel {
-    HomeworldRowViewModel(homeworld: person?.homeworld)
+    HomeworldRowViewModel(homeworld: person?.homeworld, planetView: homeworldView(person?.homeworld))
   }
 
   func speciesViewModel(forSpecies species: Person.Species) -> SpeciesRowViewModel {
