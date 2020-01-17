@@ -11,6 +11,8 @@ import Combine
 
 typealias PilotView = (Starship.Pilot) -> PersonView
 
+typealias StarshipFilmView = (Starship.Film) -> FilmView
+
 final class StarshipViewModel: ObservableObject {
 
   private let formatter: NumberFormatter = {
@@ -28,7 +30,9 @@ final class StarshipViewModel: ObservableObject {
 
   private var needsStarshipData = true
 
-  private var pilotView: PilotView
+  private let pilotView: PilotView
+
+  private let filmView: StarshipFilmView
 
   @Published var starship: Starship?
 
@@ -39,10 +43,12 @@ final class StarshipViewModel: ObservableObject {
   init(
     resourceId: String,
     pilotView: @escaping PilotView,
+    filmView: @escaping StarshipFilmView,
     dataService: Swapi = SwapiService()
   ) {
     starshipId = resourceId
     self.pilotView = pilotView
+    self.filmView = filmView
     self.dataService = dataService
   }
 
@@ -153,7 +159,7 @@ final class StarshipViewModel: ObservableObject {
   }
 
   func rowViewModel(forFilm film: Starship.Film) -> StarshipFilmRowViewModel {
-    StarshipFilmRowViewModel(film: film)
+    StarshipFilmRowViewModel(film: film, filmView: filmView(film))
   }
 
   func rowViewModel(forPilot pilot: Starship.Pilot) -> PilotRowViewModel {

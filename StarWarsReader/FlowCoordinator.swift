@@ -160,6 +160,9 @@ struct FlowCoordinator {
       resourceId: resourceId,
       pilotView: { pilot in
         self.makePersonView(with: pilot.pilotId)
+      },
+      filmView: { film in
+        self.makeFilmView(with: film.filmId)
     })
     return StarshipView(viewModel: viewModel)
   }

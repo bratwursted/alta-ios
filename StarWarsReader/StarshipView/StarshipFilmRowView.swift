@@ -12,25 +12,10 @@ struct StarshipFilmRowViewModel {
 
   let film: Starship.Film
 
+  let filmView: FilmView
+
   var title: String {
     film.title
-  }
-
-  var filmViewModel: FilmViewModel {
-    FilmViewModel(
-      filmId: film.filmId,
-      // TODO: factor out these mock initializers
-      characterViewInitializer: { _ in PersonView.mock },
-      characterList: { _ in CharacterListView.mock },
-      planetView: { _ in PlanetView.mock },
-      filmPlanetList: { _ in FilmPlanetListView.mock },
-      speciesView: { _ in SpeciesView.mock },
-      filmSpeciesList: { _ in FilmSpeciesListView.mock },
-      starshipView: { _ in StarshipView.mock },
-      filmStarshipList: { _ in FilmStarshipListView.mock },
-      vehicleView: { _ in VehicleView.mock },
-      filmVehicleList: { _ in FilmVehicleListView.mock }
-    )
   }
 }
 
@@ -39,18 +24,23 @@ struct StarshipFilmRowView: View {
   let viewModel: StarshipFilmRowViewModel
 
   var body: some View {
-    Text(viewModel.title)
+    NavigationLink(destination: viewModel.filmView) {
+      Text(viewModel.title)
+    }
+  }
+}
+
+extension StarshipFilmRowView {
+  static var mock: StarshipFilmRowView {
+    let starshipFilm = loadSampleStarship(.falcon).films[0]
+    let viewModel = StarshipFilmRowViewModel(film: starshipFilm, filmView: FilmView.mock)
+    return StarshipFilmRowView(viewModel: viewModel)
   }
 }
 
 // swiftlint:disable all
 struct StarshipFilmRowView_Previews: PreviewProvider {
-  static let vm: StarshipFilmRowViewModel = {
-    let falcon = loadSampleStarship(.falcon)
-    return StarshipFilmRowViewModel(film: falcon.films.first!)
-  }()
-
   static var previews: some View {
-    StarshipFilmRowView(viewModel: vm)
+    StarshipFilmRowView.mock
   }
 }
