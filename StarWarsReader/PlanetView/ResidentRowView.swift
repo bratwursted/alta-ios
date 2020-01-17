@@ -33,7 +33,7 @@ struct ResidentRowView: View {
 // swiftlint:disable all
 struct ResidentRowView_Previews: PreviewProvider {
   static let vm: ResidentRowViewModel = {
-    let tatooine = loadSamplePlanet("tatooine")
+    let tatooine = loadSamplePlanet(.tatooine)
     return ResidentRowViewModel(resident: tatooine.residents.first!)
   }()
 

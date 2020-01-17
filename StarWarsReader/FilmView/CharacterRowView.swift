@@ -36,7 +36,7 @@ struct CharacterRowView: View {
 
 extension CharacterRowView {
   static var mock: CharacterRowView {
-    let film = loadSampleFilm("newHope")
+    let film = loadSampleFilm(.newHope)
     let viewModel = CharacterRowViewModel(
       character: film.characters[0],
       personView: PersonView.mock

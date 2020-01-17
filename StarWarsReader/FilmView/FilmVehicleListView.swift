@@ -34,7 +34,7 @@ struct FilmVehicleListView: View {
 // swiftlint:disable all
 struct FilmVehicleListView_Previews: PreviewProvider {
   static let vm: FilmVehicleListViewModel = {
-    let newHope = loadSampleFilm("newHope")
+    let newHope = loadSampleFilm(.newHope)
     return FilmVehicleListViewModel(vehicles: newHope.vehicles)
   }()
 

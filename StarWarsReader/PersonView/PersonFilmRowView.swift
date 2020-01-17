@@ -42,7 +42,7 @@ struct PersonFilmRowView: View {
 // swiftlint:disable all
 struct PersonFilmRowView_Previews: PreviewProvider {
   static let vm: PersonFilmRowViewModel = {
-    let luke = loadSamplePerson("luke")
+    let luke = loadSamplePerson(.luke)
     return PersonFilmRowViewModel(film: luke.films.first!)
   }()
 

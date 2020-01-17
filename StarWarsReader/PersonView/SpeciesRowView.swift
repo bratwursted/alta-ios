@@ -32,7 +32,7 @@ struct SpeciesRowView: View {
 // swiftlint:disable all
 struct SpeciesRowView_Previews: PreviewProvider {
   static let vm: SpeciesRowViewModel = {
-    let luke = loadSamplePerson("luke")
+    let luke = loadSamplePerson(.luke)
     return SpeciesRowViewModel(species: luke.species.first!)
   }()
 

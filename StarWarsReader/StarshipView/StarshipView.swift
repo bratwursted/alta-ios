@@ -93,7 +93,7 @@ extension StarshipView {
 
 extension StarshipView {
   static var mock: StarshipView {
-    let falcon = loadSampleStarship("falcon")
+    let falcon = loadSampleStarship(.falcon)
     let mockData = MockDataService(falcon)
     let viewModel = StarshipViewModel(
       resourceId: falcon.starshipId,

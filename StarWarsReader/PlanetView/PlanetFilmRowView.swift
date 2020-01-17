@@ -42,7 +42,7 @@ struct PlanetFilmRowView: View {
 // swiftlint:disable all
 struct PlanetFilmRowView_Previews: PreviewProvider {
   static let vm: PlanetFilmRowViewModel = {
-    let tatooine = loadSamplePlanet("tatooine")
+    let tatooine = loadSamplePlanet(.tatooine)
     return PlanetFilmRowViewModel(film: tatooine.films.first!)
   }()
 

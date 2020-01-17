@@ -42,7 +42,7 @@ struct SpeciesFilmRowView: View {
 // swiftlint:disable all
 struct SpeciesFilmRowView_Previews: PreviewProvider {
   static let vm: SpeciesFilmRowViewModel = {
-    let twilek = loadSampleSpecies("twilek")
+    let twilek = loadSampleSpecies(.twilek)
     return SpeciesFilmRowViewModel(film: twilek.films.first!)
   }()
 

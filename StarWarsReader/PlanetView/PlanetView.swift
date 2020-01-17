@@ -90,7 +90,7 @@ extension PlanetView {
 
 extension PlanetView {
   static var mock: PlanetView {
-    let tatooine = loadSamplePlanet("tatooine")
+    let tatooine = loadSamplePlanet(.tatooine)
     let mockData = MockDataService(tatooine)
     let viewModel = PlanetViewModel(
       planetId: tatooine.planetId,

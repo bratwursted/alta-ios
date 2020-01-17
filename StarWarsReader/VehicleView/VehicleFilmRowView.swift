@@ -42,7 +42,7 @@ struct VehicleFilmRowView: View {
 // swiftlint:disable all
 struct VehicleFilmRowView_Previews: PreviewProvider {
   static let vm: VehicleFilmRowViewModel = {
-    let airspeeder = loadSampleVehicle("airspeeder")
+    let airspeeder = loadSampleVehicle(.airspeeder)
     return VehicleFilmRowViewModel(film: airspeeder.films.first!)
   }()
 

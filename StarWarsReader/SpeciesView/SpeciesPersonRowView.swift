@@ -33,7 +33,7 @@ struct SpeciesPersonRowView: View {
 // swiftlint:disable all
 struct SpeciesPersonRowView_Previews: PreviewProvider {
   static let vm: SpeciesPersonRowViewModel = {
-    let twilek = loadSampleSpecies("twilek")
+    let twilek = loadSampleSpecies(.twilek)
     return SpeciesPersonRowViewModel(person: twilek.people.first!)
   }()
 

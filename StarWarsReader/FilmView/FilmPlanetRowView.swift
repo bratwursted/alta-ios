@@ -36,7 +36,7 @@ struct FilmPlanetRowView: View {
 
 extension FilmPlanetRowView {
   static var mock: FilmPlanetRowView {
-    let filmPlanet = loadSampleFilm("newHope").planets[0]
+    let filmPlanet = loadSampleFilm(.newHope).planets[0]
     let viewModel = FilmPlanetRowViewModel(
       planet: filmPlanet,
       planetView: PlanetView.mock

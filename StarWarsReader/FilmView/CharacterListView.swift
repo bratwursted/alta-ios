@@ -40,7 +40,7 @@ struct CharacterListView: View {
 
 extension CharacterListView {
   static var mock: CharacterListView {
-    let newHope = loadSampleFilm("newHope")
+    let newHope = loadSampleFilm(.newHope)
     let viewModel = CharacterListViewModel(
       characters: newHope.characters,
       characterViewInitializer: { _ in PersonView.mock }

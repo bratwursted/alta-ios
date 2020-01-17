@@ -38,7 +38,7 @@ struct FilmSpeciesListView: View {
 
 extension FilmSpeciesListView {
   static var mock: FilmSpeciesListView {
-    let filmSpecies = loadSampleFilm("newHope").species
+    let filmSpecies = loadSampleFilm(.newHope).species
     let viewModel = FilmSpeciesListViewModel(
       species: filmSpecies,
       speciesView: { _ in SpeciesView.mock }

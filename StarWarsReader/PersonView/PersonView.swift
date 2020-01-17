@@ -122,7 +122,7 @@ extension PersonView {
 
 extension PersonView {
   static var mock: PersonView {
-    let luke = loadSamplePerson("luke")
+    let luke = loadSamplePerson(.luke)
     let mockData = MockDataService(luke)
     let viewModel = PersonViewModel(
       resourceId: luke.personId,

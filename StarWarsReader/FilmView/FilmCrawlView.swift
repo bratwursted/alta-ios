@@ -39,7 +39,7 @@ struct FilmCrawlView: View {
 // swiftlint:disable all
 struct FilmCrawlView_Previews: PreviewProvider {
   static let vm: FilmCrawlViewModel = {
-    let film = loadSampleFilm("newHope")
+    let film = loadSampleFilm(.newHope)
     return FilmCrawlViewModel(film: film)
   }()
 

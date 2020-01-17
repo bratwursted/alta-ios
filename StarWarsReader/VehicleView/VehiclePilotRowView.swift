@@ -33,7 +33,7 @@ struct VehiclePilotRowView: View {
 // swiftlint:disable all
 struct VehiclePilotRowView_Previews: PreviewProvider {
   static let vm: VehiclePilotRowViewModel = {
-    let airspeeder = loadSampleVehicle("airspeeder")
+    let airspeeder = loadSampleVehicle(.airspeeder)
     return VehiclePilotRowViewModel(pilot: airspeeder.pilots.first!)
   }()
 

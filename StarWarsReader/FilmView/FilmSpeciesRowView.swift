@@ -33,7 +33,7 @@ struct FilmSpeciesRowView: View {
 
 extension FilmSpeciesRowView {
   static var mock: FilmSpeciesRowView {
-    let filmSpecies = loadSampleFilm("newHope").species[0]
+    let filmSpecies = loadSampleFilm(.newHope).species[0]
     let viewModel = FilmSpeciesRowViewModel(species: filmSpecies, speciesView: SpeciesView.mock)
     return FilmSpeciesRowView(viewModel: viewModel)
   }

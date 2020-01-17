@@ -90,7 +90,7 @@ extension VehicleView {
 
 extension VehicleView {
   static var mock: VehicleView {
-    let airspeeder = loadSampleVehicle("airspeeder")
+    let airspeeder = loadSampleVehicle(.airspeeder)
     let mockData = MockDataService(airspeeder)
     let viewModel = VehicleViewModel(
       resourceId: airspeeder.vehicleId,

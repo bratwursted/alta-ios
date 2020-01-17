@@ -80,7 +80,7 @@ extension SpeciesView {
 
 extension SpeciesView {
   static var mock: SpeciesView {
-    let twilek = loadSampleSpecies("twilek")
+    let twilek = loadSampleSpecies(.twilek)
     let mockData = MockDataService(twilek)
     let viewModel = SpeciesViewModel(
       resourceId: twilek.speciesId,

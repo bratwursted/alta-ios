@@ -213,7 +213,7 @@ extension FilmView {
 
 extension FilmView {
   static var mock: FilmView {
-    let film = loadSampleFilm("newHope")
+    let film = loadSampleFilm(.newHope)
     let characterView: CharacterViewInitializer = { _ in PersonView.mock }
     let characterList: CharacterListInitializer = { _ in CharacterListView.mock }
     let planetView: FilmPlanetViewInitializer = { _ in PlanetView.mock }

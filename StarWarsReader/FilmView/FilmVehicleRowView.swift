@@ -33,7 +33,7 @@ struct FilmVehicleRowView: View {
 // swiftlint:disable all
 struct FilmVehicleRowView_Previews: PreviewProvider {
   static let vm: FilmVehicleRowViewModel = {
-    let newHope = loadSampleFilm("newHope")
+    let newHope = loadSampleFilm(.newHope)
     return FilmVehicleRowViewModel(vehicle: newHope.vehicles.first!)
   }()
   

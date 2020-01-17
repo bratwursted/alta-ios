@@ -38,7 +38,7 @@ struct HomeworldRowView: View {
 // swiftlint:disable type_name identifier_name
 struct HomeworldRowView_Previews: PreviewProvider {
   static let vm: HomeworldRowViewModel = {
-    let luke = loadSamplePerson("luke")
+    let luke = loadSamplePerson(.luke)
     return HomeworldRowViewModel(homeworld: luke.homeworld!)
   }()
 
