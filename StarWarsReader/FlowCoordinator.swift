@@ -19,9 +19,14 @@ struct FlowCoordinator {
   }
 
   private func makeFilmsList() -> FilmsListView {
-    let viewModel = FilmsListViewModel(filmViewInitializer: { _ in
-      FilmView.mock
+    let viewModel = FilmsListViewModel(filmViewInitializer: { film in
+      self.makeFilmView(with: film)
     })
     return FilmsListView(viewModel: viewModel)
+  }
+
+  private func makeFilmView(with film: FilmsResponse.Film) -> FilmView {
+    let viewModel = FilmViewModel(filmId: film.filmId)
+    return FilmView(viewModel: viewModel)
   }
 }
