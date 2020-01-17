@@ -22,7 +22,8 @@ struct PersonFilmRowViewModel {
       // TODO: factor out these mock initializers
       characterViewInitializer: { _ in PersonView.mock },
       characterList: { _ in CharacterListView.mock },
-      planetView: { _ in PlanetView.mock }
+      planetView: { _ in PlanetView.mock },
+      filmPlanetList: { _ in FilmPlanetListView.mock }
     )
   }
 }
