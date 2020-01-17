@@ -30,9 +30,22 @@ struct FlowCoordinator {
       filmId: filmId,
       characterViewInitializer: { character in
         self.makePersonView(with: character.characterId)
-        }
-      )
+        },
+      characterList: { characters in
+        self.makeCharacterListView(characters: characters)
+      }
+    )
     return FilmView(viewModel: viewModel)
+  }
+
+  private func makeCharacterListView(characters: [Film.Character]) -> CharacterListView {
+    let viewModel = CharacterListViewModel(
+      characters: characters,
+      characterViewInitializer: { character in
+        self.makePersonView(with: character.characterId)
+      }
+    )
+    return CharacterListView(viewModel: viewModel)
   }
 
   private func makePersonView(with resourceId: String) -> PersonView {

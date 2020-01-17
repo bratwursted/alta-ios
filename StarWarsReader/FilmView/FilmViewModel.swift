@@ -11,6 +11,8 @@ import Combine
 
 typealias CharacterViewInitializer = (Film.Character) -> PersonView
 
+typealias CharacterListInitializer = ([Film.Character]) -> CharacterListView
+
 final class FilmViewModel: ObservableObject {
 
   static let maximumSectionRows = 3
@@ -32,6 +34,8 @@ final class FilmViewModel: ObservableObject {
 
   private let characterViewInitializer: CharacterViewInitializer
 
+  private let characterList: CharacterListInitializer
+
   @Published var film: Film?
 
   var characters: [Film.Character] = []
@@ -47,10 +51,12 @@ final class FilmViewModel: ObservableObject {
   init(
     filmId: String,
     characterViewInitializer: @escaping CharacterViewInitializer,
+    characterList: @escaping CharacterListInitializer,
     dataService: Swapi = SwapiService()
   ) {
     self.dataService = dataService
     self.characterViewInitializer = characterViewInitializer
+    self.characterList = characterList
     self.filmId = filmId
   }
 
@@ -187,6 +193,10 @@ final class FilmViewModel: ObservableObject {
     }
 
     return min(FilmViewModel.maximumSectionRows, allRows)
+  }
+
+  var characterListView: CharacterListView {
+    characterList(characters)
   }
 
   var characterListViewModel: CharacterListViewModel {

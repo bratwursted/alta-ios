@@ -123,16 +123,16 @@ extension FilmView {
   var charactersSectionHeader: some View {
     HStack {
       Text(FilmViewSection.characters.title)
-      Spacer()
-//      if viewModel.needsDisclosure(forSection: FilmViewSection.characters) {
-//        NavigationLink(
-//          destination: CharacterListView(viewModel: viewModel.characterListViewModel),
-//          tag: FilmViewSection.characters.destination.tag,
-//          selection: $navigationTag,
-//          label: {
-//            headerButton(forDestination: FilmViewSection.characters.destination)
-//        })
-//      }
+      if viewModel.needsDisclosure(forSection: FilmViewSection.characters) {
+        Spacer()
+        NavigationLink(
+          destination: viewModel.characterListView,
+          tag: FilmViewSection.characters.destination.tag,
+          selection: $navigationTag,
+          label: {
+            headerButton(forDestination: FilmViewSection.characters.destination)
+        })
+      }
     }
   }
 
@@ -214,9 +214,12 @@ extension FilmView {
 extension FilmView {
   static var mock: FilmView {
     let film = loadSampleFilm("newHope")
+    let characterView: CharacterViewInitializer = { _ in PersonView.mock }
+    let characterList: CharacterListInitializer = { _ in CharacterListView.mock }
     let viewModel = FilmViewModel(
       filmId: film.filmId,
-      characterViewInitializer: { _ in PersonView.mock }
+      characterViewInitializer: characterView,
+      characterList: characterList
     )
     return FilmView(viewModel: viewModel)
   }
