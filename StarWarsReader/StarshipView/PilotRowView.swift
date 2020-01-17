@@ -22,7 +22,8 @@ struct PilotRowViewModel {
       resourceId: pilot.pilotId,
       homeworldView: { _ in PlanetView.mock },
       speciesView: { _ in SpeciesView.mock },
-      filmView: { _ in FilmView.mock }
+      filmView: { _ in FilmView.mock },
+      starshipView: { _ in StarshipView.mock }
     )
   }
 }
