@@ -214,7 +214,10 @@ extension FilmView {
 extension FilmView {
   static var mock: FilmView {
     let film = loadSampleFilm("newHope")
-    let viewModel = FilmViewModel(filmId: film.filmId)
+    let viewModel = FilmViewModel(
+      filmId: film.filmId,
+      characterViewInitializer: { _ in PersonView.mock }
+    )
     return FilmView(viewModel: viewModel)
   }
 }

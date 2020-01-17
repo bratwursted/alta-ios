@@ -12,8 +12,13 @@ struct CharacterListViewModel {
 
   let characters: [Film.Character]
 
+  let characterViewInitializer: CharacterViewInitializer
+
   func viewModel(forCharacter character: Film.Character) -> CharacterRowViewModel {
-    return CharacterRowViewModel(character: character)
+    return CharacterRowViewModel(
+      character: character,
+      personView: characterViewInitializer(character)
+    )
   }
 }
 
@@ -33,16 +38,22 @@ struct CharacterListView: View {
   }
 }
 
+extension CharacterListView {
+  static var mock: CharacterListView {
+    let newHope = loadSampleFilm("newHope")
+    let viewModel = CharacterListViewModel(
+      characters: newHope.characters,
+      characterViewInitializer: { _ in PersonView.mock }
+    )
+    return CharacterListView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct CharacterListView_Previews: PreviewProvider {
-  static let vm: CharacterListViewModel = {
-    let film = loadSampleFilm("newHope")
-    return CharacterListViewModel(characters: film.characters)
-  }()
-
   static var previews: some View {
     NavigationView {
-      CharacterListView(viewModel: vm)
+      CharacterListView.mock
     }
   }
 }

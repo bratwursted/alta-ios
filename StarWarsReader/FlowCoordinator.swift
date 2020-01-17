@@ -20,13 +20,23 @@ struct FlowCoordinator {
 
   private func makeFilmsList() -> FilmsListView {
     let viewModel = FilmsListViewModel(filmViewInitializer: { film in
-      self.makeFilmView(with: film)
+      self.makeFilmView(with: film.filmId)
     })
     return FilmsListView(viewModel: viewModel)
   }
 
-  private func makeFilmView(with film: FilmsResponse.Film) -> FilmView {
-    let viewModel = FilmViewModel(filmId: film.filmId)
+  private func makeFilmView(with filmId: String) -> FilmView {
+    let viewModel = FilmViewModel(
+      filmId: filmId,
+      characterViewInitializer: { character in
+        self.makePersonView(with: character.characterId)
+        }
+      )
     return FilmView(viewModel: viewModel)
+  }
+
+  private func makePersonView(with resourceId: String) -> PersonView {
+    let viewModel = PersonViewModel(resourceId: resourceId)
+    return PersonView(viewModel: viewModel)
   }
 }

@@ -9,6 +9,8 @@
 import Foundation
 import Combine
 
+typealias CharacterViewInitializer = (Film.Character) -> PersonView
+
 final class FilmViewModel: ObservableObject {
 
   static let maximumSectionRows = 3
@@ -28,6 +30,8 @@ final class FilmViewModel: ObservableObject {
 
   private var needsFilmContent = true
 
+  private let characterViewInitializer: CharacterViewInitializer
+
   @Published var film: Film?
 
   var characters: [Film.Character] = []
@@ -42,9 +46,11 @@ final class FilmViewModel: ObservableObject {
 
   init(
     filmId: String,
+    characterViewInitializer: @escaping CharacterViewInitializer,
     dataService: Swapi = SwapiService()
   ) {
     self.dataService = dataService
+    self.characterViewInitializer = characterViewInitializer
     self.filmId = filmId
   }
 
@@ -127,7 +133,11 @@ final class FilmViewModel: ObservableObject {
   }
 
   func characterViewModel(forCharacterAtIndex index: Int) -> CharacterRowViewModel {
-    CharacterRowViewModel(character: character(atIndex: index))
+    let theCharacter = character(atIndex: index)
+    return CharacterRowViewModel(
+      character: theCharacter,
+      personView: characterViewInitializer(theCharacter)
+    )
   }
 
   func planetViewModel(forPlanetAtIndex index: Int) -> FilmPlanetRowViewModel {
@@ -180,7 +190,7 @@ final class FilmViewModel: ObservableObject {
   }
 
   var characterListViewModel: CharacterListViewModel {
-    CharacterListViewModel(characters: characters)
+    CharacterListViewModel(characters: characters, characterViewInitializer: characterViewInitializer)
   }
 
   var planetListViewModel: FilmPlanetListViewModel {
