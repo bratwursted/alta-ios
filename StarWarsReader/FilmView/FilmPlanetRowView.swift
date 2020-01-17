@@ -20,7 +20,11 @@ struct FilmPlanetRowViewModel {
 
   var planetViewModel: PlanetViewModel {
     // TODO: refactor the mock values here 
-    PlanetViewModel(planetId: planet.planetId, planetFilmView: { _ in FilmView.mock })
+    PlanetViewModel(
+      planetId: planet.planetId,
+      planetFilmView: { _ in FilmView.mock },
+      residentView: { _ in PersonView.mock }
+    )
   }
 }
 
