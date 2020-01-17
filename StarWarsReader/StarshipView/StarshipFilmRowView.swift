@@ -25,7 +25,8 @@ struct StarshipFilmRowViewModel {
       planetView: { _ in PlanetView.mock },
       filmPlanetList: { _ in FilmPlanetListView.mock },
       speciesView: { _ in SpeciesView.mock },
-      filmSpeciesList: { _ in FilmSpeciesListView.mock }
+      filmSpeciesList: { _ in FilmSpeciesListView.mock },
+      starshipView: { _ in StarshipView.mock }
     )
   }
 }

@@ -13,7 +13,7 @@ struct FilmStarshipListViewModel {
   let starships: [Film.Starship]
 
   func viewModel(forStarship starship: Film.Starship) -> FilmStarshipRowViewModel {
-    FilmStarshipRowViewModel(starship: starship)
+    FilmStarshipRowViewModel(starship: starship, starshipView: StarshipView.mock)
   }
 }
 
