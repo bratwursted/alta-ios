@@ -38,11 +38,13 @@ struct FilmView: View {
 extension FilmView {
   var topSection: some View {
     Section {
-      VStack(alignment: .leading, spacing: 12.0) {
-        Text("Episode \(viewModel.episode)")
-        Text(viewModel.title)
-          .font(.title)
-        Text("\"\(viewModel.crawlBeginning)\"")
+      NavigationLink(destination: viewModel.crawlLinkDestination!) {
+        VStack(alignment: .leading, spacing: 12.0) {
+          Text("Episode \(viewModel.episode)")
+          Text(viewModel.title)
+            .font(.title)
+          Text("\"\(viewModel.crawlBeginning)\"")
+        }
       }
     }
   }
@@ -224,6 +226,7 @@ extension FilmView {
     let filmStarshipList: FilmStarshipListInitializer = { _ in FilmStarshipListView.mock }
     let vehicleView: FilmVehicleViewInitializer = { _ in VehicleView.mock }
     let filmVehicleList: FilmVehicleListInitializer = { _ in FilmVehicleListView.mock }
+    let crawlView = FilmCrawlView(viewModel: FilmCrawlViewModel(film: loadSampleFilm(.newHope)))
     let viewModel = FilmViewModel(
       filmId: film.filmId,
       characterViewInitializer: characterView,
@@ -235,7 +238,8 @@ extension FilmView {
       starshipView: starshipView,
       filmStarshipList: filmStarshipList,
       vehicleView: vehicleView,
-      filmVehicleList: filmVehicleList
+      filmVehicleList: filmVehicleList,
+      crawlView: { _ in crawlView }
     )
     return FilmView(viewModel: viewModel)
   }

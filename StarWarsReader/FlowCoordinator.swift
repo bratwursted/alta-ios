@@ -57,9 +57,18 @@ struct FlowCoordinator {
       },
       filmVehicleList: { vehicles in
         self.makeVehicleListView(vehicles: vehicles)
-      }
-    )
+      },
+      crawlView: { film in
+        self.makeCrawlView(with: film)
+    })
+
     return FilmView(viewModel: viewModel)
+  }
+
+  private func makeCrawlView(with film: Film?) -> FilmCrawlView? {
+    guard let film = film else { return nil }
+    let viewModel = FilmCrawlViewModel(film: film)
+    return FilmCrawlView(viewModel: viewModel)
   }
 
   private func makeCharacterListView(characters: [Film.Character]) -> CharacterListView {

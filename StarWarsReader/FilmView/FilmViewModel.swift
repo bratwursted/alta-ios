@@ -29,6 +29,8 @@ typealias FilmVehicleViewInitializer = (Film.Vehicle) -> VehicleView
 
 typealias FilmVehicleListInitializer = ([Film.Vehicle]) -> FilmVehicleListView
 
+typealias CrawlView = (Film?) -> FilmCrawlView?
+
 final class FilmViewModel: ObservableObject {
 
   static let maximumSectionRows = 3
@@ -68,6 +70,8 @@ final class FilmViewModel: ObservableObject {
 
   private let filmVehicleList: FilmVehicleListInitializer
 
+  private let crawlView: CrawlView
+
   @Published var film: Film?
 
   var characters: [Film.Character] = []
@@ -92,6 +96,7 @@ final class FilmViewModel: ObservableObject {
     filmStarshipList: @escaping FilmStarshipListInitializer,
     vehicleView: @escaping FilmVehicleViewInitializer,
     filmVehicleList: @escaping FilmVehicleListInitializer,
+    crawlView: @escaping CrawlView,
     dataService: Swapi = SwapiService()
   ) {
     self.dataService = dataService
@@ -105,6 +110,7 @@ final class FilmViewModel: ObservableObject {
     self.filmStarshipList = filmStarshipList
     self.vehicleView = vehicleView
     self.filmVehicleList = filmVehicleList
+    self.crawlView = crawlView
     self.filmId = filmId
   }
 
@@ -184,6 +190,10 @@ final class FilmViewModel: ObservableObject {
 
   func vehicle(atIndex index: Int) -> Film.Vehicle {
     vehicles[index]
+  }
+
+  var crawlLinkDestination: FilmCrawlView? {
+    crawlView(film)
   }
 
   func characterViewModel(forCharacterAtIndex index: Int) -> CharacterRowViewModel {
