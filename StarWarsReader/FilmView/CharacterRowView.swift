@@ -23,7 +23,8 @@ struct CharacterRowViewModel {
     PersonViewModel(
       resourceId: character.characterId,
       homeworldView: { _ in PlanetView.mock },
-      speciesView: { _ in SpeciesView.mock }
+      speciesView: { _ in SpeciesView.mock },
+      filmView: { _ in FilmView.mock }
     )
   }
 }

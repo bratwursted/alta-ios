@@ -21,7 +21,8 @@ struct PilotRowViewModel {
     PersonViewModel(
       resourceId: pilot.pilotId,
       homeworldView: { _ in PlanetView.mock },
-      speciesView: { _ in SpeciesView.mock }
+      speciesView: { _ in SpeciesView.mock },
+      filmView: { _ in FilmView.mock }
     )
   }
 }
