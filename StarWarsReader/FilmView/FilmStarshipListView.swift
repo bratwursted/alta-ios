@@ -12,8 +12,13 @@ struct FilmStarshipListViewModel {
 
   let starships: [Film.Starship]
 
+  let filmStarshipView: FilmStarshipViewInitializer
+
   func viewModel(forStarship starship: Film.Starship) -> FilmStarshipRowViewModel {
-    FilmStarshipRowViewModel(starship: starship, starshipView: StarshipView.mock)
+    FilmStarshipRowViewModel(
+      starship: starship,
+      starshipView: filmStarshipView(starship)
+    )
   }
 }
 
@@ -33,16 +38,19 @@ struct FilmStarshipListView: View {
   }
 }
 
+extension FilmStarshipListView {
+  static var mock: FilmStarshipListView {
+    let starships = loadSampleFilm(.newHope).starships
+    let viewModel = FilmStarshipListViewModel(starships: starships, filmStarshipView: { _ in StarshipView.mock })
+    return FilmStarshipListView(viewModel: viewModel)
+  }
+}
+
 //swiftlint:disable all
 struct FilmStarshipListView_Previews: PreviewProvider {
-  static let vm: FilmStarshipListViewModel = {
-    let newHope = loadSampleFilm(.newHope)
-    return FilmStarshipListViewModel(starships: newHope.starships)
-  }()
-
   static var previews: some View {
     NavigationView {
-      FilmStarshipListView(viewModel: vm)
+      FilmStarshipListView.mock
     }
   }
 }

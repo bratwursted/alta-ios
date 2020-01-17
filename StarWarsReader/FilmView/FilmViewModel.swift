@@ -58,6 +58,8 @@ final class FilmViewModel: ObservableObject {
 
   private let starshipView: FilmStarshipViewInitializer
 
+  private let filmStarshipList: FilmStarshipListInitializer
+
   @Published var film: Film?
 
   var characters: [Film.Character] = []
@@ -79,6 +81,7 @@ final class FilmViewModel: ObservableObject {
     speciesView: @escaping FilmSpeciesViewInitializer,
     filmSpeciesList: @escaping FilmSpeciewsListInitializer,
     starshipView: @escaping FilmStarshipViewInitializer,
+    filmStarshipList: @escaping FilmStarshipListInitializer,
     dataService: Swapi = SwapiService()
   ) {
     self.dataService = dataService
@@ -89,6 +92,7 @@ final class FilmViewModel: ObservableObject {
     self.speciesView = speciesView
     self.filmSpeciesList = filmSpeciesList
     self.starshipView = starshipView
+    self.filmStarshipList = filmStarshipList
     self.filmId = filmId
   }
 
@@ -245,8 +249,8 @@ final class FilmViewModel: ObservableObject {
     filmSpeciesList(species)
   }
 
-  var starshipListViewModel: FilmStarshipListViewModel {
-    FilmStarshipListViewModel(starships: starships)
+  var filmStarshipListView: FilmStarshipListView {
+    filmStarshipList(starships)
   }
 
   var vehicleListViewModel: FilmVehicleListViewModel {
