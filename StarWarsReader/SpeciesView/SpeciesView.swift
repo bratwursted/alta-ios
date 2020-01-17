@@ -78,20 +78,23 @@ extension SpeciesView {
   }
 }
 
+extension SpeciesView {
+  static var mock: SpeciesView {
+    let twilek = loadSampleSpecies("twilek")
+    let mockData = MockDataService(twilek)
+    let viewModel = SpeciesViewModel(
+      resourceId: twilek.speciesId,
+      dataService: mockData
+    )
+    return SpeciesView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct SpeciesView_Previews: PreviewProvider {
-  static let vm: SpeciesViewModel = {
-    let species = loadSampleSpecies("twilek")
-    let service = MockDataService(species)
-    return SpeciesViewModel(
-      resourceId: species.speciesId,
-      dataService: service
-    )
-  }()
-
   static var previews: some View {
     NavigationView {
-      SpeciesView(viewModel: vm)
+      SpeciesView.mock
     }
   }
 }
