@@ -88,20 +88,23 @@ extension PlanetView {
   }
 }
 
+extension PlanetView {
+  static var mock: PlanetView {
+    let tatooine = loadSamplePlanet("tatooine")
+    let mockData = MockDataService(tatooine)
+    let viewModel = PlanetViewModel(
+      planetId: tatooine.planetId,
+      dataService: mockData
+    )
+    return PlanetView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct PlanetView_Previews: PreviewProvider {
-  static let vm: PlanetViewModel = {
-    let tatooine = loadSamplePlanet("tatooine")
-    let dataService = MockDataService(tatooine)
-    return PlanetViewModel(
-      planetId: tatooine.planetId,
-      dataService: dataService
-    )
-  }()
-
   static var previews: some View {
     NavigationView {
-      PlanetView(viewModel: vm)
+      PlanetView.mock
     }
   }
 }
