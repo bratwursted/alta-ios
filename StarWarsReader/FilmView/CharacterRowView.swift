@@ -26,9 +26,7 @@ struct CharacterRowView: View {
   let viewModel: CharacterRowViewModel
 
   var body: some View {
-    NavigationLink(destination: PersonView(viewModel: viewModel.personViewModel)) {
-      Text(viewModel.name)
-    }
+    Text(viewModel.name)
   }
 }
 

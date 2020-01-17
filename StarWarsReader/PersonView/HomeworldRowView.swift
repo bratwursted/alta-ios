@@ -29,9 +29,7 @@ struct HomeworldRowView: View {
       if viewModel.homeworld == nil {
         Text(viewModel.name)
       } else {
-        NavigationLink(destination: PlanetView(viewModel: viewModel.planetViewModel)) {
-          Text(viewModel.name)
-        }
+        Text(viewModel.name)
       }
     }
   }

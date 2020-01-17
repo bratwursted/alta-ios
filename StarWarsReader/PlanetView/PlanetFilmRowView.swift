@@ -26,9 +26,7 @@ struct PlanetFilmRowView: View {
   let viewModel: PlanetFilmRowViewModel
 
   var body: some View {
-    NavigationLink(destination: FilmView(viewModel: viewModel.filmViewModel, navigationTag: nil)) {
-      Text(viewModel.title)
-    }
+    Text(viewModel.title)
   }
 }
 

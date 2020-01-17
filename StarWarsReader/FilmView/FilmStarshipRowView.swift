@@ -26,9 +26,7 @@ struct FilmStarshipRowView: View {
   let viewModel: FilmStarshipRowViewModel
 
   var body: some View {
-    NavigationLink(destination: StarshipView(viewModel: viewModel.starshipViewModel)) {
-      Text(viewModel.name)
-    }
+    Text(viewModel.name)
   }
 }
 

@@ -26,9 +26,7 @@ struct FilmSpeciesRowView: View {
   let viewModel: FilmSpeciesRowViewModel
 
   var body: some View {
-    NavigationLink(destination: SpeciesView(viewModel: viewModel.speciesViewModel)) {
-      Text(viewModel.name)
-    }
+    Text(viewModel.name)
   }
 }
 

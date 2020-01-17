@@ -26,9 +26,7 @@ struct ResidentRowView: View {
   let viewModel: ResidentRowViewModel
 
   var body: some View {
-    NavigationLink(destination: PersonView(viewModel: viewModel.personViewModel)) {
-      Text(viewModel.name)
-    }
+    Text(viewModel.name)
   }
 }
 

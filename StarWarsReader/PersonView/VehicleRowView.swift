@@ -26,9 +26,7 @@ struct VehicleRowView: View {
   let viewModel: VehicleRowViewModel
 
   var body: some View {
-    NavigationLink(destination: VehicleView(viewModel: viewModel.vehicleViewModel)) {
-      Text(viewModel.name)
-    }
+    Text(viewModel.name)
   }
 }
 
