@@ -132,7 +132,11 @@ struct FlowCoordinator {
   }
 
   private func makePlanetView(with resourceId: String) -> PlanetView {
-    let viewModel = PlanetViewModel(planetId: resourceId)
+    let viewModel = PlanetViewModel(
+      planetId: resourceId,
+      planetFilmView: { film in
+        self.makeFilmView(with: film.filmId)
+    })
     return PlanetView(viewModel: viewModel)
   }
 

@@ -12,25 +12,10 @@ struct PlanetFilmRowViewModel {
 
   let film: Planet.Film
 
+  let filmView: FilmView
+
   var title: String {
     film.title
-  }
-
-  var filmViewModel: FilmViewModel {
-    FilmViewModel(
-      filmId: film.filmId,
-      // TODO: factor out these mock initializers
-      characterViewInitializer: { _ in PersonView.mock },
-      characterList: { _ in CharacterListView.mock },
-      planetView: { _ in PlanetView.mock },
-      filmPlanetList: { _ in FilmPlanetListView.mock },
-      speciesView: { _ in SpeciesView.mock },
-      filmSpeciesList: { _ in FilmSpeciesListView.mock },
-      starshipView: { _ in StarshipView.mock },
-      filmStarshipList: { _ in FilmStarshipListView.mock },
-      vehicleView: { _ in VehicleView.mock },
-      filmVehicleList: { _ in FilmVehicleListView.mock }
-    )
   }
 }
 
@@ -39,18 +24,23 @@ struct PlanetFilmRowView: View {
   let viewModel: PlanetFilmRowViewModel
 
   var body: some View {
-    Text(viewModel.title)
+    NavigationLink(destination: viewModel.filmView) {
+      Text(viewModel.title)
+    }
+  }
+}
+
+extension PlanetFilmRowView {
+  static var mock: PlanetFilmRowView {
+    let planetFilm = loadSamplePlanet(.tatooine).films[0]
+    let viewModel = PlanetFilmRowViewModel(film: planetFilm, filmView: FilmView.mock)
+    return PlanetFilmRowView(viewModel: viewModel)
   }
 }
 
 // swiftlint:disable all
 struct PlanetFilmRowView_Previews: PreviewProvider {
-  static let vm: PlanetFilmRowViewModel = {
-    let tatooine = loadSamplePlanet(.tatooine)
-    return PlanetFilmRowViewModel(film: tatooine.films.first!)
-  }()
-
   static var previews: some View {
-    PlanetFilmRowView(viewModel: vm)
+    PlanetFilmRowView.mock
   }
 }

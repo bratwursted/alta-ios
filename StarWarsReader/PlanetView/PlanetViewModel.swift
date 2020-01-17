@@ -9,6 +9,8 @@
 import Foundation
 import Combine
 
+typealias PlanetFilmView = (Planet.Film) -> FilmView
+
 final class PlanetViewModel: ObservableObject {
 
   private let formatter: NumberFormatter = {
@@ -26,6 +28,8 @@ final class PlanetViewModel: ObservableObject {
 
   private var needsPlanetContent = true
 
+  private let planetFilmView: PlanetFilmView
+
   @Published var planet: Planet?
 
   var residents: [Planet.Resident] = []
@@ -34,9 +38,11 @@ final class PlanetViewModel: ObservableObject {
 
   init(
     planetId: String,
+    planetFilmView: @escaping PlanetFilmView,
     dataService: Swapi = SwapiService()
   ) {
     self.planetId = planetId
+    self.planetFilmView = planetFilmView
     self.dataService = dataService
   }
 
@@ -125,7 +131,7 @@ final class PlanetViewModel: ObservableObject {
   }
 
   func rowViewModel(forFilm film: Planet.Film) -> PlanetFilmRowViewModel {
-    PlanetFilmRowViewModel(film: film)
+    PlanetFilmRowViewModel(film: film, filmView: planetFilmView(film))
   }
 
   func rowViewModel(forResident resident: Planet.Resident) -> ResidentRowViewModel {
