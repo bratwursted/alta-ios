@@ -12,8 +12,13 @@ struct FilmPlanetListViewModel {
 
   let planets: [Film.Planet]
 
+  let planetView: FilmPlanetViewInitializer = { _ in PlanetView.mock }
+
   func viewModel(forPlanet planet: Film.Planet) -> FilmPlanetRowViewModel {
-    FilmPlanetRowViewModel(planet: planet)
+    FilmPlanetRowViewModel(
+      planet: planet,
+      planetView: planetView(planet)
+    )
   }
 
   var viewTitle: String {
