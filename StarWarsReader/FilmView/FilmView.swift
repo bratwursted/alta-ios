@@ -221,17 +221,19 @@ struct HeaderButtonView: View {
   }
 }
 
-// swiftlint:disable type_name identifier_name
-struct FilmView_Previews: PreviewProvider {
-  static let vm: FilmViewModel = {
+extension FilmView {
+  static var mock: FilmView {
     let film = loadSampleFilm("newHope")
-    let service = MockDataService(film)
-    return FilmViewModel(filmId: film.filmId, dataService: service)
-  }()
+    let viewModel = FilmViewModel(filmId: film.filmId)
+    return FilmView(viewModel: viewModel)
+  }
+}
 
+// swiftlint:disable type_name
+struct FilmView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      FilmView(viewModel: vm)
+      FilmView.mock
     }
   }
 }
