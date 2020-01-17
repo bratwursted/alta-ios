@@ -128,6 +128,7 @@ extension PersonView {
       resourceId: luke.personId,
       homeworldView: { _ in PlanetView.mock },
       speciesView: { _ in SpeciesView.mock },
+      filmView: { _ in FilmView.mock },
       dataService: mockData
     )
     return PersonView(viewModel: viewModel)

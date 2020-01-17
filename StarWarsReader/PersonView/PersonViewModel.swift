@@ -13,6 +13,8 @@ typealias PersonHomeworldView = (Person.Planet?) -> PlanetView?
 
 typealias PersonSpeciesView = (Person.Species) -> SpeciesView
 
+typealias PersonFilmView = (Person.Film) -> FilmView
+
 final class PersonViewModel: ObservableObject {
 
   private let personId: String
@@ -26,6 +28,8 @@ final class PersonViewModel: ObservableObject {
   private let homeworldView: PersonHomeworldView
 
   private let speciesView: PersonSpeciesView
+
+  private let filmView: PersonFilmView
 
   @Published var person: Person?
 
@@ -41,11 +45,13 @@ final class PersonViewModel: ObservableObject {
     resourceId: String,
     homeworldView: @escaping PersonHomeworldView,
     speciesView: @escaping PersonSpeciesView,
+    filmView: @escaping PersonFilmView,
     dataService: Swapi = SwapiService()
   ) {
     personId = resourceId
     self.homeworldView = homeworldView
     self.speciesView = speciesView
+    self.filmView = filmView
     self.dataService = dataService
   }
 
@@ -144,6 +150,6 @@ final class PersonViewModel: ObservableObject {
   }
 
   func filmViewModel(forFilm film: Person.Film) -> PersonFilmRowViewModel {
-    PersonFilmRowViewModel(film: film)
+    PersonFilmRowViewModel(film: film, filmView: filmView(film))
   }
 }
