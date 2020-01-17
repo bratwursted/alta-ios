@@ -120,17 +120,23 @@ extension PersonView {
 
 }
 
-// swiftlint:disable type_name identifier_name
-struct PersonView_Previews: PreviewProvider {
-  static let vm: PersonViewModel = {
-    let person = loadSamplePerson("luke")
-    let data = MockDataService(person)
-    return PersonViewModel(resourceId: person.personId, dataService: data)
-  }()
+extension PersonView {
+  static var mock: PersonView {
+    let luke = loadSamplePerson("luke")
+    let mockData = MockDataService(luke)
+    let viewModel = PersonViewModel(
+      resourceId: luke.personId,
+      dataService: mockData
+    )
+    return PersonView(viewModel: viewModel)
+  }
+}
 
+// swiftlint:disable type_name
+struct PersonView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      PersonView(viewModel: vm)
+      PersonView.mock
     }
   }
 }
