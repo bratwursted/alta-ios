@@ -124,15 +124,15 @@ extension FilmView {
     HStack {
       Text(FilmViewSection.characters.title)
       Spacer()
-      if viewModel.needsDisclosure(forSection: FilmViewSection.characters) {
-        NavigationLink(
-          destination: CharacterListView(viewModel: viewModel.characterListViewModel),
-          tag: FilmViewSection.characters.destination.tag,
-          selection: $navigationTag,
-          label: {
-            headerButton(forDestination: FilmViewSection.characters.destination)
-        })
-      }
+//      if viewModel.needsDisclosure(forSection: FilmViewSection.characters) {
+//        NavigationLink(
+//          destination: CharacterListView(viewModel: viewModel.characterListViewModel),
+//          tag: FilmViewSection.characters.destination.tag,
+//          selection: $navigationTag,
+//          label: {
+//            headerButton(forDestination: FilmViewSection.characters.destination)
+//        })
+//      }
     }
   }
 
@@ -140,15 +140,15 @@ extension FilmView {
     HStack {
       Text(FilmViewSection.planets.title)
       Spacer()
-      if viewModel.needsDisclosure(forSection: FilmViewSection.planets) {
-        NavigationLink(
-          destination: FilmPlanetListView(viewModel: viewModel.planetListViewModel),
-          tag: FilmViewSection.planets.destination.tag,
-          selection: $navigationTag,
-          label: {
-            headerButton(forDestination: FilmViewSection.planets.destination)
-        })
-      }
+//      if viewModel.needsDisclosure(forSection: FilmViewSection.planets) {
+//        NavigationLink(
+//          destination: FilmPlanetListView(viewModel: viewModel.planetListViewModel),
+//          tag: FilmViewSection.planets.destination.tag,
+//          selection: $navigationTag,
+//          label: {
+//            headerButton(forDestination: FilmViewSection.planets.destination)
+//        })
+//      }
     }
   }
 
@@ -156,15 +156,15 @@ extension FilmView {
     HStack {
       Text(FilmViewSection.species.title)
       Spacer()
-      if viewModel.needsDisclosure(forSection: FilmViewSection.species) {
-        NavigationLink(
-          destination: FilmSpeciesListView(viewModel: viewModel.speciesListViewModel),
-          tag: FilmViewSection.species.destination.tag,
-          selection: $navigationTag,
-          label: {
-            headerButton(forDestination: FilmViewSection.species.destination)
-        })
-      }
+//      if viewModel.needsDisclosure(forSection: FilmViewSection.species) {
+//        NavigationLink(
+//          destination: FilmSpeciesListView(viewModel: viewModel.speciesListViewModel),
+//          tag: FilmViewSection.species.destination.tag,
+//          selection: $navigationTag,
+//          label: {
+//            headerButton(forDestination: FilmViewSection.species.destination)
+//        })
+//      }
     }
   }
 
@@ -172,15 +172,15 @@ extension FilmView {
     HStack {
       Text(FilmViewSection.starships.title)
       Spacer()
-      if viewModel.needsDisclosure(forSection: FilmViewSection.starships) {
-        NavigationLink(
-          destination: FilmStarshipListView(viewModel: viewModel.starshipListViewModel),
-          tag: FilmViewSection.starships.destination.tag,
-          selection: $navigationTag,
-          label: {
-            headerButton(forDestination: FilmViewSection.starships.destination)
-        })
-      }
+//      if viewModel.needsDisclosure(forSection: FilmViewSection.starships) {
+//        NavigationLink(
+//          destination: FilmStarshipListView(viewModel: viewModel.starshipListViewModel),
+//          tag: FilmViewSection.starships.destination.tag,
+//          selection: $navigationTag,
+//          label: {
+//            headerButton(forDestination: FilmViewSection.starships.destination)
+//        })
+//      }
     }
   }
 
@@ -188,15 +188,15 @@ extension FilmView {
     HStack {
       Text(FilmViewSection.vehicles.title)
       Spacer()
-      if viewModel.needsDisclosure(forSection: FilmViewSection.vehicles) {
-        NavigationLink(
-          destination: FilmVehicleListView(viewModel: viewModel.vehicleListViewModel),
-          tag: FilmViewSection.vehicles.destination.tag,
-          selection: $navigationTag,
-          label: {
-            headerButton(forDestination: FilmViewSection.vehicles.destination)
-        })
-      }
+//      if viewModel.needsDisclosure(forSection: FilmViewSection.vehicles) {
+//        NavigationLink(
+//          destination: FilmVehicleListView(viewModel: viewModel.vehicleListViewModel),
+//          tag: FilmViewSection.vehicles.destination.tag,
+//          selection: $navigationTag,
+//          label: {
+//            headerButton(forDestination: FilmViewSection.vehicles.destination)
+//        })
+//      }
     }
   }
 
