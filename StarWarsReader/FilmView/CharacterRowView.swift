@@ -17,18 +17,6 @@ struct CharacterRowViewModel {
   var name: String {
     character.name
   }
-
-  var personViewModel: PersonViewModel {
-    // TODO: refactor mock value 
-    PersonViewModel(
-      resourceId: character.characterId,
-      homeworldView: { _ in PlanetView.mock },
-      speciesView: { _ in SpeciesView.mock },
-      filmView: { _ in FilmView.mock },
-      starshipView: { _ in StarshipView.mock },
-      vehicleView: { _ in VehicleView.mock }
-    )
-  }
 }
 
 struct CharacterRowView: View {
