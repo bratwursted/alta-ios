@@ -12,12 +12,10 @@ struct FilmStarshipRowViewModel {
 
   let starship: Film.Starship
 
+  let starshipView: StarshipView
+
   var name: String {
     starship.name
-  }
-
-  var starshipViewModel: StarshipViewModel {
-    StarshipViewModel(resourceId: starship.starshipId)
   }
 }
 
@@ -26,18 +24,23 @@ struct FilmStarshipRowView: View {
   let viewModel: FilmStarshipRowViewModel
 
   var body: some View {
-    Text(viewModel.name)
+    NavigationLink(destination: viewModel.starshipView) {
+      Text(viewModel.name)
+    }
+  }
+}
+
+extension FilmStarshipRowView {
+  static var mock: FilmStarshipRowView {
+    let filmStarship = loadSampleFilm(.newHope).starships[0]
+    let viewModel = FilmStarshipRowViewModel(starship: filmStarship, starshipView: StarshipView.mock)
+    return FilmStarshipRowView(viewModel: viewModel)
   }
 }
 
 // swiftlint:disable all
 struct FilmStarshipRowView_Previews: PreviewProvider {
-  static let vm: FilmStarshipRowViewModel = {
-    let newHope = loadSampleFilm(.newHope)
-    return FilmStarshipRowViewModel(starship: newHope.starships.first!)
-  }()
-
   static var previews: some View {
-    FilmStarshipRowView(viewModel: vm)
+    FilmStarshipRowView.mock
   }
 }

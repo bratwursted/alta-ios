@@ -45,6 +45,9 @@ struct FlowCoordinator {
       },
       filmSpeciesList: { species in
         self.makeSpeciesListView(species: species)
+      },
+      starshipView: { starship in
+        self.makeStarshipView(with: starship.starshipId)
       }
     )
     return FilmView(viewModel: viewModel)
@@ -92,5 +95,10 @@ struct FlowCoordinator {
   private func makeSpeciesView(with resourceId: String) -> SpeciesView {
     let viewModel = SpeciesViewModel(resourceId: resourceId)
     return SpeciesView(viewModel: viewModel)
+  }
+
+  private func makeStarshipView(with resourceId: String) -> StarshipView {
+    let viewModel = StarshipViewModel(resourceId: resourceId)
+    return StarshipView(viewModel: viewModel)
   }
 }

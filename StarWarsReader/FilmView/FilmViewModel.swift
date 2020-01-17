@@ -21,6 +21,10 @@ typealias FilmSpeciesViewInitializer = (Film.Species) -> SpeciesView
 
 typealias FilmSpeciewsListInitializer = ([Film.Species]) -> FilmSpeciesListView
 
+typealias FilmStarshipViewInitializer = (Film.Starship) -> StarshipView
+
+typealias FilmStarshipListInitializer = ([Film.Starship]) -> FilmStarshipListView
+
 final class FilmViewModel: ObservableObject {
 
   static let maximumSectionRows = 3
@@ -52,6 +56,8 @@ final class FilmViewModel: ObservableObject {
 
   private let filmSpeciesList: FilmSpeciewsListInitializer
 
+  private let starshipView: FilmStarshipViewInitializer
+
   @Published var film: Film?
 
   var characters: [Film.Character] = []
@@ -72,6 +78,7 @@ final class FilmViewModel: ObservableObject {
     filmPlanetList: @escaping FilmPlanetListInitializer,
     speciesView: @escaping FilmSpeciesViewInitializer,
     filmSpeciesList: @escaping FilmSpeciewsListInitializer,
+    starshipView: @escaping FilmStarshipViewInitializer,
     dataService: Swapi = SwapiService()
   ) {
     self.dataService = dataService
@@ -81,6 +88,7 @@ final class FilmViewModel: ObservableObject {
     self.filmPlanetList = filmPlanetList
     self.speciesView = speciesView
     self.filmSpeciesList = filmSpeciesList
+    self.starshipView = starshipView
     self.filmId = filmId
   }
 
@@ -184,7 +192,8 @@ final class FilmViewModel: ObservableObject {
   }
 
   func starshipViewModel(forStarshipAtIndex index: Int) -> FilmStarshipRowViewModel {
-    FilmStarshipRowViewModel(starship: starships(atIndex: index))
+    let aStarship = starships(atIndex: index)
+    return FilmStarshipRowViewModel(starship: aStarship, starshipView: starshipView(aStarship))
   }
 
   func vehicleViewModel(forVehicleAtIndex index: Int) -> FilmVehicleRowViewModel {
