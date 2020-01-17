@@ -42,6 +42,9 @@ struct FlowCoordinator {
       },
       speciesView: { species in
         self.makeSpeciesView(with: species.speciesId)
+      },
+      filmSpeciesList: { species in
+        self.makeSpeciesListView(species: species)
       }
     )
     return FilmView(viewModel: viewModel)
@@ -65,6 +68,15 @@ struct FlowCoordinator {
       }
     )
     return FilmPlanetListView(viewModel: viewModel)
+  }
+
+  private func makeSpeciesListView(species: [Film.Species]) -> FilmSpeciesListView {
+    let viewModel = FilmSpeciesListViewModel(
+      species: species,
+      speciesView: { species in
+      self.makeSpeciesView(with: species.speciesId)
+    })
+    return FilmSpeciesListView(viewModel: viewModel)
   }
 
   private func makePersonView(with resourceId: String) -> PersonView {

@@ -155,16 +155,16 @@ extension FilmView {
   var speciesSectionHeader: some View {
     HStack {
       Text(FilmViewSection.species.title)
-      Spacer()
-//      if viewModel.needsDisclosure(forSection: FilmViewSection.species) {
-//        NavigationLink(
-//          destination: FilmSpeciesListView(viewModel: viewModel.speciesListViewModel),
-//          tag: FilmViewSection.species.destination.tag,
-//          selection: $navigationTag,
-//          label: {
-//            headerButton(forDestination: FilmViewSection.species.destination)
-//        })
-//      }
+      if viewModel.needsDisclosure(forSection: FilmViewSection.species) {
+        Spacer()
+        NavigationLink(
+          destination: viewModel.filmSpeciesListView,
+          tag: FilmViewSection.species.destination.tag,
+          selection: $navigationTag,
+          label: {
+            headerButton(forDestination: FilmViewSection.species.destination)
+        })
+      }
     }
   }
 
@@ -219,13 +219,15 @@ extension FilmView {
     let planetView: FilmPlanetViewInitializer = { _ in PlanetView.mock }
     let planetList: FilmPlanetListInitializer = { _ in FilmPlanetListView.mock }
     let speciesView: FilmSpeciesViewInitializer = { _ in SpeciesView.mock }
+    let filmSpeciesList: FilmSpeciewsListInitializer = { _ in FilmSpeciesListView.mock }
     let viewModel = FilmViewModel(
       filmId: film.filmId,
       characterViewInitializer: characterView,
       characterList: characterList,
       planetView: planetView,
       filmPlanetList: planetList,
-      speciesView: speciesView
+      speciesView: speciesView,
+      filmSpeciesList: filmSpeciesList
     )
     return FilmView(viewModel: viewModel)
   }
