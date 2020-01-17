@@ -12,20 +12,10 @@ struct VehiclePilotRowViewModel {
 
   let pilot: Vehicle.Pilot
 
+  let pilotView: PersonView
+
   var name: String {
     pilot.name
-  }
-
-  var pilotViewModel: PersonViewModel {
-    // TODO: refactor mock value 
-    PersonViewModel(
-      resourceId: pilot.pilotId,
-      homeworldView: { _ in PlanetView.mock },
-      speciesView: { _ in SpeciesView.mock },
-      filmView: { _ in FilmView.mock },
-      starshipView: { _ in StarshipView.mock },
-      vehicleView: { _ in VehicleView.mock }
-    )
   }
 }
 
@@ -34,18 +24,23 @@ struct VehiclePilotRowView: View {
   let viewModel: VehiclePilotRowViewModel
 
   var body: some View {
-    Text(viewModel.name)
+    NavigationLink(destination: viewModel.pilotView) {
+      Text(viewModel.name)
+    }
+  }
+}
+
+extension VehiclePilotRowView {
+  static var mock: VehiclePilotRowView {
+    let pilot = loadSampleVehicle(.airspeeder).pilots[0]
+    let viewModel = VehiclePilotRowViewModel(pilot: pilot, pilotView: PersonView.mock)
+    return VehiclePilotRowView(viewModel: viewModel)
   }
 }
 
 // swiftlint:disable all
 struct VehiclePilotRowView_Previews: PreviewProvider {
-  static let vm: VehiclePilotRowViewModel = {
-    let airspeeder = loadSampleVehicle(.airspeeder)
-    return VehiclePilotRowViewModel(pilot: airspeeder.pilots.first!)
-  }()
-
   static var previews: some View {
-    VehiclePilotRowView(viewModel: vm)
+    VehiclePilotRowView.mock
   }
 }
