@@ -23,7 +23,8 @@ struct PlanetFilmRowViewModel {
       characterViewInitializer: { _ in PersonView.mock },
       characterList: { _ in CharacterListView.mock },
       planetView: { _ in PlanetView.mock },
-      filmPlanetList: { _ in FilmPlanetListView.mock }
+      filmPlanetList: { _ in FilmPlanetListView.mock },
+      speciesView: { _ in SpeciesView.mock }
     )
   }
 }

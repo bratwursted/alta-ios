@@ -13,7 +13,10 @@ struct FilmSpeciesListViewModel {
   let species: [Film.Species]
 
   func viewModel(for species: Film.Species) -> FilmSpeciesRowViewModel {
-    FilmSpeciesRowViewModel(species: species)
+    FilmSpeciesRowViewModel(
+      species: species,
+      speciesView: SpeciesView.mock
+    )
   }
 }
 
