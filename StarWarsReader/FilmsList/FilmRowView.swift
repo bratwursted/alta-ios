@@ -14,10 +14,12 @@ struct FilmRowView: View {
 
   var body: some View {
     VStack(alignment: .leading, spacing: 6) {
-      Text("Episode \(viewModel.episode) (\(viewModel.released))")
-        .font(.body)
-      Text(viewModel.title)
-        .font(.largeTitle)
+      NavigationLink(destination: viewModel.filmView) {
+        Text("Episode \(viewModel.episode) (\(viewModel.released))")
+          .font(.body)
+        Text(viewModel.title)
+          .font(.largeTitle)
+      }
     }
   }
 }
@@ -26,7 +28,10 @@ extension FilmRowView {
 
   static var mock: FilmRowView {
     let film = sampleFilms[3]
-    let viewModel = FilmRowViewModel(film: film)
+    let viewModel = FilmRowViewModel(
+      film: film,
+      filmView: FilmView.mock
+    )
     return FilmRowView(viewModel: viewModel)
   }
 }
