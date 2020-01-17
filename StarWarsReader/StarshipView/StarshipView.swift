@@ -91,20 +91,23 @@ extension StarshipView {
   }
 }
 
+extension StarshipView {
+  static var mock: StarshipView {
+    let falcon = loadSampleStarship("falcon")
+    let mockData = MockDataService(falcon)
+    let viewModel = StarshipViewModel(
+      resourceId: falcon.starshipId,
+      dataService: mockData
+    )
+    return StarshipView(viewModel: viewModel)
+  }
+}
+
 // swiftlint:disable all
 struct StarshipView_Previews: PreviewProvider {
-  static let vm: StarshipViewModel = {
-    let falcon = loadSampleStarship("falcon")
-    let service = MockDataService(falcon)
-    return StarshipViewModel(
-      resourceId: falcon.starshipId,
-      dataService: service
-    )
-  }()
-
   static var previews: some View {
     NavigationView {
-      StarshipView(viewModel: vm)
+      StarshipView.mock
     }
   }
 }
