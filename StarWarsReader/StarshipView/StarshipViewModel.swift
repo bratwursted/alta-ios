@@ -9,6 +9,8 @@
 import Foundation
 import Combine
 
+typealias PilotView = (Starship.Pilot) -> PersonView
+
 final class StarshipViewModel: ObservableObject {
 
   private let formatter: NumberFormatter = {
@@ -26,6 +28,8 @@ final class StarshipViewModel: ObservableObject {
 
   private var needsStarshipData = true
 
+  private var pilotView: PilotView
+
   @Published var starship: Starship?
 
   var films: [Starship.Film] = []
@@ -34,9 +38,11 @@ final class StarshipViewModel: ObservableObject {
 
   init(
     resourceId: String,
+    pilotView: @escaping PilotView,
     dataService: Swapi = SwapiService()
   ) {
     starshipId = resourceId
+    self.pilotView = pilotView
     self.dataService = dataService
   }
 
@@ -151,6 +157,6 @@ final class StarshipViewModel: ObservableObject {
   }
 
   func rowViewModel(forPilot pilot: Starship.Pilot) -> PilotRowViewModel {
-    PilotRowViewModel(pilot: pilot)
+    PilotRowViewModel(pilot: pilot, pilotView: pilotView(pilot))
   }
 }
