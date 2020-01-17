@@ -144,7 +144,11 @@ struct FlowCoordinator {
   }
 
   private func makeSpeciesView(with resourceId: String) -> SpeciesView {
-    let viewModel = SpeciesViewModel(resourceId: resourceId)
+    let viewModel = SpeciesViewModel(
+      resourceId: resourceId,
+      filmView: { film in
+        self.makeFilmView(with: film.filmId)
+    })
     return SpeciesView(viewModel: viewModel)
   }
 

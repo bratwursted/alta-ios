@@ -84,6 +84,7 @@ extension SpeciesView {
     let mockData = MockDataService(twilek)
     let viewModel = SpeciesViewModel(
       resourceId: twilek.speciesId,
+      filmView: { _ in FilmView.mock },
       dataService: mockData
     )
     return SpeciesView(viewModel: viewModel)
