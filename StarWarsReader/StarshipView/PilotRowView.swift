@@ -23,7 +23,8 @@ struct PilotRowViewModel {
       homeworldView: { _ in PlanetView.mock },
       speciesView: { _ in SpeciesView.mock },
       filmView: { _ in FilmView.mock },
-      starshipView: { _ in StarshipView.mock }
+      starshipView: { _ in StarshipView.mock },
+      vehicleView: { _ in VehicleView.mock }
     )
   }
 }
