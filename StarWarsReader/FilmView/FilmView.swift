@@ -211,16 +211,6 @@ extension FilmView {
 
 }
 
-struct HeaderButtonView: View {
-  var body: some View {
-    HStack {
-      Text("See all")
-      Image(systemName: "chevron.right")
-        .font(.caption)
-    }
-  }
-}
-
 extension FilmView {
   static var mock: FilmView {
     let film = loadSampleFilm("newHope")
