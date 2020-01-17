@@ -8,38 +8,104 @@
 
 import Foundation
 
+enum FilmSampleData {
+  case newHope
+
+  var fileName: String {
+    switch self {
+    case .newHope:
+      return "newHope"
+    }
+  }
+}
+
+enum PersonSampleData {
+  case luke
+
+  var fileName: String {
+    switch self {
+    case .luke:
+      return "luke"
+    }
+  }
+}
+
+enum PlanetSampleData {
+  case tatooine
+
+  var fileName: String {
+    switch self {
+    case .tatooine:
+      return "tatooine"
+    }
+  }
+}
+
+enum SpeciesSampledata {
+  case twilek
+
+  var fileName: String {
+    switch self {
+    case .twilek:
+      return "twilek"
+    }
+  }
+}
+
+enum StarshipSampleData {
+  case falcon
+
+  var fileName: String {
+    switch self {
+    case .falcon:
+      return "falcon"
+    }
+  }
+}
+
+enum VehicleSampleData {
+  case airspeeder
+
+  var fileName: String {
+    switch self {
+    case .airspeeder:
+      return "airspeeder"
+    }
+  }
+}
+
 var sampleFilms: [FilmsResponse.Film] {
   let response: SwapiResponse<FilmsResponse> = load("allFilms")
   return response.data.allFilms
 }
 
-func loadSampleFilm(_ name: String) -> Film {
-  let response: SwapiResponse<FilmQueryResponse> = load(name)
+func loadSampleFilm(_ sampleData: FilmSampleData) -> Film {
+  let response: SwapiResponse<FilmQueryResponse> = load(sampleData.fileName)
   return response.data.film
 }
 
-func loadSamplePerson(_ name: String) -> Person {
-  let response: SwapiResponse<PersonQueryResponse> = load(name)
+func loadSamplePerson(_ sampleData: PersonSampleData) -> Person {
+  let response: SwapiResponse<PersonQueryResponse> = load(sampleData.fileName)
   return response.data.person
 }
 
-func loadSamplePlanet(_ name: String) -> Planet {
-  let response: SwapiResponse<PlanetQueryResponse> = load(name)
+func loadSamplePlanet(_ sampleData: PlanetSampleData) -> Planet {
+  let response: SwapiResponse<PlanetQueryResponse> = load(sampleData.fileName)
   return response.data.planet
 }
 
-func loadSampleSpecies(_ name: String) -> Species {
-  let response: SwapiResponse<SpeciesQueryResponse> = load(name)
+func loadSampleSpecies(_ sampleData: SpeciesSampledata) -> Species {
+  let response: SwapiResponse<SpeciesQueryResponse> = load(sampleData.fileName)
   return response.data.species
 }
 
-func loadSampleStarship(_ name: String) -> Starship {
-  let response: SwapiResponse<StarshipQueryResponse> = load(name)
+func loadSampleStarship(_ sampleData: StarshipSampleData) -> Starship {
+  let response: SwapiResponse<StarshipQueryResponse> = load(sampleData.fileName)
   return response.data.starship
 }
 
-func loadSampleVehicle(_ name: String) -> Vehicle {
-  let response: SwapiResponse<VehicleQueryResponse> = load(name)
+func loadSampleVehicle(_ sampleData: VehicleSampleData) -> Vehicle {
+  let response: SwapiResponse<VehicleQueryResponse> = load(sampleData.fileName)
   return response.data.vehicle
 }
 
