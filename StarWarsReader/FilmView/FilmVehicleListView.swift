@@ -12,8 +12,10 @@ struct FilmVehicleListViewModel {
 
   let vehicles: [Film.Vehicle]
 
+  let vehicleView: FilmVehicleViewInitializer = { _ in VehicleView.mock }
+
   func viewModel(forVehicle vehicle: Film.Vehicle) -> FilmVehicleRowViewModel {
-    FilmVehicleRowViewModel(vehicle: vehicle)
+    FilmVehicleRowViewModel(vehicle: vehicle, vehicleView: vehicleView(vehicle))
   }
 }
 
