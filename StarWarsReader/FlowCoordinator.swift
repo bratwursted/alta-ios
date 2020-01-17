@@ -115,6 +115,9 @@ struct FlowCoordinator {
       homeworldView: { planet in
         guard let planet = planet else { return nil }
         return self.makePlanetView(with: planet.planetId)
+      },
+      speciesView: { species in
+        self.makeSpeciesView(with: species.speciesId)
     })
     return PersonView(viewModel: viewModel)
   }

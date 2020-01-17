@@ -11,6 +11,8 @@ import Combine
 
 typealias PersonHomeworldView = (Person.Planet?) -> PlanetView?
 
+typealias PersonSpeciesView = (Person.Species) -> SpeciesView
+
 final class PersonViewModel: ObservableObject {
 
   private let personId: String
@@ -21,7 +23,9 @@ final class PersonViewModel: ObservableObject {
 
   private var needsPersonContent = true
 
-  private var homeworldView: PersonHomeworldView
+  private let homeworldView: PersonHomeworldView
+
+  private let speciesView: PersonSpeciesView
 
   @Published var person: Person?
 
@@ -36,10 +40,12 @@ final class PersonViewModel: ObservableObject {
   init(
     resourceId: String,
     homeworldView: @escaping PersonHomeworldView,
+    speciesView: @escaping PersonSpeciesView,
     dataService: Swapi = SwapiService()
   ) {
     personId = resourceId
     self.homeworldView = homeworldView
+    self.speciesView = speciesView
     self.dataService = dataService
   }
 
@@ -126,7 +132,7 @@ final class PersonViewModel: ObservableObject {
   }
 
   func speciesViewModel(forSpecies species: Person.Species) -> SpeciesRowViewModel {
-    SpeciesRowViewModel(species: species)
+    SpeciesRowViewModel(species: species, speciesView: speciesView(species))
   }
 
   func starshipViewModel(forStarship starship: Person.Starship) -> StarshipRowViewModel {
