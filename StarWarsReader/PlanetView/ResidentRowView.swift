@@ -17,7 +17,8 @@ struct ResidentRowViewModel {
   }
 
   var personViewModel: PersonViewModel {
-    PersonViewModel(resourceId: resident.residentId)
+    // TODO: refactor mock value 
+    PersonViewModel(resourceId: resident.residentId, homeworldView: { _ in PlanetView.mock })
   }
 }
 
