@@ -9,9 +9,9 @@
 import Foundation
 import Combine
 
-typealias PlanetFilmView = (Planet.Film) -> FilmView
+typealias PlanetFilmViewProvider = (Planet.Film) -> FilmView
 
-typealias ResidentView = (Planet.Resident) -> PersonView
+typealias ResidentViewProvider = (Planet.Resident) -> PersonView
 
 final class PlanetViewModel: ObservableObject {
 
@@ -30,9 +30,9 @@ final class PlanetViewModel: ObservableObject {
 
   private var needsPlanetContent = true
 
-  private let planetFilmView: PlanetFilmView
+  private let planetFilmViewProvider: PlanetFilmViewProvider
 
-  private let residentView: ResidentView
+  private let residentViewProvider: ResidentViewProvider
 
   @Published var planet: Planet?
 
@@ -42,13 +42,13 @@ final class PlanetViewModel: ObservableObject {
 
   init(
     planetId: String,
-    planetFilmView: @escaping PlanetFilmView,
-    residentView: @escaping ResidentView,
+    planetFilmViewProvider: @escaping PlanetFilmViewProvider,
+    residentViewProvider: @escaping ResidentViewProvider,
     dataService: Swapi = SwapiService()
   ) {
     self.planetId = planetId
-    self.planetFilmView = planetFilmView
-    self.residentView = residentView
+    self.planetFilmViewProvider = planetFilmViewProvider
+    self.residentViewProvider = residentViewProvider
     self.dataService = dataService
   }
 
@@ -137,11 +137,11 @@ final class PlanetViewModel: ObservableObject {
   }
 
   func rowViewModel(forFilm film: Planet.Film) -> PlanetFilmRowViewModel {
-    PlanetFilmRowViewModel(film: film, filmView: planetFilmView(film))
+    PlanetFilmRowViewModel(film: film, filmView: planetFilmViewProvider(film))
   }
 
   func rowViewModel(forResident resident: Planet.Resident) -> ResidentRowViewModel {
-    ResidentRowViewModel(resident: resident, residentView: residentView(resident))
+    ResidentRowViewModel(resident: resident, residentView: residentViewProvider(resident))
   }
 
 }
