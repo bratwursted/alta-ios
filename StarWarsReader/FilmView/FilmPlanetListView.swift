@@ -12,7 +12,7 @@ struct FilmPlanetListViewModel {
 
   let planets: [Film.Planet]
 
-  let planetView: FilmPlanetViewInitializer
+  let planetView: FilmPlanetViewProvider
 
   func viewModel(forPlanet planet: Film.Planet) -> FilmPlanetRowViewModel {
     FilmPlanetRowViewModel(

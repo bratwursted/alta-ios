@@ -12,7 +12,7 @@ struct FilmSpeciesListViewModel {
 
   let species: [Film.Species]
 
-  let speciesView: FilmSpeciesViewInitializer
+  let speciesView: FilmSpeciesViewProvider
 
   func viewModel(for species: Film.Species) -> FilmSpeciesRowViewModel {
     FilmSpeciesRowViewModel(

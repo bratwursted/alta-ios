@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8F4CEAE523C9518F000AAD47"
-               BuildableName = "StarWarsReader.app"
+               BuildableName = "Star Wars Reader.app"
                BlueprintName = "StarWarsReader"
                ReferencedContainer = "container:StarWarsReader.xcodeproj">
             </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8F4CEAE523C9518F000AAD47"
-            BuildableName = "StarWarsReader.app"
+            BuildableName = "Star Wars Reader.app"
             BlueprintName = "StarWarsReader"
             ReferencedContainer = "container:StarWarsReader.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8F4CEAE523C9518F000AAD47"
-            BuildableName = "StarWarsReader.app"
+            BuildableName = "Star Wars Reader.app"
             BlueprintName = "StarWarsReader"
             ReferencedContainer = "container:StarWarsReader.xcodeproj">
          </BuildableReference>

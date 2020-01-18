@@ -12,7 +12,7 @@ struct FilmVehicleListViewModel {
 
   let vehicles: [Film.Vehicle]
 
-  let vehicleView: FilmVehicleViewInitializer
+  let vehicleView: FilmVehicleViewProvider
 
   func viewModel(forVehicle vehicle: Film.Vehicle) -> FilmVehicleRowViewModel {
     FilmVehicleRowViewModel(vehicle: vehicle, vehicleView: vehicleView(vehicle))

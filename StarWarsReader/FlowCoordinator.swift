@@ -28,37 +28,37 @@ struct FlowCoordinator {
   private func makeFilmView(with filmId: String) -> FilmView {
     let viewModel = FilmViewModel(
       filmId: filmId,
-      characterViewInitializer: { character in
+      characterViewProvider: { character in
         self.makePersonView(with: character.characterId)
         },
-      characterList: { characters in
+      characterListProvider: { characters in
         self.makeCharacterListView(characters: characters)
       },
-      planetView: { planet in
+      planetViewProvider: { planet in
         self.makePlanetView(with: planet.planetId)
       },
-      filmPlanetList: { planets in
+      filmPlanetListProvider: { planets in
         self.makePlanetsListView(planets: planets)
       },
-      speciesView: { species in
+      speciesViewProvider: { species in
         self.makeSpeciesView(with: species.speciesId)
       },
-      filmSpeciesList: { species in
+      filmSpeciesListProvider: { species in
         self.makeSpeciesListView(species: species)
       },
-      starshipView: { starship in
+      starshipViewProvider: { starship in
         self.makeStarshipView(with: starship.starshipId)
       },
-      filmStarshipList: { starships in
+      filmStarshipListProvider: { starships in
         self.makeStarshipListView(starships: starships)
       },
-      vehicleView: { vehicle in
+      vehicleViewProvider: { vehicle in
         self.makeVehicleView(with: vehicle.vehicleId)
       },
-      filmVehicleList: { vehicles in
+      filmVehicleListProvider: { vehicles in
         self.makeVehicleListView(vehicles: vehicles)
       },
-      crawlView: { film in
+      crawlViewProvider: { film in
         self.makeCrawlView(with: film)
     })
 

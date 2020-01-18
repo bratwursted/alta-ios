@@ -12,7 +12,7 @@ struct CharacterListViewModel {
 
   let characters: [Film.Character]
 
-  let characterViewInitializer: CharacterViewInitializer
+  let characterViewInitializer: CharacterViewProvider
 
   func viewModel(forCharacter character: Film.Character) -> CharacterRowViewModel {
     return CharacterRowViewModel(

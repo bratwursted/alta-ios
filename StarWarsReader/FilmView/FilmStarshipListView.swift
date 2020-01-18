@@ -12,7 +12,7 @@ struct FilmStarshipListViewModel {
 
   let starships: [Film.Starship]
 
-  let filmStarshipView: FilmStarshipViewInitializer
+  let filmStarshipView: FilmStarshipViewProvider
 
   func viewModel(forStarship starship: Film.Starship) -> FilmStarshipRowViewModel {
     FilmStarshipRowViewModel(
