@@ -11,6 +11,8 @@ The Star Wars Reader is a demo app/learning exercise that uses SwiftUI and Combi
 
 - The interface is built entirely using SwiftUI, which lends itself nicely to MVVM patterns and mock data sources for testing while you are developing.
 
+- Navigation between views is handled by a `FlowCoordinator`, which has the responsibility for initializing new views to be used as `NavigationLink` destinations. These initializers are injected into the view models via closures. 
+
 - The data for the app is read from [SWAPI](https://swapi.co), the Star Wars API, using GraphQL via the [SWAPI GraphQL Wrapper](https://github.com/graphql/swapi-graphql).
 
 ## Installation
