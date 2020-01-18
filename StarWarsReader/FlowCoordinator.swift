@@ -34,31 +34,31 @@ struct FlowCoordinator {
       characterListProvider: { characters in
         self.makeCharacterListView(characters: characters)
       },
-      planetViewProvider: { planet in
+      filmPlanetViewProvider: { planet in
         self.makePlanetView(with: planet.planetId)
       },
       filmPlanetListProvider: { planets in
         self.makePlanetsListView(planets: planets)
       },
-      speciesViewProvider: { species in
+      filmSpeciesViewProvider: { species in
         self.makeSpeciesView(with: species.speciesId)
       },
       filmSpeciesListProvider: { species in
         self.makeSpeciesListView(species: species)
       },
-      starshipViewProvider: { starship in
+      filmStarshipViewProvider: { starship in
         self.makeStarshipView(with: starship.starshipId)
       },
       filmStarshipListProvider: { starships in
         self.makeStarshipListView(starships: starships)
       },
-      vehicleViewProvider: { vehicle in
+      filmVehicleViewProvider: { vehicle in
         self.makeVehicleView(with: vehicle.vehicleId)
       },
       filmVehicleListProvider: { vehicles in
         self.makeVehicleListView(vehicles: vehicles)
       },
-      crawlViewProvider: { film in
+      filmCrawlViewProvider: { film in
         self.makeCrawlView(with: film)
     })
 

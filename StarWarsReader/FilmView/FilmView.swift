@@ -231,15 +231,15 @@ extension FilmView {
       filmId: film.filmId,
       characterViewProvider: characterView,
       characterListProvider: characterList,
-      planetViewProvider: planetView,
+      filmPlanetViewProvider: planetView,
       filmPlanetListProvider: planetList,
-      speciesViewProvider: speciesView,
+      filmSpeciesViewProvider: speciesView,
       filmSpeciesListProvider: filmSpeciesList,
-      starshipViewProvider: starshipView,
+      filmStarshipViewProvider: starshipView,
       filmStarshipListProvider: filmStarshipList,
-      vehicleViewProvider: vehicleView,
+      filmVehicleViewProvider: vehicleView,
       filmVehicleListProvider: filmVehicleList,
-      crawlViewProvider: { _ in crawlView }
+      filmCrawlViewProvider: { _ in crawlView }
     )
     return FilmView(viewModel: viewModel)
   }
