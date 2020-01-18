@@ -12,12 +12,12 @@ struct FilmPlanetListViewModel {
 
   let planets: [Film.Planet]
 
-  let planetView: FilmPlanetViewInitializer
+  let planetViewProvider: FilmPlanetViewProvider
 
   func viewModel(forPlanet planet: Film.Planet) -> FilmPlanetRowViewModel {
     FilmPlanetRowViewModel(
       planet: planet,
-      planetView: planetView(planet)
+      planetView: planetViewProvider(planet)
     )
   }
 
@@ -43,7 +43,7 @@ struct FilmPlanetListView: View {
 extension FilmPlanetListView {
   static var mock: FilmPlanetListView {
     let filmPlanets = loadSampleFilm(.newHope).planets
-    let viewModel = FilmPlanetListViewModel(planets: filmPlanets, planetView: { _ in PlanetView.mock })
+    let viewModel = FilmPlanetListViewModel(planets: filmPlanets, planetViewProvider: { _ in PlanetView.mock })
     return FilmPlanetListView(viewModel: viewModel)
   }
 }

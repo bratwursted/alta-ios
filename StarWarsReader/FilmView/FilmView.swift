@@ -216,30 +216,30 @@ extension FilmView {
 extension FilmView {
   static var mock: FilmView {
     let film = loadSampleFilm(.newHope)
-    let characterView: CharacterViewInitializer = { _ in PersonView.mock }
-    let characterList: CharacterListInitializer = { _ in CharacterListView.mock }
-    let planetView: FilmPlanetViewInitializer = { _ in PlanetView.mock }
-    let planetList: FilmPlanetListInitializer = { _ in FilmPlanetListView.mock }
-    let speciesView: FilmSpeciesViewInitializer = { _ in SpeciesView.mock }
-    let filmSpeciesList: FilmSpeciewsListInitializer = { _ in FilmSpeciesListView.mock }
-    let starshipView: FilmStarshipViewInitializer = { _ in StarshipView.mock }
-    let filmStarshipList: FilmStarshipListInitializer = { _ in FilmStarshipListView.mock }
-    let vehicleView: FilmVehicleViewInitializer = { _ in VehicleView.mock }
-    let filmVehicleList: FilmVehicleListInitializer = { _ in FilmVehicleListView.mock }
+    let characterView: CharacterViewProvider = { _ in PersonView.mock }
+    let characterList: CharacterListProvider = { _ in CharacterListView.mock }
+    let planetView: FilmPlanetViewProvider = { _ in PlanetView.mock }
+    let planetList: FilmPlanetListProvider = { _ in FilmPlanetListView.mock }
+    let speciesView: FilmSpeciesViewProvider = { _ in SpeciesView.mock }
+    let filmSpeciesList: FilmSpeciewsListProvider = { _ in FilmSpeciesListView.mock }
+    let starshipView: FilmStarshipViewProvider = { _ in StarshipView.mock }
+    let filmStarshipList: FilmStarshipListProvider = { _ in FilmStarshipListView.mock }
+    let vehicleView: FilmVehicleViewProvider = { _ in VehicleView.mock }
+    let filmVehicleList: FilmVehicleListProvider = { _ in FilmVehicleListView.mock }
     let crawlView = FilmCrawlView(viewModel: FilmCrawlViewModel(film: loadSampleFilm(.newHope)))
     let viewModel = FilmViewModel(
       filmId: film.filmId,
-      characterViewInitializer: characterView,
-      characterList: characterList,
-      planetView: planetView,
-      filmPlanetList: planetList,
-      speciesView: speciesView,
-      filmSpeciesList: filmSpeciesList,
-      starshipView: starshipView,
-      filmStarshipList: filmStarshipList,
-      vehicleView: vehicleView,
-      filmVehicleList: filmVehicleList,
-      crawlView: { _ in crawlView }
+      characterViewProvider: characterView,
+      characterListProvider: characterList,
+      filmPlanetViewProvider: planetView,
+      filmPlanetListProvider: planetList,
+      filmSpeciesViewProvider: speciesView,
+      filmSpeciesListProvider: filmSpeciesList,
+      filmStarshipViewProvider: starshipView,
+      filmStarshipListProvider: filmStarshipList,
+      filmVehicleViewProvider: vehicleView,
+      filmVehicleListProvider: filmVehicleList,
+      filmCrawlViewProvider: { _ in crawlView }
     )
     return FilmView(viewModel: viewModel)
   }

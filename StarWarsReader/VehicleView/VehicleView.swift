@@ -94,8 +94,8 @@ extension VehicleView {
     let mockData = MockDataService(airspeeder)
     let viewModel = VehicleViewModel(
       resourceId: airspeeder.vehicleId,
-      filmView: { _ in FilmView.mock },
-      pilotView: { _ in PersonView.mock},
+      vehicleFilmViewProvider: { _ in FilmView.mock },
+      vehiclePilotViewProvider: { _ in PersonView.mock},
       dataService: mockData
     )
     return VehicleView(viewModel: viewModel)

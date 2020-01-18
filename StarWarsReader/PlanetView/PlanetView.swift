@@ -94,8 +94,8 @@ extension PlanetView {
     let mockData = MockDataService(tatooine)
     let viewModel = PlanetViewModel(
       planetId: tatooine.planetId,
-      planetFilmView: { _ in FilmView.mock },
-      residentView: { _ in PersonView.mock },
+      planetFilmViewProvider: { _ in FilmView.mock },
+      residentViewProvider: { _ in PersonView.mock },
       dataService: mockData
     )
     return PlanetView(viewModel: viewModel)
