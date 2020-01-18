@@ -43,12 +43,12 @@ final class VehicleViewModel: ObservableObject {
   init(
     resourceId: String,
     vehicleFilmViewProvider: @escaping VehicleFilmViewProvider,
-    VehiclePilotViewProvider: @escaping VehiclePilotViewProvider,
+    vehiclePilotViewProvider: @escaping VehiclePilotViewProvider,
     dataService: Swapi = SwapiService()
   ) {
     vehicleId = resourceId
     self.vehicleFilmViewProvider = vehicleFilmViewProvider
-    self.vehiclePilotViewProvider = VehiclePilotViewProvider
+    self.vehiclePilotViewProvider = vehiclePilotViewProvider
     self.dataService = dataService
   }
 

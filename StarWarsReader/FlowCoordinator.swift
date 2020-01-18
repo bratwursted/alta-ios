@@ -121,20 +121,20 @@ struct FlowCoordinator {
   private func makePersonView(with resourceId: String) -> PersonView {
     let viewModel = PersonViewModel(
       resourceId: resourceId,
-      homeworldViewProvider: { planet in
+      personHomeworldViewProvider: { planet in
         guard let planet = planet else { return nil }
         return self.makePlanetView(with: planet.planetId)
       },
-      speciesViewProvider: { species in
+      personSpeciesViewProvider: { species in
         self.makeSpeciesView(with: species.speciesId)
       },
-      filmViewProvider: { film in
+      personFilmViewProvider: { film in
         self.makeFilmView(with: film.filmId)
       },
-      starshipViewProvider: { starship in
+      personStarshipViewProvider: { starship in
         self.makeStarshipView(with: starship.starshipId)
       },
-      vehicleViewProvider: { vehicle in
+      personVehicleViewProvider: { vehicle in
         self.makeVehicleView(with: vehicle.vehicleId)
     })
     return PersonView(viewModel: viewModel)
@@ -182,7 +182,7 @@ struct FlowCoordinator {
       vehicleFilmViewProvider: { film in
         self.makeFilmView(with: film.filmId)
       },
-      VehiclePilotViewProvider: { pilot in
+      vehiclePilotViewProvider: { pilot in
         self.makePersonView(with: pilot.pilotId)
     })
     return VehicleView(viewModel: viewModel)

@@ -29,15 +29,15 @@ final class PersonViewModel: ObservableObject {
 
   private var needsPersonContent = true
 
-  private let homeworldViewProvider: PersonHomeworldViewProvider
+  private let personHomeworldViewProvider: PersonHomeworldViewProvider
 
-  private let speciesViewProvider: PersonSpeciesViewProvider
+  private let personSpeciesViewProvider: PersonSpeciesViewProvider
 
-  private let filmViewProvider: PersonFilmViewProvider
+  private let personFilmViewProvider: PersonFilmViewProvider
 
-  private let starshipViewProvider: PersonStarshipViewProvider
+  private let personStarshipViewProvider: PersonStarshipViewProvider
 
-  private let vehicleViewProvider: PersonVehicleViewProvider
+  private let personVehicleViewProvider: PersonVehicleViewProvider
 
   @Published var person: Person?
 
@@ -51,19 +51,19 @@ final class PersonViewModel: ObservableObject {
 
   init(
     resourceId: String,
-    homeworldViewProvider: @escaping PersonHomeworldViewProvider,
-    speciesViewProvider: @escaping PersonSpeciesViewProvider,
-    filmViewProvider: @escaping PersonFilmViewProvider,
-    starshipViewProvider: @escaping PersonStarshipViewProvider,
-    vehicleViewProvider: @escaping PersonVehicleViewProvider,
+    personHomeworldViewProvider: @escaping PersonHomeworldViewProvider,
+    personSpeciesViewProvider: @escaping PersonSpeciesViewProvider,
+    personFilmViewProvider: @escaping PersonFilmViewProvider,
+    personStarshipViewProvider: @escaping PersonStarshipViewProvider,
+    personVehicleViewProvider: @escaping PersonVehicleViewProvider,
     dataService: Swapi = SwapiService()
   ) {
     personId = resourceId
-    self.homeworldViewProvider = homeworldViewProvider
-    self.speciesViewProvider = speciesViewProvider
-    self.filmViewProvider = filmViewProvider
-    self.starshipViewProvider = starshipViewProvider
-    self.vehicleViewProvider = vehicleViewProvider
+    self.personHomeworldViewProvider = personHomeworldViewProvider
+    self.personSpeciesViewProvider = personSpeciesViewProvider
+    self.personFilmViewProvider = personFilmViewProvider
+    self.personStarshipViewProvider = personStarshipViewProvider
+    self.personVehicleViewProvider = personVehicleViewProvider
     self.dataService = dataService
   }
 
@@ -146,22 +146,22 @@ final class PersonViewModel: ObservableObject {
   }
 
   var homeworldViewModel: HomeworldRowViewModel {
-    HomeworldRowViewModel(homeworld: person?.homeworld, planetView: homeworldViewProvider(person?.homeworld))
+    HomeworldRowViewModel(homeworld: person?.homeworld, planetView: personHomeworldViewProvider(person?.homeworld))
   }
 
   func speciesViewModel(forSpecies species: Person.Species) -> SpeciesRowViewModel {
-    SpeciesRowViewModel(species: species, speciesView: speciesViewProvider(species))
+    SpeciesRowViewModel(species: species, speciesView: personSpeciesViewProvider(species))
   }
 
   func starshipViewModel(forStarship starship: Person.Starship) -> StarshipRowViewModel {
-    StarshipRowViewModel(starship: starship, starshipView: starshipViewProvider(starship))
+    StarshipRowViewModel(starship: starship, starshipView: personStarshipViewProvider(starship))
   }
 
   func vehicleViewModel(forVehicle vehicle: Person.Vehicle) -> VehicleRowViewModel {
-    VehicleRowViewModel(vehicle: vehicle, vehicleView: vehicleViewProvider(vehicle))
+    VehicleRowViewModel(vehicle: vehicle, vehicleView: personVehicleViewProvider(vehicle))
   }
 
   func filmViewModel(forFilm film: Person.Film) -> PersonFilmRowViewModel {
-    PersonFilmRowViewModel(film: film, filmView: filmViewProvider(film))
+    PersonFilmRowViewModel(film: film, filmView: personFilmViewProvider(film))
   }
 }
