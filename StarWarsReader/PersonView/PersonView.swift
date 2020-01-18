@@ -126,11 +126,11 @@ extension PersonView {
     let mockData = MockDataService(luke)
     let viewModel = PersonViewModel(
       resourceId: luke.personId,
-      homeworldView: { _ in PlanetView.mock },
-      speciesView: { _ in SpeciesView.mock },
-      filmView: { _ in FilmView.mock },
-      starshipView: { _ in StarshipView.mock },
-      vehicleView: { _ in VehicleView.mock },
+      homeworldViewProvider: { _ in PlanetView.mock },
+      speciesViewProvider: { _ in SpeciesView.mock },
+      filmViewProvider: { _ in FilmView.mock },
+      starshipViewProvider: { _ in StarshipView.mock },
+      vehicleViewProvider: { _ in VehicleView.mock },
       dataService: mockData
     )
     return PersonView(viewModel: viewModel)

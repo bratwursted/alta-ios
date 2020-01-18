@@ -9,15 +9,15 @@
 import Foundation
 import Combine
 
-typealias PersonHomeworldView = (Person.Planet?) -> PlanetView?
+typealias PersonHomeworldViewProvider = (Person.Planet?) -> PlanetView?
 
-typealias PersonSpeciesView = (Person.Species) -> SpeciesView
+typealias PersonSpeciesViewProvider = (Person.Species) -> SpeciesView
 
-typealias PersonFilmView = (Person.Film) -> FilmView
+typealias PersonFilmViewProvider = (Person.Film) -> FilmView
 
-typealias PersonStarshipView = (Person.Starship) -> StarshipView
+typealias PersonStarshipViewProvider = (Person.Starship) -> StarshipView
 
-typealias PersonVehicleView = (Person.Vehicle) -> VehicleView
+typealias PersonVehicleViewProvider = (Person.Vehicle) -> VehicleView
 
 final class PersonViewModel: ObservableObject {
 
@@ -29,15 +29,15 @@ final class PersonViewModel: ObservableObject {
 
   private var needsPersonContent = true
 
-  private let homeworldView: PersonHomeworldView
+  private let homeworldViewProvider: PersonHomeworldViewProvider
 
-  private let speciesView: PersonSpeciesView
+  private let speciesViewProvider: PersonSpeciesViewProvider
 
-  private let filmView: PersonFilmView
+  private let filmViewProvider: PersonFilmViewProvider
 
-  private let starshipView: PersonStarshipView
+  private let starshipViewProvider: PersonStarshipViewProvider
 
-  private let vehicleView: PersonVehicleView
+  private let vehicleViewProvider: PersonVehicleViewProvider
 
   @Published var person: Person?
 
@@ -51,19 +51,19 @@ final class PersonViewModel: ObservableObject {
 
   init(
     resourceId: String,
-    homeworldView: @escaping PersonHomeworldView,
-    speciesView: @escaping PersonSpeciesView,
-    filmView: @escaping PersonFilmView,
-    starshipView: @escaping PersonStarshipView,
-    vehicleView: @escaping PersonVehicleView,
+    homeworldViewProvider: @escaping PersonHomeworldViewProvider,
+    speciesViewProvider: @escaping PersonSpeciesViewProvider,
+    filmViewProvider: @escaping PersonFilmViewProvider,
+    starshipViewProvider: @escaping PersonStarshipViewProvider,
+    vehicleViewProvider: @escaping PersonVehicleViewProvider,
     dataService: Swapi = SwapiService()
   ) {
     personId = resourceId
-    self.homeworldView = homeworldView
-    self.speciesView = speciesView
-    self.filmView = filmView
-    self.starshipView = starshipView
-    self.vehicleView = vehicleView
+    self.homeworldViewProvider = homeworldViewProvider
+    self.speciesViewProvider = speciesViewProvider
+    self.filmViewProvider = filmViewProvider
+    self.starshipViewProvider = starshipViewProvider
+    self.vehicleViewProvider = vehicleViewProvider
     self.dataService = dataService
   }
 
@@ -146,22 +146,22 @@ final class PersonViewModel: ObservableObject {
   }
 
   var homeworldViewModel: HomeworldRowViewModel {
-    HomeworldRowViewModel(homeworld: person?.homeworld, planetView: homeworldView(person?.homeworld))
+    HomeworldRowViewModel(homeworld: person?.homeworld, planetView: homeworldViewProvider(person?.homeworld))
   }
 
   func speciesViewModel(forSpecies species: Person.Species) -> SpeciesRowViewModel {
-    SpeciesRowViewModel(species: species, speciesView: speciesView(species))
+    SpeciesRowViewModel(species: species, speciesView: speciesViewProvider(species))
   }
 
   func starshipViewModel(forStarship starship: Person.Starship) -> StarshipRowViewModel {
-    StarshipRowViewModel(starship: starship, starshipView: starshipView(starship))
+    StarshipRowViewModel(starship: starship, starshipView: starshipViewProvider(starship))
   }
 
   func vehicleViewModel(forVehicle vehicle: Person.Vehicle) -> VehicleRowViewModel {
-    VehicleRowViewModel(vehicle: vehicle, vehicleView: vehicleView(vehicle))
+    VehicleRowViewModel(vehicle: vehicle, vehicleView: vehicleViewProvider(vehicle))
   }
 
   func filmViewModel(forFilm film: Person.Film) -> PersonFilmRowViewModel {
-    PersonFilmRowViewModel(film: film, filmView: filmView(film))
+    PersonFilmRowViewModel(film: film, filmView: filmViewProvider(film))
   }
 }
