@@ -41,7 +41,10 @@ struct FilmStarshipListView: View {
 extension FilmStarshipListView {
   static var mock: FilmStarshipListView {
     let starships = loadSampleFilm(.newHope).starships
-    let viewModel = FilmStarshipListViewModel(starships: starships, filmStarshipViewProvider: { _ in StarshipView.mock })
+    let viewModel = FilmStarshipListViewModel(
+      starships: starships,
+      filmStarshipViewProvider: { _ in StarshipView.mock }
+    )
     return FilmStarshipListView(viewModel: viewModel)
   }
 }
