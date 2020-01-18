@@ -179,10 +179,10 @@ struct FlowCoordinator {
   private func makeVehicleView(with resourceId: String) -> VehicleView {
     let viewModel = VehicleViewModel(
       resourceId: resourceId,
-      filmView: { film in
+      vehicleFilmViewProvider: { film in
         self.makeFilmView(with: film.filmId)
       },
-      pilotView: { pilot in
+      VehiclePilotViewProvider: { pilot in
         self.makePersonView(with: pilot.pilotId)
     })
     return VehicleView(viewModel: viewModel)

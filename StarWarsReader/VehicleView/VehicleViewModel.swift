@@ -9,9 +9,9 @@
 import Foundation
 import Combine
 
-typealias VehicleFilmView = (Vehicle.Film) -> FilmView
+typealias VehicleFilmViewProvider = (Vehicle.Film) -> FilmView
 
-typealias VehiclePilotView = (Vehicle.Pilot) -> PersonView
+typealias VehiclePilotViewProvider = (Vehicle.Pilot) -> PersonView
 
 final class VehicleViewModel: ObservableObject {
 
@@ -28,9 +28,9 @@ final class VehicleViewModel: ObservableObject {
 
   private var disposables = Set<AnyCancellable>()
 
-  private let filmView: VehicleFilmView
+  private let vehicleFilmViewProvider: VehicleFilmViewProvider
 
-  private let pilotView: VehiclePilotView
+  private let vehiclePilotViewProvider: VehiclePilotViewProvider
 
   private var needsVehicleData = true
 
@@ -42,13 +42,13 @@ final class VehicleViewModel: ObservableObject {
 
   init(
     resourceId: String,
-    filmView: @escaping VehicleFilmView,
-    pilotView: @escaping VehiclePilotView,
+    vehicleFilmViewProvider: @escaping VehicleFilmViewProvider,
+    VehiclePilotViewProvider: @escaping VehiclePilotViewProvider,
     dataService: Swapi = SwapiService()
   ) {
     vehicleId = resourceId
-    self.filmView = filmView
-    self.pilotView = pilotView
+    self.vehicleFilmViewProvider = vehicleFilmViewProvider
+    self.vehiclePilotViewProvider = VehiclePilotViewProvider
     self.dataService = dataService
   }
 
@@ -149,10 +149,10 @@ final class VehicleViewModel: ObservableObject {
   }
 
   func rowViewModel(forFilm film: Vehicle.Film) -> VehicleFilmRowViewModel {
-    VehicleFilmRowViewModel(film: film, filmView: filmView(film))
+    VehicleFilmRowViewModel(film: film, filmView: vehicleFilmViewProvider(film))
   }
 
   func rowViewModel(forPilot pilot: Vehicle.Pilot) -> VehiclePilotRowViewModel {
-    VehiclePilotRowViewModel(pilot: pilot, pilotView: pilotView(pilot))
+    VehiclePilotRowViewModel(pilot: pilot, pilotView: vehiclePilotViewProvider(pilot))
   }
 }
