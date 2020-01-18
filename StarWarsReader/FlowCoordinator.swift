@@ -155,10 +155,10 @@ struct FlowCoordinator {
   private func makeSpeciesView(with resourceId: String) -> SpeciesView {
     let viewModel = SpeciesViewModel(
       resourceId: resourceId,
-      filmView: { film in
+      speciesFilmViewProvider: { film in
         self.makeFilmView(with: film.filmId)
       },
-      personView: { person in
+      speciesPersonViewProvider: { person in
         self.makePersonView(with: person.personId)
     })
     return SpeciesView(viewModel: viewModel)
