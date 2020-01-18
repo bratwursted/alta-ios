@@ -12,10 +12,10 @@ struct FilmVehicleListViewModel {
 
   let vehicles: [Film.Vehicle]
 
-  let vehicleView: FilmVehicleViewProvider
+  let vehicleViewProvider: FilmVehicleViewProvider
 
   func viewModel(forVehicle vehicle: Film.Vehicle) -> FilmVehicleRowViewModel {
-    FilmVehicleRowViewModel(vehicle: vehicle, vehicleView: vehicleView(vehicle))
+    FilmVehicleRowViewModel(vehicle: vehicle, vehicleView: vehicleViewProvider(vehicle))
   }
 }
 
@@ -38,7 +38,7 @@ extension FilmVehicleListView {
     let filmVehicles = loadSampleFilm(.newHope).vehicles
     let viewModel = FilmVehicleListViewModel(
       vehicles: filmVehicles,
-      vehicleView: { _ in VehicleView.mock }
+      vehicleViewProvider: { _ in VehicleView.mock }
     )
     return FilmVehicleListView(viewModel: viewModel)
   }

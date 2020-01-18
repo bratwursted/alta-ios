@@ -12,12 +12,12 @@ struct FilmSpeciesListViewModel {
 
   let species: [Film.Species]
 
-  let speciesView: FilmSpeciesViewProvider
+  let speciesViewProvider: FilmSpeciesViewProvider
 
   func viewModel(for species: Film.Species) -> FilmSpeciesRowViewModel {
     FilmSpeciesRowViewModel(
       species: species,
-      speciesView: speciesView(species)
+      speciesView: speciesViewProvider(species)
     )
   }
 }
@@ -41,7 +41,7 @@ extension FilmSpeciesListView {
     let filmSpecies = loadSampleFilm(.newHope).species
     let viewModel = FilmSpeciesListViewModel(
       species: filmSpecies,
-      speciesView: { _ in SpeciesView.mock }
+      speciesViewProvider: { _ in SpeciesView.mock }
     )
     return FilmSpeciesListView(viewModel: viewModel)
   }

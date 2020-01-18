@@ -74,7 +74,7 @@ struct FlowCoordinator {
   private func makeCharacterListView(characters: [Film.Character]) -> CharacterListView {
     let viewModel = CharacterListViewModel(
       characters: characters,
-      characterViewInitializer: { character in
+      characterViewProvider: { character in
         self.makePersonView(with: character.characterId)
       }
     )
@@ -84,7 +84,7 @@ struct FlowCoordinator {
   private func makePlanetsListView(planets: [Film.Planet]) -> FilmPlanetListView {
     let viewModel = FilmPlanetListViewModel(
       planets: planets,
-      planetView: { planet in
+      planetViewProvider: { planet in
         self.makePlanetView(with: planet.planetId)
       }
     )
@@ -94,7 +94,7 @@ struct FlowCoordinator {
   private func makeSpeciesListView(species: [Film.Species]) -> FilmSpeciesListView {
     let viewModel = FilmSpeciesListViewModel(
       species: species,
-      speciesView: { species in
+      speciesViewProvider: { species in
       self.makeSpeciesView(with: species.speciesId)
     })
     return FilmSpeciesListView(viewModel: viewModel)
@@ -103,7 +103,7 @@ struct FlowCoordinator {
   private func makeStarshipListView(starships: [Film.Starship]) -> FilmStarshipListView {
     let viewModel = FilmStarshipListViewModel(
       starships: starships,
-      filmStarshipView: { starship in
+      filmStarshipViewProvider: { starship in
         self.makeStarshipView(with: starship.starshipId)
     })
     return FilmStarshipListView(viewModel: viewModel)
@@ -112,7 +112,7 @@ struct FlowCoordinator {
   private func makeVehicleListView(vehicles: [Film.Vehicle]) -> FilmVehicleListView {
     let viewModel = FilmVehicleListViewModel(
       vehicles: vehicles,
-      vehicleView: { vehicle in
+      vehicleViewProvider: { vehicle in
         self.makeVehicleView(with: vehicle.vehicleId)
     })
     return FilmVehicleListView(viewModel: viewModel)

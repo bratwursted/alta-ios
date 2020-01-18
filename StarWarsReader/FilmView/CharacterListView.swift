@@ -12,12 +12,12 @@ struct CharacterListViewModel {
 
   let characters: [Film.Character]
 
-  let characterViewInitializer: CharacterViewProvider
+  let characterViewProvider: CharacterViewProvider
 
   func viewModel(forCharacter character: Film.Character) -> CharacterRowViewModel {
     return CharacterRowViewModel(
       character: character,
-      personView: characterViewInitializer(character)
+      personView: characterViewProvider(character)
     )
   }
 }
@@ -43,7 +43,7 @@ extension CharacterListView {
     let newHope = loadSampleFilm(.newHope)
     let viewModel = CharacterListViewModel(
       characters: newHope.characters,
-      characterViewInitializer: { _ in PersonView.mock }
+      characterViewProvider: { _ in PersonView.mock }
     )
     return CharacterListView(viewModel: viewModel)
   }
