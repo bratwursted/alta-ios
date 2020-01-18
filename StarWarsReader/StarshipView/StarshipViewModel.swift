@@ -9,9 +9,9 @@
 import Foundation
 import Combine
 
-typealias PilotView = (Starship.Pilot) -> PersonView
+typealias PilotViewProvider = (Starship.Pilot) -> PersonView
 
-typealias StarshipFilmView = (Starship.Film) -> FilmView
+typealias StarshipFilmViewProvider = (Starship.Film) -> FilmView
 
 final class StarshipViewModel: ObservableObject {
 
@@ -30,9 +30,9 @@ final class StarshipViewModel: ObservableObject {
 
   private var needsStarshipData = true
 
-  private let pilotView: PilotView
+  private let pilotViewProvider: PilotViewProvider
 
-  private let filmView: StarshipFilmView
+  private let starshipFilmViewProvider: StarshipFilmViewProvider
 
   @Published var starship: Starship?
 
@@ -42,13 +42,13 @@ final class StarshipViewModel: ObservableObject {
 
   init(
     resourceId: String,
-    pilotView: @escaping PilotView,
-    filmView: @escaping StarshipFilmView,
+    pilotViewProvider: @escaping PilotViewProvider,
+    starshipFilmViewProvider: @escaping StarshipFilmViewProvider,
     dataService: Swapi = SwapiService()
   ) {
     starshipId = resourceId
-    self.pilotView = pilotView
-    self.filmView = filmView
+    self.pilotViewProvider = pilotViewProvider
+    self.starshipFilmViewProvider = starshipFilmViewProvider
     self.dataService = dataService
   }
 
@@ -159,10 +159,10 @@ final class StarshipViewModel: ObservableObject {
   }
 
   func rowViewModel(forFilm film: Starship.Film) -> StarshipFilmRowViewModel {
-    StarshipFilmRowViewModel(film: film, filmView: filmView(film))
+    StarshipFilmRowViewModel(film: film, filmView: starshipFilmViewProvider(film))
   }
 
   func rowViewModel(forPilot pilot: Starship.Pilot) -> PilotRowViewModel {
-    PilotRowViewModel(pilot: pilot, pilotView: pilotView(pilot))
+    PilotRowViewModel(pilot: pilot, pilotView: pilotViewProvider(pilot))
   }
 }

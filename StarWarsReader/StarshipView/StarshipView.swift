@@ -97,8 +97,8 @@ extension StarshipView {
     let mockData = MockDataService(falcon)
     let viewModel = StarshipViewModel(
       resourceId: falcon.starshipId,
-      pilotView: { _ in PersonView.mock },
-      filmView: { _ in FilmView.mock },
+      pilotViewProvider: { _ in PersonView.mock },
+      starshipFilmViewProvider: { _ in FilmView.mock },
       dataService: mockData
     )
     return StarshipView(viewModel: viewModel)

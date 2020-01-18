@@ -167,10 +167,10 @@ struct FlowCoordinator {
   private func makeStarshipView(with resourceId: String) -> StarshipView {
     let viewModel = StarshipViewModel(
       resourceId: resourceId,
-      pilotView: { pilot in
+      pilotViewProvider: { pilot in
         self.makePersonView(with: pilot.pilotId)
       },
-      filmView: { film in
+      starshipFilmViewProvider: { film in
         self.makeFilmView(with: film.filmId)
     })
     return StarshipView(viewModel: viewModel)
